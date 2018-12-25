@@ -1,0 +1,186 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<html>
+<head>
+    <title>Title</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        <%@include file="/js/main.js"%>
+    </script>
+    <style>
+        <%@include file="/css/main.css"%>
+    </style>
+    <c:set var="role" value="${role}"/>
+    <c:set var="nameUser" value="${nameUser}"/>
+    <c:set var="lastPage" value="/jsp/main/main.jsp" scope="session"/>
+
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="main.interpol" var="interpol"/>
+    <fmt:message bundle="${local}" key="main.login" var="login"/>
+</head>
+<body>
+
+<div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div>
+<div id="wrapper">
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="/image/logo.png" width="50" height="48" class="pic" alt="INTERPOL">
+            </a>
+
+        </div>
+        <ul class="nav navbar-left top-nav">
+            <li>
+                <a> ${interpol} </a>
+            </li>
+        </ul>
+        <!-- Navigation -->
+
+        <ul class="nav navbar-right top-nav">
+
+            <li>
+                <form action="/interpol" method="post">
+                    <input type="hidden" value="CHANGE_LANG" name="command">
+                    <ul>
+                        <li>
+                            <div class="btn-group btn-group-sm divLang" id="center2" role="group" aria-label="...">
+                                <button type="submit" name="lang" value="en" class="btn btn-default navbar-btn">EN
+                                </button>
+                                <button type="submit" name="lang" value="rus" class="btn btn-default navbar-btn">RU
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </li>
+            <c:choose>
+                <c:when test="${sessionScope.isLogin == false}">
+
+                    <c:if test="${sessionScope.role =='GUEST'}">
+                        <li>
+                            <a href="/jsp/login/login.jsp"> ${login} </a>
+                        </li>
+                    </c:if>
+
+                </c:when>
+                <c:otherwise>
+                    <c:choose>
+                        <c:when test="${sessionScope.role =='USER'}">
+                            <li><a>${role}</a></li>
+                            <li><a href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Stats"><i
+                                    class="fa fa-bar-chart-o"></i>
+                            </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle"
+                                   data-toggle="dropdown"> ${nameUser.getName()} ${nameUser.getLastName()} <b
+                                        class="fa fa-angle-down"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <map>
+                                            <form id="form-id" action="/interpol" method="post">
+                                                <input type="hidden" value="LOGOUT" name="command">
+                                    <li><a href="#" onclick="document.getElementById('form-id').submit();">
+                                        </map> <i id="center" class="fa fa-fw fa-power-off"></i> Log out </a></li>
+
+                                    </form>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </c:when>
+                        <c:when test="${sessionScope.role =='ADMIN'}">
+                            <li><a>${role}</a></li>
+                            <li><a href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Stats"><i
+                                    class="fa fa-bar-chart-o"></i>
+                            </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle"
+                                   data-toggle="dropdown"> ${nameUser.getName()} ${nameUser.getLastName()} <b
+                                        class="fa fa-angle-down"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <map>
+                                            <form id="form-id" action="/interpol" method="post">
+                                                <input type="hidden" value="LOGOUT" name="command">
+                                    <li><a href="#" onclick="document.getElementById('form-id').submit();">
+                                        </map> <i id="center" class="fa fa-fw fa-power-off"></i> Log out </a></li>
+
+                                    </form>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </c:when>
+                    </c:choose>
+                </c:otherwise>
+            </c:choose>
+        </ul>
+
+        <c:choose>
+            <c:when test="${sessionScope.isLogin == false}">
+
+                <c:if test="${sessionScope.role =='GUEST'}">
+                    <jsp:include page="/jsp/main/guest/guest_left_menu.jsp"/>
+                </c:if>
+
+            </c:when>
+            <c:otherwise>
+                <c:choose>
+                    <c:when test="${sessionScope.role =='USER'}">
+                        <jsp:include page="/jsp/main/user/user_left_menu.jsp"/>
+                    </c:when>
+                    <c:when test="${sessionScope.role =='ADMIN'}">
+                        <jsp:include page="/jsp/main/admin/admin_left_menu.jsp"/>
+                    </c:when>
+                </c:choose>
+            </c:otherwise>
+        </c:choose>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    </nav>
+
+    <c:choose>
+    <c:when test="${sessionScope.isLogin == false}">
+
+    <c:if test="${sessionScope.role =='GUEST'}">
+        <jsp:include page="/jsp/main/guest/main_guest.jsp"/>
+    </c:if>
+
+    </c:when>
+    <c:otherwise>
+    <c:choose>
+    <c:when test="${sessionScope.role =='USER'}">
+        <jsp:include page="/jsp/main/user/main_user.jsp"/>
+    </c:when>
+    <c:when test="${sessionScope.role =='ADMIN'}">
+        <jsp:include page="/jsp/main/admin/main_admin.jsp"/>
+    </c:when>
+    </c:choose>
+    </c:otherwise>
+    </c:choose>
+
+</body>
+</html>
