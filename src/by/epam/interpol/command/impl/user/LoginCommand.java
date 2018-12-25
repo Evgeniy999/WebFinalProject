@@ -1,14 +1,11 @@
-package by.epam.interpol.command.impl;
+package by.epam.interpol.command.impl.user;
 
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 import by.epam.interpol.command.ActionCommand;
-import by.epam.interpol.consant.RoleType;
 import by.epam.interpol.entity.User;
-import by.epam.interpol.exception.ApplicationException;
 import by.epam.interpol.service.autorization.LoginService;
 import by.epam.interpol.validation.LoginDataValidator;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,8 +17,8 @@ import static by.epam.interpol.consant.RoleType.ADMIN;
 import static by.epam.interpol.consant.RoleType.USER;
 
 public class LoginCommand implements ActionCommand {
-    public static final String NAME_USER = "nameUser";
     private static Logger LOGGER = LogManager.getLogger(LoginCommand.class);
+    public static final String NAME_USER = "nameUser";
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
     private static final String SESSION_ROLE = "role";

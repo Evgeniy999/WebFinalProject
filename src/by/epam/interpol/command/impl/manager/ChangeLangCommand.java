@@ -1,4 +1,4 @@
-package by.epam.interpol.command.impl;
+package by.epam.interpol.command.impl.manager;
 
 import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.Router;

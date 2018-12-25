@@ -3,15 +3,34 @@ package by.epam.interpol.entity;
 import java.sql.Date;
 
 public class News {
-    private Date time;
+    private int news_id;
+    private String topic;
     private String information;
     private String country;
+    private Date time;
 
-
-    public News(Date time, String information, String country) {
-        this.time = time;
+    public News(int news_id, String topic, String information, String country, Date time) {
+        this.news_id = news_id;
+        this.topic = topic;
         this.information = information;
         this.country = country;
+        this.time = time;
+    }
+
+    public int getNews_id() {
+        return news_id;
+    }
+
+    public void setNews_id(int news_id) {
+        this.news_id = news_id;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public Date getTime() {

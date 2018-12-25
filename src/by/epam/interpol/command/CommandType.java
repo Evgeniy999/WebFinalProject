@@ -1,7 +1,12 @@
 package by.epam.interpol.command;
 
 
-import by.epam.interpol.command.impl.*;
+import by.epam.interpol.command.impl.manager.ChangeLangCommand;
+import by.epam.interpol.command.impl.news.OutNewsCommand;
+import by.epam.interpol.command.impl.user.LoginCommand;
+import by.epam.interpol.command.impl.user.LogoutCommand;
+import by.epam.interpol.command.impl.user.RegistrationCommand;
+import by.epam.interpol.command.impl.user.UserSearchCommand;
 
 public enum CommandType {
 
@@ -9,8 +14,8 @@ public enum CommandType {
     LOGIN(new LoginCommand()),
     REGISTRATION(new RegistrationCommand()),
     CHANGE_LANG(new ChangeLangCommand()),
-    LOGOUT(new LogoutCommand());
-
+    LOGOUT(new LogoutCommand()),
+    NEWS_OUT(new OutNewsCommand());
 
     private ActionCommand command;
 

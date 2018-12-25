@@ -1,4 +1,4 @@
-package by.epam.interpol.command.impl;
+package by.epam.interpol.command.impl.user;
 
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;

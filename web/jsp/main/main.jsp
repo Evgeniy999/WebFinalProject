@@ -166,6 +166,7 @@
     <c:when test="${sessionScope.isLogin == false}">
 
     <c:if test="${sessionScope.role =='GUEST'}">
+
         <jsp:include page="/jsp/main/guest/main_guest.jsp"/>
     </c:if>
 
@@ -173,6 +174,7 @@
     <c:otherwise>
     <c:choose>
     <c:when test="${sessionScope.role =='USER'}">
+
         <jsp:include page="/jsp/main/user/main_user.jsp"/>
     </c:when>
     <c:when test="${sessionScope.role =='ADMIN'}">
