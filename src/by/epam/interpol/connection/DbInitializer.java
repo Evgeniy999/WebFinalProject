@@ -19,7 +19,7 @@ public class DbInitializer {
 
     DbInitializer(){
         try {
-            ResourceBundle resourceBundle = ResourceBundle.getBundle("properties.poolConnection");//todo dopisat
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("properties.poolConnection");
             DB_URL = resourceBundle.getString("url");
             DB_USER = resourceBundle.getString("user");
             DB_PASSWORD = resourceBundle.getString("password");

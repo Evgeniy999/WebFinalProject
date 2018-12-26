@@ -14,7 +14,6 @@
         <form action="/interpol" id="form-id" method="post">
             <input type="hidden" value="NEWS_OUT" name="command">
             <a onclick="document.getElementById('form-id').submit();"> NEWS </a>
-
         </form>
         <!-- /.row -->
         <div class="row">
@@ -39,12 +38,12 @@
                                                  src="/">
                                         </a>
                                         <div class="media-body">
-                                            <h4 class="media-heading">${news.getId()}</h4>
+                                            <h4 class="media-heading">${news.getNewsId()}</h4>
                                             <p class="text">${news.getTopic()}</p>
                                             <p>${news.getInformation()}</p>
                                             <ul class="list-inline list-unstyled">
                                                 <li><span><i
-                                                        class="glyphicon glyphicon-calendar"></i> ${news.getDate()}</span>
+                                                        class="glyphicon glyphicon-calendar"></i> ${news.getTime()}</span>
                                                 </li>
                                             </ul>
                                         </div>

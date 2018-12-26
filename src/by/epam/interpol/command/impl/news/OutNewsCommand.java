@@ -15,7 +15,7 @@ public class OutNewsCommand implements ActionCommand {
     public Router execute(HttpServletRequest request) {
         Router router = new Router();
         ArrayList<News> newsAll = newsService.allNewsOut();
-        request.setAttribute("news",newsAll.get(0));
+        request.getSession().setAttribute("news",newsAll);
         router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
         //router.setRouteType(Router.RouteType.FORWARD);
         return router;

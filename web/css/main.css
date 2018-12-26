@@ -139,6 +139,16 @@
 #center { text-align: center;  padding: 0 20px;}
 #center2 { text-align: center;  padding: 7px 0px 0px 0px;}
 
+.profstyle{
+    text-decoration: none;
+    color: black;
+    padding: 0 20px;
+}
+
+.profstyle:hover{
+    text-decoration: none;
+}
+
 .divLang{
     height: 15px;
 }

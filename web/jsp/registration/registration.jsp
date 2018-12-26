@@ -61,43 +61,45 @@
                         <div class="form-group">
                             <label for="login">Login *</label>
                             <input id="login" name="login" class="form-control" type="text" min="1">
+                            <span id="error_login" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="password">Password *</label>
                             <input id="password" name="password" class="form-control" type="number" min="1">
+                            <span id="error_password" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="myName">First Name *</label>
-                            <input id="myName" name="name" class="form-control" type="text" data-validation="required">
+                            <label for="name">First Name *</label>
+                            <input id="name" name="name" class="form-control" type="text" min="1">
                             <span id="error_name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="lastname">Last Name *</label>
-                            <input id="lastname" name="last" class="form-control" type="text" data-validation="email">
-                            <span id="error_lastname" class="text-danger"></span>
+                            <label for="last">Last Name *</label>
+                            <input id="last" name="last" class="form-control" type="text" min="1">
+                            <span id="error_last" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="address">Address *</label>
                             <input id="address" name="address" class="form-control" type="text" min="1">
-                            <span id="error" class="text-danger"></span>
+                            <span id="error_address" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="birthday">Date Of Birth *</label>
-                            <input type="date" name=birthday id="birthday" class="form-control">
-                            <span id="error_dob" class="text-danger"></span>
+                            <input type="date" name=birthday id="birthday" class="form-control" min="1">
+                            <span id="error_birthday" class="text-danger"></span>
                         </div>
-                        <div class="form-group">
-                            <label for="gender">Gender</label>
-                            <select name="gender" id="gender" class="form-control">
-                                <option selected>Male</option>
-                                <option>Female</option>
-                                <option>Other</option>
-                            </select>
-                            <span id="error_gender" class="text-danger"></span>
-                        </div>
+                        <%--<div class="form-group">--%>
+                            <%--<label for="gender">Gender</label>--%>
+                            <%--<select name="gender" id="gender" class="form-control">--%>
+                                <%--<option selected>Male</option>--%>
+                                <%--<option>Female</option>--%>
+                                <%--<option>Other</option>--%>
+                            <%--</select>--%>
+                            <%--<span id="error_gender" class="text-danger"></span>--%>
+                        <%--</div>--%>
                         <div class="form-group">
                             <label for="telephone">Phone Number *</label>
-                            <input type="text" id="telephone" name="telephone" class="form-control">
+                            <input type="text" id="telephone" name="telephone" class="form-control" min="1">
                             <span id="error_phone" class="text-danger"></span>
                         </div>
                         <div class="form-group">
