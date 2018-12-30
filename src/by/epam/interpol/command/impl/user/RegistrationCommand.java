@@ -5,8 +5,8 @@ import by.epam.interpol.command.Router;
 import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.consant.RoleType;
 import by.epam.interpol.entity.User;
-import by.epam.interpol.exception.ApplicationException;
-import by.epam.interpol.service.user.UserService;
+import by.epam.interpol.exception.DaoException;
+import by.epam.interpol.service.user.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -32,7 +32,7 @@ public class RegistrationCommand implements ActionCommand {
     private static final String SESSION_IS_LOGIN = "isLogin";
 
 
-    private UserService service = new UserService();
+    private UserServiceImpl service = new UserServiceImpl();
     @Override
 
     public Router execute(HttpServletRequest request) {
@@ -67,7 +67,7 @@ public class RegistrationCommand implements ActionCommand {
             request.setAttribute("user", user);
 
         }
-        catch (Exception | ApplicationException e) {
+        catch (Exception | DaoException e) {
             LOGGER.warn("user is not registered", e);
             router.setPagePath(PagePath.REGISTRATION_PAGE.getJspPath());
         }

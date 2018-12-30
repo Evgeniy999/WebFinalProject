@@ -5,18 +5,28 @@ import java.sql.Date;
 
 public class Document {
 
+    private int docId;
     private String statement;
     private Date time;
-    private Date leadTime;
-    private String information;
     private double reward;
+    private String information;
+    private Date leadTime;
 
-    public Document(String statement, Date time, Date leadTime, String information, double reward) {
+    public Document(int docId, String statement, Date time, double reward, String information, Date leadTime) {
+        this.docId = docId;
         this.statement = statement;
         this.time = time;
-        this.leadTime = leadTime;
-        this.information = information;
         this.reward = reward;
+        this.information = information;
+        this.leadTime = leadTime;
+    }
+
+    public int getDocId() {
+        return docId;
+    }
+
+    public void setDocId(int docId) {
+        this.docId = docId;
     }
 
     public String getStatement() {

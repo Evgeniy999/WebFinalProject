@@ -16,8 +16,9 @@
 <fmt:message bundle="${local}" key="main.europe" var="europa"/>
 <fmt:message bundle="${local}" key="main.crime.areas" var="areas"/>
 <fmt:message bundle="${local}" key="main.about" var="about"/>
-<fmt:message bundle="${local}" key="main.sumbit.application" var="applic"/>
-
+<fmt:message bundle="${local}" key="main.manage.users" var="manageUser"/>
+<fmt:message bundle="${local}" key="main.manage.documents" var="manageDoc"/>
+<form >
 <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
         <li>
@@ -39,9 +40,28 @@
                 <li><a href="#"><i class="fa fa-angle-double-right"></i> ${europa} </a></li>
             </ul>
         </li>
-        <li>
-            <a href="#"><i class="fa fa-fw fa-user-plus"></i> ${applic}</a>
-        </li>
+
+        <%--<form id="user-table-id" action="/interpol" method="post">--%>
+            <%--<input type="hidden" value="MANAGE_USER" name="command">--%>
+            <%--<li><a href="#" class="menustyle" onclick="document.getElementById('user-table-id').submit();">--%>
+                <%--<i style="text-decoration: none" class="fa fa-users"></i> ${manageUser} </a>--%>
+            <%--</li>--%>
+        <%--</form>--%>
+
+        <%--<form id="doc-table-id" action="/interpol" method="post">--%>
+            <%--<input type="hidden" value="MANAGE_DOC" name="command">--%>
+            <%--<li><a href="#" class="menustyle" onclick="document.getElementById('doc-table-id').submit();">--%>
+                <%--<i style="text-decoration: none" class="fa fa-folder-open-o"></i> ${manageDoc} </a>--%>
+            <%--</li>--%>
+        <%--</form>--%>
+
+            <li><a href="/interpol?command=MANAGE_USER" class="menustyle">
+                <i style="text-decoration: none" class="fa fa-users"></i> ${manageUser} </a>
+            </li>
+
+            <li><a  class="menustyle" href="/interpol?command=MANAGE_DOC">
+                <i style="text-decoration: none" class="fa fa-folder-open-o"></i> ${manageDoc} </a>
+            </li>
         <li>
             <a href="#"><i class="fa fa-fw fa-paper-plane-o"></i> ${areas} </a>
         </li>
@@ -50,3 +70,4 @@
         </li>
     </ul>
 </div>
+</form>

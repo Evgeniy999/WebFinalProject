@@ -4,7 +4,8 @@ import by.epam.interpol.connection.PoolConnection;
 import by.epam.interpol.dao.CommonDao;
 import by.epam.interpol.dao.user.UserDao;
 import by.epam.interpol.entity.News;
-import by.epam.interpol.exception.ApplicationException;
+
+import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.util.NewsBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,7 +19,7 @@ import java.util.Optional;
 
 public class NewsDao implements CommonDao<News> {
 
-    private static Logger LOGGER = LogManager.getLogger(UserDao.class);
+    private static Logger LOGGER = LogManager.getLogger();
     private static final String SEARCH_NEWS_BY_ID = "SELECT * FROM news WHERE news_id = ?";
     private static final String SEARCH_NEWS_BY_INF = "SELECT * FROM news WHERE  information= ?";
     private static final String INSERT_NEW_COMMON = "INSERT * INTO news values(null,?,?,?,?)";
@@ -40,7 +41,7 @@ public class NewsDao implements CommonDao<News> {
     }
 
     @Override
-    public News add(News news) throws ApplicationException {
+    public News add(News news) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
             connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             connection.setAutoCommit(false);
@@ -50,27 +51,33 @@ public class NewsDao implements CommonDao<News> {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                throw new ApplicationException("User with input login already exist");
+                throw new DaoException("News already exist");
             } else {
-                PreparedStatement userAddStatement = connection.prepareStatement(INSERT_NEW_COMMON);
-                userAddStatement.setString(1, news.getTopic());
-                userAddStatement.setString(2, news.getInformation());
-                userAddStatement.setString(3, news.getCountry());
-                userAddStatement.setDate(4, news.getTime());
+                PreparedStatement statement = connection.prepareStatement(INSERT_NEW_COMMON);
+                statement.setString(1, news.getTopic());
+                statement.setString(2, news.getInformation());
+                statement.setString(3, news.getCountry());
+                statement.setDate(4, news.getTime());
 
-                userAddStatement.executeUpdate();
+                statement.executeUpdate();
                 connection.commit();
-                LOGGER.info("User correctly added");
+                LOGGER.info("News correctly added");
 
                 return news;
             }
         } catch (SQLException e) {
-            throw new ApplicationException("User not added", e);
+            throw new DaoException("News not added", e);
         }
 
     }
 
-    public ArrayList<News> allNews() {
+    @Override
+    public void remove(News news) throws DaoException {
+
+    }
+
+    @Override
+    public ArrayList<News> showAll() {
 
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_NEW_ALL);

@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title>Main</title>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
@@ -32,7 +32,7 @@
 <div id="wrapper">
 
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height: 61px;">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -41,7 +41,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img src="/image/logo.png" width="50" height="48" class="pic" alt="INTERPOL">
+                <img src="/image/logo.png" width="50" height="45" class="pic" alt="INTERPOL">
             </a>
 
         </div>
@@ -59,7 +59,7 @@
                     <input type="hidden" value="CHANGE_LANG" name="command">
                     <ul>
                         <li>
-                            <div class="btn-group btn-group-sm divLang" id="center2" role="group" aria-label="...">
+                            <div class="btn-group btn-group-sm divLang" id="center" role="group" aria-label="...">
                                 <button type="submit" name="lang" value="en" class="btn btn-default navbar-btn">EN
                                 </button>
                                 <button type="submit" name="lang" value="rus" class="btn btn-default navbar-btn">RU
@@ -100,7 +100,7 @@
                                             <form id="form-id" action="/interpol" method="post">
                                                 <input type="hidden" value="LOGOUT" name="command">
                                     <li><a href="#" class="profstyle" onclick="document.getElementById('form-id').submit();">
-                                        </map> <i  style="text-decoration: none" class="fa fa-fw fa-power-off "></i> Log out </a></li>
+                                        </map> <i  style="text-decoration: none"  class="fa fa-fw fa-power-off "></i> Log out </a></li>
 
                                     </form>
                                     </li>
@@ -126,8 +126,8 @@
                                         <map>
                                             <form id="form-id" action="/interpol" method="post">
                                                 <input type="hidden" value="LOGOUT" name="command">
-                                    <li><a href="#" style="text-decoration: none" onclick="document.getElementById('form-id').submit();">
-                                        </map> <i id="center" class="fa fa-fw fa-power-off"></i > Log out </a></li>
+                                    <li><a href="#" class="profstyle"  onclick="document.getElementById('form-id').submit();">
+                                        </map> <i style="text-decoration: none"  class="fa fa-fw fa-power-off"></i > Log out </a></li>
 
                                     </form>
                                     </li>
@@ -161,6 +161,7 @@
         </c:choose>
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     </nav>
+
 
     <c:choose>
     <c:when test="${sessionScope.isLogin == false}">

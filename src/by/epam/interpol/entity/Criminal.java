@@ -5,18 +5,28 @@ import java.time.LocalDate;
 
 
 public class Criminal {
+    private int criminalId;
     private String name;
     private String lastName;
     private String reason;
     private Date birthday;
     private Date termOfImp;
 
-    public Criminal(String name, String lastName, String reason, Date birthday, Date termOfImp) {
+    public Criminal(int criminalId, String name, String lastName, String reason, Date birthday, Date termOfImp) {
+        this.criminalId = criminalId;
         this.name = name;
         this.lastName = lastName;
         this.reason = reason;
         this.birthday = birthday;
         this.termOfImp = termOfImp;
+    }
+
+    public int getCriminalId() {
+        return criminalId;
+    }
+
+    public void setCriminalId(int criminalId) {
+        this.criminalId = criminalId;
     }
 
     public String getName() {

@@ -2,6 +2,7 @@ package by.epam.interpol.service.news;
 
 import by.epam.interpol.dao.news.NewsDao;
 import by.epam.interpol.entity.News;
+import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.service.CommonService;
 
 import java.util.ArrayList;
@@ -13,9 +14,15 @@ public class NewsService implements CommonService<News> {
     public Optional<News> searchById(int id) {
         return newsDao.searchById(id);
     }
-    public ArrayList<News> allNewsOut() {
-        return newsDao.allNews();
+
+    @Override
+    public void remove(News news) throws DaoException {
+
     }
 
+    @Override
+    public ArrayList<News> showAll() {
+        return newsDao.showAll();
+    }
 
 }
