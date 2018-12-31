@@ -3,7 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
+    <!--<welcome-file-list>-->
+        <!--<welcome-file>/index.jsp</welcome-file>-->
+    <!--</welcome-file-list>-->
+    <jsp-config>
+        <taglib>
+            <taglib-uri>/WEB-INF/tag/infoTag.tld</taglib-uri>
+            <taglib-location>/WEB-INF/tag/infoTag.tld
+            </taglib-location>
+        </taglib>
+    </jsp-config>
     <filter>
         <filter-name>SessionFilter</filter-name>
         <filter-class>by.epam.interpol.filter.SessionFilter</filter-class>
@@ -11,6 +20,16 @@
     <filter-mapping>
         <filter-name>SessionFilter</filter-name>
         <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>JspFilter</filter-name>
+        <filter-class>by.epam.interpol.filter.JspFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>JspFilter</filter-name>
+        <url-pattern>/jsp/main/admin/manage/doc_table.jsp</url-pattern>
     </filter-mapping>
 
     <session-config>

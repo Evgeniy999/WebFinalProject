@@ -2,7 +2,6 @@
   <artifact type="exploded-war" name="WebFinalProject:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/WebFinalProject_war_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="WebFinalProject/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="WebFinalProject" />
@@ -11,6 +10,7 @@
           <element id="library" level="project" name="com.beust.jcommander_1.72.0" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="WebFinalProject/web/Web" />
     </root>
   </artifact>
 </component>

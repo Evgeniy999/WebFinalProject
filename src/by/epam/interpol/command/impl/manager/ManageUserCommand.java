@@ -9,7 +9,7 @@ import by.epam.interpol.service.user.UserServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
-public class ManageUser implements ActionCommand {
+public class ManageUserCommand implements ActionCommand {
 
     private UserServiceImpl service = new UserServiceImpl();
 

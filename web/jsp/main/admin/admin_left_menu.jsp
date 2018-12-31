@@ -41,20 +41,6 @@
             </ul>
         </li>
 
-        <%--<form id="user-table-id" action="/interpol" method="post">--%>
-            <%--<input type="hidden" value="MANAGE_USER" name="command">--%>
-            <%--<li><a href="#" class="menustyle" onclick="document.getElementById('user-table-id').submit();">--%>
-                <%--<i style="text-decoration: none" class="fa fa-users"></i> ${manageUser} </a>--%>
-            <%--</li>--%>
-        <%--</form>--%>
-
-        <%--<form id="doc-table-id" action="/interpol" method="post">--%>
-            <%--<input type="hidden" value="MANAGE_DOC" name="command">--%>
-            <%--<li><a href="#" class="menustyle" onclick="document.getElementById('doc-table-id').submit();">--%>
-                <%--<i style="text-decoration: none" class="fa fa-folder-open-o"></i> ${manageDoc} </a>--%>
-            <%--</li>--%>
-        <%--</form>--%>
-
             <li><a href="/interpol?command=MANAGE_USER" class="menustyle">
                 <i style="text-decoration: none" class="fa fa-users"></i> ${manageUser} </a>
             </li>

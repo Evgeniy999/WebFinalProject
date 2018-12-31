@@ -1,0 +1,4 @@
+
+$('#myModal').on('show', function (e) {
+    if (!data) return e.preventDefault() // stops modal from being shown
+})

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <%--
   Created by IntelliJ IDEA.
   User: Женёк
@@ -10,10 +11,15 @@
 <html>
 <head>
     <title>Manage users</title>
+    <script data-require="jquery@2.0.3" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
           id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script>
+        <%@include file="/js/modal_script.js"%>
+        <%@include file="/js/table.js"%>
+    </script>
 
 </head>
 
@@ -23,6 +29,10 @@
     <button class="btn btn-primary">New User</button>
     <button class="btn">Import</button>
     <button class="btn">Export</button>
+    <h2>Filterable Table</h2>
+    <p>Type something in the input field to search the table for first names, last names or emails:</p>
+    <input id="myInput" type="text" placeholder="Search..">
+    <br><br>
 </div>
 <div class="well">
     <table class="table">
@@ -37,6 +47,7 @@
             <th style="width: 36px;"></th>
         </tr>
         </thead>
+        <tbody id="myTable">
         <c:forEach var="user" items="${users}">
             <tr>
                 <td>${user.getUserId()}</td>
@@ -47,7 +58,7 @@
                 <td>${user.getAddress()}</td>
                 <td>
                     <a href="user.html"><i class="icon-pencil"></i></a>
-                    <a href="#mod_id" role="button" data-toggle="modal" data-target="#modal"><i class="icon-remove"></i></a>
+                    <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
                 </td>
             </tr>
         </c:forEach>
@@ -64,6 +75,8 @@
         <li><a href="#">Next</a></li>
     </ul>
 </div>
+
+
 <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <div class="modal-header">
@@ -79,6 +92,11 @@
     </div>
 </div>
 
+<!-- Post Info -->
+<div style='position:fixed;bottom:0;left:0;
+            background:lightgray;width:100%;'>
+    <infotag:getinfo/>
+</div>
 
 <a href="/jsp/main/main.jsp">Back</a>
 </body>

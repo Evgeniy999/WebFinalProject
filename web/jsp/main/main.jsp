@@ -24,6 +24,10 @@
     <fmt:setBundle basename="properties.text" var="local"/>
     <fmt:message bundle="${local}" key="main.interpol" var="interpol"/>
     <fmt:message bundle="${local}" key="main.login" var="login"/>
+    <fmt:message bundle="${local}" key="main.edit.prof" var="prof"/>
+    <fmt:message bundle="${local}" key="main.change.pass" var="password"/>
+    <fmt:message bundle="${local}" key="main.out" var="out"/>
+
 </head>
 <body>
 
@@ -92,15 +96,17 @@
                                    data-toggle="dropdown"> ${nameUser.getName()} ${nameUser.getLastName()} <b
                                         class="fa fa-angle-down"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-user"></i> ${prof}</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> ${password}</a></li>
                                     <li class="divider"></li>
                                     <li>
                                         <map>
                                             <form id="form-id" action="/interpol" method="post">
                                                 <input type="hidden" value="LOGOUT" name="command">
-                                    <li><a href="#" class="profstyle" onclick="document.getElementById('form-id').submit();">
-                                        </map> <i  style="text-decoration: none"  class="fa fa-fw fa-power-off "></i> Log out </a></li>
+                                    <li><a href="#" class="profstyle"
+                                           onclick="document.getElementById('form-id').submit();">
+                                        </map> <i style="text-decoration: none"
+                                                  class="fa fa-fw fa-power-off "></i> ${out} </a></li>
 
                                     </form>
                                     </li>
@@ -119,15 +125,17 @@
                                    data-toggle="dropdown"> ${nameUser.getName()} ${nameUser.getLastName()} <b
                                         class="fa fa-angle-down"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-user"></i> ${prof}</a></li>
+                                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> ${password}</a></li>
                                     <li class="divider"></li>
                                     <li>
                                         <map>
                                             <form id="form-id" action="/interpol" method="post">
                                                 <input type="hidden" value="LOGOUT" name="command">
-                                    <li><a href="#" class="profstyle"  onclick="document.getElementById('form-id').submit();">
-                                        </map> <i style="text-decoration: none"  class="fa fa-fw fa-power-off"></i > Log out </a></li>
+                                    <li><a href="#" class="profstyle"
+                                           onclick="document.getElementById('form-id').submit();">
+                                        </map> <i style="text-decoration: none"
+                                                  class="fa fa-fw fa-power-off"></i> ${out} </a></li>
 
                                     </form>
                                     </li>

@@ -146,6 +146,16 @@
     text-decoration: none;
 }
 
+.proflogin{
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+}
+
+.proflogin:hover{
+    text-decoration: none;
+}
+
 .divLang{
     height: 15px;
 }

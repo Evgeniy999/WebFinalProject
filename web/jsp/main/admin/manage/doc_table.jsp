@@ -10,9 +10,15 @@
 <html>
 <head>
     <title>Documents</title>
+    <%--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>--%>
+    <script data-require="jquery@2.0.3" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <script>
+        <%@include file="/js/modal_script.js"%>
+        <%@include file="/js/table.js"%>
+    </script>
 </head>
 <body>
 
@@ -20,6 +26,10 @@
     <button class="btn btn-primary">New User</button>
     <button class="btn">Import</button>
     <button class="btn">Export</button>
+    <h2>Filterable Table</h2>
+    <p>Type something in the input field to search the table for first names, last names or emails:</p>
+    <input id="myInput" type="text" placeholder="Search..">
+    <br><br>
 </div>
 <div class="well">
     <table class="table">
@@ -43,10 +53,10 @@
                     <td>${doc.getReward()}</td>
                     <td>${doc.getTime()}</td>
                     <td>${doc.getLeadTime()}</td>
-                        <%--<td>--%>
-                        <%--<a href="user.html"><i class="icon-pencil"></i></a>--%>
-                        <%--<a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>--%>
-                        <%--</td>--%>
+                        <td>
+                        <a href="user.html"><i class="icon-pencil"></i></a>
+                        <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                        </td>
                 </tr>
             </c:forEach>
             </tbody>
@@ -62,6 +72,7 @@
         <li><a href="#">Next</a></li>
     </ul>
 </div>
+
 <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>

@@ -9,7 +9,7 @@ import by.epam.interpol.service.document.DocService;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
-public class ManageDoc implements ActionCommand {
+public class ManageDocCommand implements ActionCommand {
     private DocService docService = new DocService();
 
     @Override
