@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 public class SessionFilter implements Filter
 {
-
     private static final String INDEX_JSP = "/index.jsp";
     private static final String SESSION_LANG = "lang";
     private static final String SESSION_IS_LOGIN = "isLogin";

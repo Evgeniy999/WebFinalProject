@@ -8,9 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <style>
-    </style>
-    <meta charset="UTF-8">
     <title>Index page</title>
 </head>
 <body>
