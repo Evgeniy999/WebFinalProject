@@ -1,9 +1,11 @@
 package by.epam.interpol.command;
 
 
+import by.epam.interpol.command.impl.admin.RemoveUserCommand;
 import by.epam.interpol.command.impl.manager.ChangeLangCommand;
 import by.epam.interpol.command.impl.manager.ManageDocCommand;
 import by.epam.interpol.command.impl.manager.ManageUserCommand;
+import by.epam.interpol.command.impl.manager.ToLoginPage;
 import by.epam.interpol.command.impl.news.OutNewsCommand;
 import by.epam.interpol.command.impl.user.LoginCommand;
 import by.epam.interpol.command.impl.user.LogoutCommand;
@@ -19,6 +21,8 @@ public enum CommandType {
     LOGOUT(new LogoutCommand()),
     NEWS_OUT(new OutNewsCommand()),
     MANAGE_USER(new ManageUserCommand()),
+    LOGIN_PAGE(new ToLoginPage()),
+    REMOVE_USER(new RemoveUserCommand()),
     MANAGE_DOC(new ManageDocCommand());
 
     private ActionCommand command;

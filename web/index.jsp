@@ -14,9 +14,6 @@
     <title>Index page</title>
 </head>
 <body>
-<%--<jsp:forward page="/jsp/login/login.jsp"></jsp:forward>--%>
-<%--<jsp:forward page="/jsp/main/guest/main_guest.jsp"></jsp:forward>--%>
 <jsp:forward page="/jsp/main/main.jsp"></jsp:forward>
-<%----%>
 </body>
 </html>

@@ -29,7 +29,10 @@ public class DocumentDao implements CommonDao<Document> {
             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_DOC_BY_ID);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            Document doc = DocBuilder.createDoc(resultSet);
+            Document doc = null;
+            if (resultSet.next()) {
+               doc =DocBuilder.createDoc(resultSet);
+            }
             return Optional.of(doc);
         } catch (SQLException e) {
             return Optional.empty();

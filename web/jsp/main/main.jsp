@@ -78,7 +78,7 @@
 
                     <c:if test="${sessionScope.role =='GUEST'}">
                         <li>
-                            <a href="/jsp/login/login.jsp"> ${login} </a>
+                            <a href="/interpol?command=LOGIN_PAGE"> ${login} </a>
                         </li>
                     </c:if>
 

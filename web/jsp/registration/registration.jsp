@@ -11,31 +11,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Form registration</title>
-    <%--<body>--%>
-    <%--<h1>Registration user</h1>--%>
-    <%--<form action="/interpol" method="get">--%>
-    <%--<input type="hidden" value="REGISTRATION" name="command">--%>
-    <%--Login: <input type="text" name="login" size="10"><br>--%>
-    <%--Password: <input type="password" name="password" size="10"><br>--%>
-    <%--Name:<input type="text" name="name" size="10"><br>--%>
-    <%--Last name: <input type="text" name="last" size="10"><br>--%>
-    <%--Address: <input type="text" name="address"><br>--%>
-    <%--Telephone: <input type="text" name="phone"><br>--%>
-    <%--<p>--%>
-    <%--<table>--%>
-    <%--<tr>--%>
-    <%--<th>--%>
-    <%--<small>--%>
-    <%--<input type="submit" name="save" value="Save">--%>
-    <%--</small>--%>
-    <%--<th>--%>
-    <%--<small>--%>
-    <%--<input type="submit" name="cancel" value="Out">--%>
-    <%--</small>--%>
-    <%--</table>--%>
-    <%--</form>--%>
-    <%--</body>--%>
-    <%--</html>--%>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>

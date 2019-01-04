@@ -2,6 +2,7 @@ package by.epam.interpol.controller;
 
 import by.epam.interpol.command.*;
 import by.epam.interpol.command.impl.manager.EmptyCommand;
+import by.epam.interpol.connection.PoolConnection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +20,18 @@ public class Controller extends HttpServlet {
 
     private static final String COMMAND = "command";
 
+    @Override
+    public void init() throws ServletException
+    {
+        PoolConnection.getInstance();
+    }
+
+    @Override
+    public void destroy()
+    {
+        PoolConnection.getInstance().destroy();
+
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

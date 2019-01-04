@@ -33,7 +33,10 @@ public class NewsDao implements CommonDao<News> {
             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_NEWS_BY_ID);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            News news = NewsBuilder.createNews(resultSet);
+            News news = null;
+            if(resultSet.next()) {
+              news = NewsBuilder.createNews(resultSet);
+            }
             return Optional.of(news);
         } catch (SQLException e) {
             return Optional.empty();

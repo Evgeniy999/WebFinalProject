@@ -19,7 +19,7 @@ public class UserDao implements CommonDao<User> {
     private static final String SEARCH_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
     private static final String SEARCH_USER_BY_LOGIN = "SELECT * FROM users WHERE login = ?";
     private static final String INSERT_NEW_USER_COMMON = "INSERT INTO users values(null,?,?,?,?,?,?,?,?)";
-    private static final String REMOVE_USER_DATA = "DELETE * FROM users  WHERE user_id = ?";
+    private static final String REMOVE_USER_DATA = "DELETE FROM users  WHERE user_id = ?";
     private static final String SELECT_USER_ALL = "SELECT * FROM users";
 
 
@@ -30,12 +30,14 @@ public class UserDao implements CommonDao<User> {
             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_USER_BY_ID);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-            User user = UserBuilder.createUser(resultSet);
+            User user = null;
+            if(resultSet.next()){
+                user = UserBuilder.createUser(resultSet);
+            }
             return Optional.of(user);
         } catch (SQLException e) {
             return Optional.empty();
         }
-
     }
 
 
@@ -47,7 +49,7 @@ public class UserDao implements CommonDao<User> {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             User user = null;
-            if (resultSet.next()) {//todo добавить запрос на админа
+            if (resultSet.next()) {
                 user = UserBuilder.createUser(resultSet);
             }
             return Optional.ofNullable(user);

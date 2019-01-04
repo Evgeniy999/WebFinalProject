@@ -14,7 +14,6 @@ import java.util.ArrayList;
 
 public class SessionFilter implements Filter
 {
-    private FilterConfig filterConfig;
 
     private static final String INDEX_JSP = "/index.jsp";
     private static final String SESSION_LANG = "lang";
@@ -27,7 +26,6 @@ public class SessionFilter implements Filter
     @Override
     public void init(FilterConfig filterConfig)
     {
-        this.filterConfig = filterConfig;
     }
 
     @Override
@@ -54,6 +52,7 @@ public class SessionFilter implements Filter
                 response.sendRedirect(INDEX_JSP);
                 return;
             }
+
         }
         filterChain.doFilter(request, response);
     }
