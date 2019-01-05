@@ -139,10 +139,20 @@
 .profstyle{
     text-decoration: none;
     color: black;
-    padding: 10px;
+    padding: 5px 5px 5px 5px;
 }
 
 .profstyle:hover{
+    text-decoration: none;
+}
+
+.profstyleout{
+    text-decoration: none;
+    color: black;
+    padding: 5px 5px 5px 34px;
+}
+
+.profstyleout:hover{
     text-decoration: none;
 }
 
