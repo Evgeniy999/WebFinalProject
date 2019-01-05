@@ -24,8 +24,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void remove(User user) throws DaoException {
-        userDao.remove(user);
+    public void remove(int id) throws DaoException {
+        userDao.remove(id);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class NewsService implements CommonService<News> {
     }
 
     @Override
-    public void remove(News news) throws DaoException {
+    public void remove(int id) throws DaoException {
 
     }
 

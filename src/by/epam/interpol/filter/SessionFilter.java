@@ -12,8 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class SessionFilter implements Filter
-{
+public class SessionFilter implements Filter {
     private static final String INDEX_JSP = "/index.jsp";
     private static final String SESSION_LANG = "lang";
     private static final String SESSION_IS_LOGIN = "isLogin";
@@ -23,31 +22,27 @@ public class SessionFilter implements Filter
 
 
     @Override
-    public void init(FilterConfig filterConfig)
-    {
+    public void init(FilterConfig filterConfig) {
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException
-    {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        if (request.getServletPath().equals(INDEX_JSP))
-        {
-            HttpSession session=request.getSession(true);
-            session.setAttribute(SESSION_LANG, "en");
-            session.setAttribute(SESSION_IS_LOGIN , "false");
-            session.setAttribute(SESSION_ROLE, RoleType.GUEST);
-            session.setAttribute(SESSION_LAST_PAGE, PagePath.MAIN_PAGE);
-            ArrayList<News> newsAll = newsService.showAll();
-            session.setAttribute("news",newsAll);
-        }
-        else
-        {
-            HttpSession session = request.getSession(false);
-            if (session == null)
-            {
+        if (request.getSession().isNew()) {
+            if (request.getServletPath().equals(INDEX_JSP)) {
+                HttpSession session = request.getSession(true);
+                session.setAttribute(SESSION_LANG, "en");
+                session.setAttribute(SESSION_IS_LOGIN, "false");
+                session.setAttribute(SESSION_ROLE, RoleType.GUEST);
+                session.setAttribute(SESSION_LAST_PAGE, PagePath.MAIN_PAGE);
+                ArrayList<News> newsAll = newsService.showAll();
+                session.setAttribute("news", newsAll);
+            }
+        }else {
+            HttpSession session = request.getSession(false);//todo логика
+            if (session == null) {
                 response.sendRedirect(INDEX_JSP);
                 return;
             }
@@ -56,7 +51,7 @@ public class SessionFilter implements Filter
         filterChain.doFilter(request, response);
     }
 
-    public void destroy()
-    {}
+    public void destroy() {
+    }
 
 }

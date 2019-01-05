@@ -36,7 +36,8 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>Statement</th>
+                <th>Owner statement</th>
+                <th>Type statement</th>
                 <th>Information</th>
                 <th>Reward</th>
                 <th>Date</th>
@@ -48,6 +49,7 @@
             <c:forEach var="doc" items="${docs}">
                 <tr>
                     <td>${doc.getDocId()}</td>
+                    <td>${doc.getName()} ${doc.getLastName()}</td>
                     <td>${doc.getStatement()}</td>
                     <td>${doc.getInformation()}</td>
                     <td>${doc.getReward()}</td>

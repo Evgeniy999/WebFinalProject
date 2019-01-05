@@ -1,3 +1,4 @@
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <%--
   Created by IntelliJ IDEA.
   User: Женёк
@@ -80,6 +81,12 @@
         <div class="clear"></div>
     </div>
 </div>
+
+<div style='position:fixed;bottom:0;left:0;
+            background:lightgray;width:100%;'>
+    <infotag:getinfo/>
 </div>
+
+<a href="/jsp/main/main.jsp">Back</a>
 </body>
 </html>

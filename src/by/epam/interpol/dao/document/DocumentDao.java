@@ -21,7 +21,7 @@ public class DocumentDao implements CommonDao<Document> {
     private static final String SEARCH_DOC_BY_ID = "SELECT * FROM documents, statement WHERE document_id = ?";
     private static final String WHERE_DOC_INFORMATION = "SELECT * FROM documents WHERE  doc_information = ?";
     private static final String INSERT_DOC_COMMON = "INSERT * INTO documents values(null,?,?,?,?,?)";
-    private static final String SELECT_DOC_ALL = "SELECT * FROM documents JOIN statement on documents.statement_id=statement.statement_id";
+    private static final String SELECT_DOC_ALL = "SELECT * FROM documents JOIN statement on documents.statement_id=statement.statement_id ";
 
     @Override
     public Optional<Document> searchById(int id) {
@@ -72,7 +72,7 @@ public class DocumentDao implements CommonDao<Document> {
     }
 
     @Override
-    public void remove(Document document) throws DaoException {
+    public void remove(int id) throws DaoException {
 
     }
 

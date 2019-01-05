@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface CommonService<T> {
 
     Optional<T> searchById(int id);
-    void remove(T t) throws DaoException;
+    void remove(int id) throws DaoException;
     ArrayList<T> showAll();
 }

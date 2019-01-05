@@ -75,7 +75,7 @@ public class NewsDao implements CommonDao<News> {
     }
 
     @Override
-    public void remove(News news) throws DaoException {
+    public void remove(int id) throws DaoException {
 
     }
 

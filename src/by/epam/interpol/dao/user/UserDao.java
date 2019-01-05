@@ -97,10 +97,10 @@ public class UserDao implements CommonDao<User> {
 
 
     @Override
-    public void remove(User element) throws DaoException {
+    public void remove(int id) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(REMOVE_USER_DATA);
-            preparedStatement.setInt(1, element.getUserId());
+            preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new DaoException(e);

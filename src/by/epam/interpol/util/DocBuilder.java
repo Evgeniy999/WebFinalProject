@@ -15,6 +15,8 @@ public class DocBuilder {
     private static final String DOC_REWARD= "reward";
     private static final String DOC_INF = "doc_information";
     private static final String DOC_LEAD_TIME = "leadTime";
+    private static final String USER_NAME = "user_name";
+    private static final String USER_LAST = "user_lastName";
 
 
     public static Document createDoc(ResultSet resultSet) throws SQLException {
@@ -24,7 +26,9 @@ public class DocBuilder {
         double reward = resultSet.getDouble(DOC_REWARD);
         String information = resultSet.getString(DOC_INF);
         Date leadTime = resultSet.getDate(DOC_LEAD_TIME);
-        return new Document(docId,statement,time,reward, information,leadTime);
+        String name = resultSet.getString(USER_NAME);
+        String lastName = resultSet.getString(USER_LAST);
+        return new Document(docId,statement,time,reward, information,leadTime,name,lastName);
 
     }
 
@@ -39,7 +43,9 @@ public class DocBuilder {
             double reward = resultSet.getDouble(DOC_REWARD);
             String information = resultSet.getString(DOC_INF);
             Date leadTime = resultSet.getDate(DOC_LEAD_TIME);
-            result.add(new Document(docId,statement,time,reward, information,leadTime));
+            String name = resultSet.getString(USER_NAME);
+            String lastName = resultSet.getString(USER_LAST);
+            result.add(new Document(docId,statement,time,reward, information,leadTime,name,lastName));
         }
 
         return result;

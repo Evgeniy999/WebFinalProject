@@ -18,7 +18,7 @@ public class DocService implements CommonService<Document> {
     }
 
     @Override
-    public void remove(Document document) throws DaoException {
+    public void remove(int id) throws DaoException {
 
     }
 

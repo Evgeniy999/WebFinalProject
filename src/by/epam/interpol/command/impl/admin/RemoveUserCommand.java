@@ -21,9 +21,9 @@ public class RemoveUserCommand implements ActionCommand {
 
         String id = request.getParameter("id");
 
-        Optional<User> user = service.searchById(Integer.parseInt(id));
+//        Optional<User> user = service.searchById(Integer.parseInt(id));
         try {
-            service.remove(user.get());
+            service.remove(Integer.parseInt(id));
         } catch (DaoException e) {
             e.printStackTrace();
         }
