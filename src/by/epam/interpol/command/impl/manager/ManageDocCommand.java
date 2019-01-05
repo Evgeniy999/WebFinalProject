@@ -4,16 +4,16 @@ import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 import by.epam.interpol.entity.Document;
-import by.epam.interpol.service.document.DocService;
+import by.epam.interpol.service.document.DocServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 public class ManageDocCommand implements ActionCommand {
-    private DocService docService = new DocService();
 
     @Override
     public Router execute(HttpServletRequest request) {
+        DocServiceImpl docService = new DocServiceImpl();
         Router router = new Router();
         ArrayList<Document> documents = docService.showAll();
         request.getSession().setAttribute("docs",documents);

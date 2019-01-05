@@ -11,10 +11,9 @@ import java.util.ArrayList;
 
 public class ManageUserCommand implements ActionCommand {
 
-    private UserServiceImpl service = new UserServiceImpl();
-
     @Override
     public Router execute(HttpServletRequest request) {
+        UserServiceImpl service = new UserServiceImpl();
         Router router = new Router();
         ArrayList<User> userAll = service.showAll();
         request.getSession().setAttribute("users",userAll);

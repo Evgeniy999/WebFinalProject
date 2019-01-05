@@ -3,7 +3,7 @@ package by.epam.interpol.filter;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.consant.RoleType;
 import by.epam.interpol.entity.News;
-import by.epam.interpol.service.news.NewsService;
+import by.epam.interpol.service.news.NewsServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +18,7 @@ public class SessionFilter implements Filter {
     private static final String SESSION_IS_LOGIN = "isLogin";
     private static final String SESSION_ROLE = "role";
     private static final String SESSION_LAST_PAGE = "lastPage";
-    private NewsService newsService = new NewsService();
+    private NewsServiceImpl newsService = new NewsServiceImpl();
 
 
     @Override
@@ -40,7 +40,8 @@ public class SessionFilter implements Filter {
                 ArrayList<News> newsAll = newsService.showAll();
                 session.setAttribute("news", newsAll);
             }
-        }else {
+        }
+        else {
             HttpSession session = request.getSession(false);//todo логика
             if (session == null) {
                 response.sendRedirect(INDEX_JSP);

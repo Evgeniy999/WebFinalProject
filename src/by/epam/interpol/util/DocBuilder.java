@@ -15,8 +15,8 @@ public class DocBuilder {
     private static final String DOC_REWARD= "reward";
     private static final String DOC_INF = "doc_information";
     private static final String DOC_LEAD_TIME = "leadTime";
-    private static final String USER_NAME = "user_name";
-    private static final String USER_LAST = "user_lastName";
+    private static final String USER_NAME = "name_owner";
+    private static final String USER_LAST = "lastName_owner";
 
 
     public static Document createDoc(ResultSet resultSet) throws SQLException {

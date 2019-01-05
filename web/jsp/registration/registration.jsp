@@ -63,23 +63,10 @@
                             <input type="date" name=birthday id="birthday" class="form-control" min="1">
                             <span id="error_birthday" class="text-danger"></span>
                         </div>
-                        <%--<div class="form-group">--%>
-                            <%--<label for="gender">Gender</label>--%>
-                            <%--<select name="gender" id="gender" class="form-control">--%>
-                                <%--<option selected>Male</option>--%>
-                                <%--<option>Female</option>--%>
-                                <%--<option>Other</option>--%>
-                            <%--</select>--%>
-                            <%--<span id="error_gender" class="text-danger"></span>--%>
-                        <%--</div>--%>
                         <div class="form-group">
                             <label for="telephone">Phone Number *</label>
                             <input type="text" id="telephone" name="telephone" class="form-control" min="1">
                             <span id="error_phone" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="disc">Discription</label>
-                            <textarea class="form-control" rows="3"></textarea>
                         </div>
 
                         <button id="submit" type="submit" value="submit" class="btn btn-primary center">Submit</button>

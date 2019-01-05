@@ -8,7 +8,7 @@ import by.epam.interpol.service.CommonService;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class NewsService implements CommonService<News> {
+public class NewsServiceImpl implements CommonService<News> {
     private NewsDao newsDao = new NewsDao();
     @Override
     public Optional<News> searchById(int id) {

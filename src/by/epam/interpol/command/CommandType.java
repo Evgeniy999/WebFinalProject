@@ -2,20 +2,15 @@ package by.epam.interpol.command;
 
 
 import by.epam.interpol.command.impl.admin.RemoveUserCommand;
-import by.epam.interpol.command.impl.manager.ChangeLangCommand;
-import by.epam.interpol.command.impl.manager.ManageDocCommand;
-import by.epam.interpol.command.impl.manager.ManageUserCommand;
-import by.epam.interpol.command.impl.manager.ToLoginPage;
+import by.epam.interpol.command.impl.manager.*;
 import by.epam.interpol.command.impl.news.OutNewsCommand;
-import by.epam.interpol.command.impl.user.LoginCommand;
-import by.epam.interpol.command.impl.user.LogoutCommand;
-import by.epam.interpol.command.impl.user.RegistrationCommand;
-import by.epam.interpol.command.impl.user.UserSearchCommand;
+import by.epam.interpol.command.impl.user.*;
 
 public enum CommandType {
 
-    SEARCH(new UserSearchCommand()),
     LOGIN(new LoginCommand()),
+    TO_CHANGE_PASS_PAGE(new ToChangePasswordCommand()),
+    CHANGE_PASS(new ChangePasswordCommand()),
     REGISTRATION(new RegistrationCommand()),
     CHANGE_LANG(new ChangeLangCommand()),
     LOGOUT(new LogoutCommand()),
@@ -23,6 +18,8 @@ public enum CommandType {
     MANAGE_USER(new ManageUserCommand()),
     LOGIN_PAGE(new ToLoginPage()),
     REMOVE_USER(new RemoveUserCommand()),
+    PAGE_APPLIC(new ApplicationPageCommand()),
+    ADD_APPLIC(new AddApplicationCommand()),
     MANAGE_DOC(new ManageDocCommand());
 
     private ActionCommand command;

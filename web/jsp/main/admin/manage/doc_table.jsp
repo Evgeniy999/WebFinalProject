@@ -12,13 +12,19 @@
     <title>Documents</title>
     <%--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>--%>
     <script data-require="jquery@2.0.3" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+          id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
     <script>
         <%@include file="/js/modal_script.js"%>
         <%@include file="/js/table.js"%>
     </script>
+    <style>
+        .col {
+            word-wrap: break-word; /* Перенос слов */
+        }
+    </style>
 </head>
 <body>
 
@@ -33,36 +39,40 @@
 </div>
 <div class="well">
     <table class="table">
-            <thead>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Owner statement</th>
+            <th>Type statement</th>
+            <th>Information</th>
+            <th>Reward</th>
+            <th>Date</th>
+            <th>Lead date</th>
+            <th style="width: 36px;"></th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <c:forEach var="doc" items="${docs}">
             <tr>
-                <th>#</th>
-                <th>Owner statement</th>
-                <th>Type statement</th>
-                <th>Information</th>
-                <th>Reward</th>
-                <th>Date</th>
-                <th>Lead date</th>
-                <th style="width: 36px;"></th>
+                <td>${doc.getDocId()}</td>
+                <td>${doc.getName()} ${doc.getLastName()}</td>
+                <td>${doc.getStatement()}</td>
+                <td style="width: 320px;">
+                    <div class="col" style="width: 280px">
+                            ${doc.getInformation()}
+                    </div>
+                </td>
+                <td>${doc.getReward()}</td>
+                <td>${doc.getTime()}</td>
+                <td>${doc.getLeadTime()}</td>
+                <td>
+                    <a href="user.html"><i class="icon-pencil"></i></a>
+                    <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                </td>
             </tr>
-            </thead>
-            <tbody id="myTable">
-            <c:forEach var="doc" items="${docs}">
-                <tr>
-                    <td>${doc.getDocId()}</td>
-                    <td>${doc.getName()} ${doc.getLastName()}</td>
-                    <td>${doc.getStatement()}</td>
-                    <td>${doc.getInformation()}</td>
-                    <td>${doc.getReward()}</td>
-                    <td>${doc.getTime()}</td>
-                    <td>${doc.getLeadTime()}</td>
-                        <td>
-                        <a href="user.html"><i class="icon-pencil"></i></a>
-                        <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
-                        </td>
-                </tr>
-            </c:forEach>
-            </tbody>
-        </table>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
 <div class="pagination">
     <ul>
@@ -75,7 +85,8 @@
     </ul>
 </div>
 
-<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="myModalLabel">Delete Confirmation</h3>

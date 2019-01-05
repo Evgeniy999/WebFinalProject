@@ -40,7 +40,7 @@
             </ul>
         </li>
         <li>
-            <a href="#"><i class="fa fa-fw fa-user-plus"></i> ${applic}</a>
+            <a href="/interpol?command=PAGE_APPLIC"><i class="fa fa-fw fa-user-plus"></i> ${applic}</a>
         </li>
         <li>
             <a href="#"><i class="fa fa-fw fa-paper-plane-o"></i> ${areas} </a>

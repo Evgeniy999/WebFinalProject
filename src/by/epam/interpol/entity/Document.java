@@ -25,6 +25,10 @@ public class Document {
         this.lastName = lastName;
     }
 
+    public Document() {
+
+    }
+
     public String getName() {
         return name;
     }

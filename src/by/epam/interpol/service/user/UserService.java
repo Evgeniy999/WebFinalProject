@@ -14,5 +14,6 @@ public interface UserService extends CommonService<User> {
     Optional<User> searchUserByLogin(String login);
     User addUser(String login, String password, String name, String lastName,
                  Date date, long birthday, String address) throws ApplicationException, DaoException;
+    void changePassword(int id, String password) throws DaoException;
 
 }

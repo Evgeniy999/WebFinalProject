@@ -1,29 +1,12 @@
 package by.epam.interpol.service.document;
 
-import by.epam.interpol.dao.document.DocumentDao;
 import by.epam.interpol.entity.Document;
 import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.service.CommonService;
 
-import java.util.ArrayList;
-import java.util.Optional;
+import java.sql.Date;
 
-public class DocService implements CommonService<Document> {
-
-    private DocumentDao documentDao = new DocumentDao();
-
-    @Override
-    public Optional<Document> searchById(int id) {
-        return documentDao.searchById(id);
-    }
-
-    @Override
-    public void remove(int id) throws DaoException {
-
-    }
-
-    @Override
-    public ArrayList<Document> showAll() {
-        return documentDao.showAll();
-    }
+public interface DocService extends CommonService<Document> {
+    Document addDoc(String statement, Date time, double reward,
+                    String information, Date leadTime, String name, String lastName) throws DaoException;
 }

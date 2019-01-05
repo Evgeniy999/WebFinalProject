@@ -23,7 +23,7 @@ public class LoginCommand implements ActionCommand {
     private static final String PASSWORD = "password";
     private static final String SESSION_ROLE = "role";
     private static final String SESSION_IS_LOGIN = "isLogin";
-    private LoginService service = new LoginService();
+    private LoginService service = new LoginService();//todo надо выносить?
     private boolean roleType;
 
 

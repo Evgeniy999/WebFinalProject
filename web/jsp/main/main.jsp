@@ -97,7 +97,15 @@
                                         class="fa fa-angle-down"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#"><i class="fa fa-fw fa-user"></i> ${prof}</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> ${password}</a></li>
+
+
+                                    <form id="change" action="/interpol" method="post">
+                                        <input type="hidden" value="TO_CHANGE_PASS_PAGE" name="command">
+                                        <li><a href="#" class="profstyle" onclick="document.getElementById('change').submit();">
+                                            <i class="fa fa-fw fa-cog"  style="text-decoration: none"></i> ${password}</a></li>
+                                    </form>
+
+
                                     <li class="divider"></li>
                                     <li>
                                         <map>
@@ -126,7 +134,12 @@
                                         class="fa fa-angle-down"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#"><i class="fa fa-fw fa-user"></i> ${prof}</a></li>
-                                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> ${password}</a></li>
+                                    <form id="change" action="/interpol" method="post">
+                                        <input type="hidden" value="TO_CHANGE_PASS_PAGE" name="command">
+                                        <li><a href="#" class="profstyle" onclick="document.getElementById('change').submit();">
+                                            <i class="fa fa-fw fa-cog"  style="text-decoration: none"></i> ${password}</a></li>
+                                    </form>
+
                                     <li class="divider"></li>
                                     <li>
                                         <map>

@@ -33,6 +33,7 @@ public class UserServiceImpl implements UserService {
         return userDao.searchUserByLogin(login);
     }
 
+    @Override
     public ArrayList<User> showAll() {
         return userDao.showAll();
     }
@@ -61,6 +62,11 @@ public class UserServiceImpl implements UserService {
             throw new DaoException("Registration is failed", e);
         }
 
+    }
+
+    @Override
+    public void changePassword(int id, String password) throws DaoException {
+        userDao.changePassword(id,PasswordCode.encode(password));
     }
 
 

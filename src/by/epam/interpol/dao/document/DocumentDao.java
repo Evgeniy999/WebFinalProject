@@ -20,7 +20,7 @@ public class DocumentDao implements CommonDao<Document> {
     private static Logger LOGGER = LogManager.getLogger();
     private static final String SEARCH_DOC_BY_ID = "SELECT * FROM documents, statement WHERE document_id = ?";
     private static final String WHERE_DOC_INFORMATION = "SELECT * FROM documents WHERE  doc_information = ?";
-    private static final String INSERT_DOC_COMMON = "INSERT * INTO documents values(null,?,?,?,?,?)";
+    private static final String INSERT_DOC_COMMON = "INSERT INTO documents values(null,?,?,?,?,?,?,?)";
     private static final String SELECT_DOC_ALL = "SELECT * FROM documents JOIN statement on documents.statement_id=statement.statement_id ";
 
     @Override
@@ -53,11 +53,13 @@ public class DocumentDao implements CommonDao<Document> {
                 throw new DaoException("Document with input login already exist");
             } else {
                 PreparedStatement statement = connection.prepareStatement(INSERT_DOC_COMMON);
-                statement.setString(1, document.getStatement());
-                statement.setDate(2, document.getTime());
-                statement.setDouble(3, document.getReward());
-                statement.setString(4, document.getInformation());
-                statement.setDate(5, document.getLeadTime());
+                statement.setString(1, document.getName());
+                statement.setString(2, document.getLastName());
+                statement.setInt(3, Integer.parseInt(document.getStatement()));
+                statement.setDate(4,document.getTime());
+                statement.setDouble(5, document.getReward());
+                statement.setString(6, document.getInformation());
+                statement.setDate(7, document.getLeadTime());
 
                 statement.executeUpdate();
                 connection.commit();

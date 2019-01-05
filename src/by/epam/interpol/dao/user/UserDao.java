@@ -21,7 +21,7 @@ public class UserDao implements CommonDao<User> {
     private static final String INSERT_NEW_USER_COMMON = "INSERT INTO users values(null,?,?,?,?,?,?,?,?)";
     private static final String REMOVE_USER_DATA = "DELETE FROM users  WHERE user_id = ?";
     private static final String SELECT_USER_ALL = "SELECT * FROM users";
-
+    private static final String CHANGE_PASSWORD = "UPDATE users SET users.password = ? WHERE users.user_id = ?";
 
     @Override
     public Optional<User> searchById(int id) {
@@ -72,18 +72,18 @@ public class UserDao implements CommonDao<User> {
             if (resultSet.next()) {
                 throw new DaoException("User with input login already exist");
             } else {
-                PreparedStatement statement = connection.prepareStatement(INSERT_NEW_USER_COMMON);
-                statement.setString(1, user.getLogin());
-                statement.setString(2, user.getPassword());
-                statement.setString(3, user.getName());
-                statement.setString(4, user.getLastName());
-                statement.setBoolean(5, user.isType());
-                statement.setDate(6, user.getBirthday());
-                statement.setLong(7, user.getTelephone());
-                statement.setString(8, user.getAddress());
+                PreparedStatement prepareStatement = connection.prepareStatement(INSERT_NEW_USER_COMMON);
+                prepareStatement.setString(1, user.getLogin());
+                prepareStatement.setString(2, user.getPassword());
+                prepareStatement.setString(3, user.getName());
+                prepareStatement.setString(4, user.getLastName());
+                prepareStatement.setBoolean(5, user.isType());
+                prepareStatement.setDate(6, user.getBirthday());
+                prepareStatement.setLong(7, user.getTelephone());
+                prepareStatement.setString(8, user.getAddress());
 
 
-                statement.executeUpdate();
+                prepareStatement.executeUpdate();
                 connection.commit();
                 LOGGER.info("User correctly added");
 
@@ -95,7 +95,16 @@ public class UserDao implements CommonDao<User> {
 
     }
 
-
+    public void changePassword(int id, String password) throws DaoException {
+        try (Connection connection = PoolConnection.getInstance().getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(CHANGE_PASSWORD);
+            preparedStatement.setString(1, password);
+            preparedStatement.setInt(2, id);
+            preparedStatement.execute();
+        }catch (SQLException e){
+            throw new DaoException(e);
+        }
+    }
     @Override
     public void remove(int id) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
