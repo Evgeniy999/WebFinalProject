@@ -10,10 +10,10 @@ import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 public class LogoutCommand implements ActionCommand {
+
     public static final String NAME_USER = "nameUser";
     private static final String SESSION_ROLE = "role";
     private static final String SESSION_IS_LOGIN = "isLogin";
-
 
     @Override
     public Router execute(HttpServletRequest request) {

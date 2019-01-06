@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 public class OutNewsCommand implements ActionCommand {
-    private NewsServiceImpl newsService = new NewsServiceImpl();
     @Override
     public Router execute(HttpServletRequest request) {
+        NewsServiceImpl newsService = new NewsServiceImpl();
         Router router = new Router();
         ArrayList<News> newsAll = newsService.showAll();
         request.getSession().setAttribute("news",newsAll);

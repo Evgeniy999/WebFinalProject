@@ -31,11 +31,10 @@ public class RegistrationCommand implements ActionCommand {
     private static final String SESSION_ROLE = "role";
     private static final String SESSION_IS_LOGIN = "isLogin";
 
-
-    private UserServiceImpl service = new UserServiceImpl();
     @Override
 
     public Router execute(HttpServletRequest request) {
+        UserServiceImpl service = new UserServiceImpl();
         Router router = new Router();
         Date birthday = null;
         String currentLogin = request.getParameter(LOGIN);

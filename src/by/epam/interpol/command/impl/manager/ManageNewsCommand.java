@@ -4,9 +4,8 @@ import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 
-
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
+
 
 public class ManageNewsCommand implements ActionCommand {
 
