@@ -1,6 +1,7 @@
 package by.epam.interpol.entity;
 
 
+import java.sql.Blob;
 import java.sql.Date;
 
 public class Document {
@@ -13,8 +14,11 @@ public class Document {
     private Date leadTime;
     private String name;
     private String lastName;
+    private String encodedPhoto;
+    private Blob photo;
 
-    public Document(int docId, String statement, Date time, double reward, String information, Date leadTime, String name, String lastName) {
+    public Document(int docId, String statement, Date time, double reward, String information, Date leadTime,
+                    String name, String lastName, Blob photo, String encodedPhoto) {
         this.docId = docId;
         this.statement = statement;
         this.time = time;
@@ -23,6 +27,8 @@ public class Document {
         this.leadTime = leadTime;
         this.name = name;
         this.lastName = lastName;
+        this.encodedPhoto = encodedPhoto;
+        this.photo = photo;
     }
 
     public Document() {
@@ -92,5 +98,21 @@ public class Document {
 
     public void setLeadTime(Date leadTime) {
         this.leadTime = leadTime;
+    }
+
+    public String getEncodedPhoto() {
+        return encodedPhoto;
+    }
+
+    public void setEncodedPhoto(String encodedPhoto) {
+        this.encodedPhoto = encodedPhoto;
+    }
+
+    public Blob getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(Blob photo) {
+        this.photo = photo;
     }
 }

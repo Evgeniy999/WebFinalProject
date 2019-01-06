@@ -50,7 +50,7 @@
                 <i style="text-decoration: none" class="fa fa-folder-open-o"></i> ${manageDoc} </a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-newspaper-o"></i> ${news}</a>
+                <a href="/interpol?command=NEWS_PAGE"><i class="fa fa-newspaper-o"></i> ${news}</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-fw fa-paper-plane-o"></i> ${areas} </a>

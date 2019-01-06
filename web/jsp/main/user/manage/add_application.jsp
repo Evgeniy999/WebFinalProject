@@ -15,7 +15,7 @@
 <body>
 
 <c:set var="nameUser" value="${nameUser}"/>
-<form action="/interpol" method="get">
+<form action="/interpol" method="post" enctype="multipart/form-data">
     <input type="hidden" value="ADD_APPLIC" name="command">
 
 <div class="container" style="margin-top:50px;">
@@ -57,8 +57,8 @@
             </div>
 
             <div style="padding:10px" class="row form-group">
-                <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
-                <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
+                <label for="photo">Choose images to upload (PNG, JPG)</label>
+                <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png">
             </div>
 
 

@@ -11,10 +11,6 @@
                 <img src="/image/bg_header.jpg" width="1620" height="177">
             </div>
         </div>
-        <form action="/interpol" id="form-id" method="post">
-            <input type="hidden" value="NEWS_OUT" name="command">
-            <a onclick="document.getElementById('form-id').submit();"> NEWS </a>
-        </form>
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-12">
@@ -34,8 +30,15 @@
                                     <c:forEach var="news" items="${news}">
                                     <div class="media">
                                         <a class="pull-left" href="#">
-                                            <img class="media-object"
-                                                 src="/">
+                                            <c:choose>
+                                                <c:when test="${not empty news.encodedPhoto}">
+                                                    <img class="media-object" src="data:image/jpeg;base64,${news.encodedPhoto}"/>
+
+                                                </c:when>
+                                                <c:otherwise>
+                                                    -
+                                                </c:otherwise>
+                                            </c:choose>
                                         </a>
                                         <div class="media-body">
                                             <h4 class="media-heading">${news.getNewsId()}</h4>

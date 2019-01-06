@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -24,6 +25,15 @@
         .col {
             word-wrap: break-word; /* Перенос слов */
         }
+
+        img {
+            width: 50px;
+            transition: width 0.5s ease;
+        }
+
+        #statya:hover img {
+            width: 500px;
+        }
     </style>
 </head>
 <body>
@@ -38,10 +48,12 @@
     <br><br>
 </div>
 <div class="well">
+
     <table class="table">
         <thead>
         <tr>
             <th>#</th>
+            <th>Photo</th>
             <th>Owner statement</th>
             <th>Type statement</th>
             <th>Information</th>
@@ -54,7 +66,18 @@
         <tbody id="myTable">
         <c:forEach var="doc" items="${docs}">
             <tr>
+
                 <td>${doc.getDocId()}</td>
+                <td id="statya">
+                    <c:choose>
+                    <c:when test="${not empty doc.encodedPhoto}">
+                        <img src="data:image/jpeg;base64,${doc.encodedPhoto}"/>
+                    </c:when>
+                    <c:otherwise>
+                        -
+                    </c:otherwise>
+                </c:choose>
+                </td>
                 <td>${doc.getName()} ${doc.getLastName()}</td>
                 <td>${doc.getStatement()}</td>
                 <td style="width: 320px;">
@@ -66,8 +89,14 @@
                 <td>${doc.getTime()}</td>
                 <td>${doc.getLeadTime()}</td>
                 <td>
-                    <a href="user.html"><i class="icon-pencil"></i></a>
-                    <a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>
+                    <form action="/interpol" method="get">
+                        <input type="hidden" value="APPROVE_PAGE" name="command">
+                        <a href="interpol?command=APPROVE_PAGE&id=${doc.getDocId()}"><i class="icon-pencil"></i></a>
+                    </form>
+                    <form action="/interpol" method="get">
+                        <input type="hidden" value="REMOVE_DOC" name="command">
+                        <a href="interpol?command=REMOVE_DOC&id=${doc.getDocId()}"><i class="icon-remove"></i></a>
+                    </form>
                 </td>
             </tr>
         </c:forEach>
@@ -84,21 +113,12 @@
         <li><a href="#">Next</a></li>
     </ul>
 </div>
-
-<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Delete Confirmation</h3>
-    </div>
-    <div class="modal-body">
-        <p class="error-text">Are you sure you want to delete the user?</p>
-    </div>
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <button class="btn btn-danger" data-dismiss="modal">Delete</button>
-    </div>
+<!-- Post Info -->
+<div style='position:fixed;bottom:0;left:0;
+            background:lightgray;width:100%;'>
+    <infotag:getinfo/>
 </div>
+
 
 <a href="/jsp/main/main.jsp">Back</a>
 </body>

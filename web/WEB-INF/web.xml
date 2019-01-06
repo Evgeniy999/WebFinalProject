@@ -29,9 +29,12 @@
 
     <filter-mapping>
         <filter-name>JspFilter</filter-name>
-        <url-pattern>/jsp/main/admin/manage/doc_table.jsp</url-pattern>
+        <url-pattern>/jsp/main/admin/*</url-pattern>
     </filter-mapping>
 
+    <error-page>
+        <location>/jsp/error/error.jsp</location>
+    </error-page>
     <session-config>
         <session-timeout>10</session-timeout>
     </session-config>

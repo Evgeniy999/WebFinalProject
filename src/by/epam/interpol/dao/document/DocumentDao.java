@@ -8,11 +8,11 @@ import by.epam.interpol.util.DocBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import javax.servlet.http.Part;
+import java.io.InputStream;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Optional;
 
 public class DocumentDao implements CommonDao<Document> {
@@ -20,8 +20,9 @@ public class DocumentDao implements CommonDao<Document> {
     private static Logger LOGGER = LogManager.getLogger();
     private static final String SEARCH_DOC_BY_ID = "SELECT * FROM documents, statement WHERE document_id = ?";
     private static final String WHERE_DOC_INFORMATION = "SELECT * FROM documents WHERE  doc_information = ?";
-    private static final String INSERT_DOC_COMMON = "INSERT INTO documents values(null,?,?,?,?,?,?,?)";
+    private static final String INSERT_DOC_COMMON = "INSERT INTO documents values(null,?,?,?,?,?,?,?,?)";
     private static final String SELECT_DOC_ALL = "SELECT * FROM documents JOIN statement on documents.statement_id=statement.statement_id ";
+    private static final String REMOVE_DOC_DATA = "DELETE FROM documents  WHERE document_id = ?";
 
     @Override
     public Optional<Document> searchById(int id) {
@@ -31,7 +32,7 @@ public class DocumentDao implements CommonDao<Document> {
             ResultSet resultSet = preparedStatement.executeQuery();
             Document doc = null;
             if (resultSet.next()) {
-               doc =DocBuilder.createDoc(resultSet);
+                doc = DocBuilder.createDoc(resultSet);//todo закинуть в билдер
             }
             return Optional.of(doc);
         } catch (SQLException e) {
@@ -39,33 +40,32 @@ public class DocumentDao implements CommonDao<Document> {
         }
     }
 
-    @Override
-    public Document add(Document document) throws DaoException {
+    public void addDocument(String stat, Date time, double reward, String information, Date leadTime, String name,
+                        String lastName, InputStream image) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
             connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
             connection.setAutoCommit(false);
 
             PreparedStatement preparedStatement = connection.prepareStatement(WHERE_DOC_INFORMATION);
-            preparedStatement.setString(1, document.getInformation());
+            preparedStatement.setString(1, information);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
                 throw new DaoException("Document with input login already exist");
             } else {
                 PreparedStatement statement = connection.prepareStatement(INSERT_DOC_COMMON);
-                statement.setString(1, document.getName());
-                statement.setString(2, document.getLastName());
-                statement.setInt(3, Integer.parseInt(document.getStatement()));
-                statement.setDate(4,document.getTime());
-                statement.setDouble(5, document.getReward());
-                statement.setString(6, document.getInformation());
-                statement.setDate(7, document.getLeadTime());
-
+                statement.setString(1, name);
+                statement.setString(2, lastName);
+                statement.setInt(3, Integer.parseInt(stat));
+                statement.setDate(4, time);
+                statement.setDouble(5, reward);
+                statement.setString(6, information);
+                statement.setDate(7, leadTime);
+                statement.setBlob(8, image);
                 statement.executeUpdate();
                 connection.commit();
                 LOGGER.info("Document correctly added");
-
-                return document;
+                //return document;
             }
         } catch (SQLException e) {
             throw new DaoException("Document not added", e);
@@ -75,7 +75,13 @@ public class DocumentDao implements CommonDao<Document> {
 
     @Override
     public void remove(int id) throws DaoException {
-
+        try (Connection connection = PoolConnection.getInstance().getConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(REMOVE_DOC_DATA);
+            preparedStatement.setInt(1, id);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new DaoException(e);
+        }
     }
 
     @Override

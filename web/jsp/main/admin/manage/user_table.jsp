@@ -26,37 +26,36 @@
 
 <body>
 
-<form action="/interpol" method="get">
-    <input type="hidden" value="REMOVE_USER" name="command">
-    <div class="btn-toolbar">
-        <button class="btn btn-primary">New User</button>
-        <button class="btn">Import</button>
-        <button class="btn">Export</button>
-        <%--<div>--%>
-        <%--<input type="text" name="id"> Delete by id</input>--%>
-            <%--<button type="submit" name="id"><i class="icon-remove"></i></button>--%>
-        <%--</div>--%>
-        <h2>Filterable Table</h2>
-        <p>Type something in the input field to search the table for first names, last names or emails:</p>
-        <input id="myInput" type="text" placeholder="Search..">
-        <br><br>
-    </div>
-    <div class="well">
-        <table class="table">
-            <thead>
-            <tr>
-                <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <td>Birthday</td>
-                <td>Telephone</td>
-                <td>Address</td>
-                <th style="width: 36px;"></th>
-            </tr>
-            </thead>
-            <tbody id="myTable">
-            <c:forEach var="user" items="${users}">
-                <c:if test="${user.isType() == false}">
+
+<div class="btn-toolbar">
+    <button class="btn btn-primary">New User</button>
+    <button class="btn">Import</button>
+    <button class="btn">Export</button>
+    <%--<div>--%>
+    <%--<input type="text" name="id"> Delete by id</input>--%>
+    <%--<button type="submit" name="id"><i class="icon-remove"></i></button>--%>
+    <%--</div>--%>
+    <h2>Filterable Table</h2>
+    <p>Type something in the input field to search the table for first names, last names or emails:</p>
+    <input id="myInput" type="text" placeholder="Search..">
+    <br><br>
+</div>
+<div class="well">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <td>Birthday</td>
+            <td>Telephone</td>
+            <td>Address</td>
+            <th style="width: 36px;"></th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        <c:forEach var="user" items="${users}">
+            <c:if test="${user.isType() == false}">
                 <tr>
                     <td>${user.getUserId()}</td>
                     <td>${user.getName()}</td>
@@ -65,46 +64,30 @@
                     <td>${user.getTelephone()}</td>
                     <td>${user.getAddress()}</td>
                     <td>
-                        <a href="user.html"><i class="icon-pencil"></i></a>
-                        <%--<a href="#myModal" role="button" data-toggle="modal"><i class="icon-remove"></i></a>    --%>
-                        <a href="interpol?command=REMOVE_USER&id=${user.getUserId()}"><i class="icon-remove"></i></a>
+                        <%--<a href=""><i class="icon-pencil"></i></a>--%>
+                        <form action="/interpol" method="get">
+                            <input type="hidden" value="REMOVE_USER" name="command">
+                            <a href="interpol?command=REMOVE_USER&id=${user.getUserId()}"><i
+                                    class="icon-remove"></i></a>
+                        </form>
                     </td>
                 </tr>
-                </c:if>
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
-    <div class="pagination">
-        <ul>
-            <li><a href="#">Prev</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">Next</a></li>
-        </ul>
-    </div>
-</form>
-
-<form id="del" action="/interpol" method="get">
-<input type="hidden" value="REMOVE_USER" name="command">
-<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="myModalLabel">Delete Confirmation</h3>
-    </div>
-    <div class="modal-body">
-        <p class="error-text">Are you sure you want to delete the user?</p>
-    </div>
-
-    <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <button class="btn btn-danger" data-dismiss="modal" name="" onclick="document.getElementById('del').submit();">Delete</button>
-    </div>
+            </c:if>
+        </c:forEach>
+        </tbody>
+    </table>
 </div>
-</form>
+<div class="pagination">
+    <ul>
+        <li><a href="#">Prev</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">Next</a></li>
+    </ul>
+</div>
+
 <!-- Post Info -->
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>

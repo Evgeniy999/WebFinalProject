@@ -1,7 +1,7 @@
 package by.epam.interpol.service.user;
 
 import by.epam.interpol.coding.PasswordCode;
-import by.epam.interpol.dao.user.UserDao;
+import by.epam.interpol.dao.user.UserDaoImpl;
 import by.epam.interpol.entity.User;
 
 import java.nio.charset.StandardCharsets;
@@ -16,26 +16,21 @@ import org.apache.logging.log4j.Logger;
 public class UserServiceImpl implements UserService {
     private static Logger LOGGER = LogManager.getLogger(UserServiceImpl.class);
 
-    private UserDao userDao = new UserDao();
+    private UserDaoImpl userDaoImpl = new UserDaoImpl();
 
     @Override
     public Optional<User> searchById(int id) {
-        return userDao.searchById(id);
+        return userDaoImpl.searchById(id);
     }
 
     @Override
     public void remove(int id) throws DaoException {
-        userDao.remove(id);
-    }
-
-    @Override
-    public Optional<User> searchUserByLogin(String login) {
-        return userDao.searchUserByLogin(login);
+        userDaoImpl.remove(id);
     }
 
     @Override
     public ArrayList<User> showAll() {
-        return userDao.showAll();
+        return userDaoImpl.showAll();
     }
 
     @Override
@@ -56,7 +51,7 @@ public class UserServiceImpl implements UserService {
         user.setAddress(address);
 
         try {
-            userDao.add(user);
+            userDaoImpl.add(user);
             return user;
         } catch (DaoException e) {
             throw new DaoException("Registration is failed", e);
@@ -66,7 +61,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void changePassword(int id, String password) throws DaoException {
-        userDao.changePassword(id,PasswordCode.encode(password));
+        userDaoImpl.changePassword(id,PasswordCode.encode(password));
     }
 
 

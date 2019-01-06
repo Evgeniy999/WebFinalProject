@@ -27,7 +27,7 @@
 <form action="/interpol" method="get">
     <input type="hidden" value="REGISTRATION" name="command">
     <div class="row">
-        <div class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3">
+        <div style="margin-top: 100px" class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">Enter Your Details Here
                 </div>
