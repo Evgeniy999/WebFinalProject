@@ -23,18 +23,29 @@
     </filter-mapping>
 
     <filter>
-        <filter-name>JspFilter</filter-name>
-        <filter-class>by.epam.interpol.filter.JspFilter</filter-class>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>by.epam.interpol.filter.AdminFilter</filter-class>
     </filter>
 
     <filter-mapping>
-        <filter-name>JspFilter</filter-name>
+        <filter-name>AdminFilter</filter-name>
         <url-pattern>/jsp/main/admin/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>UserFilter</filter-name>
+        <filter-class>by.epam.interpol.filter.UserFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>UserFilter</filter-name>
+        <url-pattern>/jsp/main/user/*</url-pattern>
     </filter-mapping>
 
     <error-page>
         <location>/jsp/error/error.jsp</location>
     </error-page>
+
     <session-config>
         <session-timeout>10</session-timeout>
     </session-config>

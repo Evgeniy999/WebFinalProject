@@ -1,6 +1,5 @@
 package by.epam.interpol.filter;
 
-import by.epam.interpol.command.PagePath;
 import by.epam.interpol.consant.RoleType;
 
 import javax.servlet.*;
@@ -9,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebFilter(filterName = "JspFilter", urlPatterns = {"/jsp/main/admin/*"}, dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
-public class JspFilter implements Filter {
+@WebFilter(filterName = "AdminFilter", urlPatterns = {"/jsp/main/admin/*"}, dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
+public class AdminFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

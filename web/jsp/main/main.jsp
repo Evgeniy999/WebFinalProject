@@ -102,7 +102,7 @@
                                     <form id="change" action="/interpol" method="post">
                                         <input type="hidden" value="TO_CHANGE_PASS_PAGE" name="command">
                                         <li><a href="#" class="profstyle" onclick="document.getElementById('change').submit();">
-                                            <i class="fa fa-fw fa-cog"  style="text-decoration: none"></i> ${password}</a></li>
+                                            <i class="fa fa-fw fa-cog"  style="text-decoration: none"></i>${password}</a></li>
                                     </form>
 
 
@@ -111,7 +111,7 @@
                                         <map>
                                             <form id="form-id" action="/interpol" method="post">
                                                 <input type="hidden" value="LOGOUT" name="command">
-                                    <li><a href="#" class="profstyleout"
+                                    <li><a href="#" class="profstyle"
                                            onclick="document.getElementById('form-id').submit();">
                                         </map> <i style="text-decoration: none"
                                                   class="fa fa-fw fa-power-off "></i> ${out} </a></li>
@@ -137,7 +137,7 @@
                                     <form id="change" action="/interpol" method="post">
                                         <input type="hidden" value="TO_CHANGE_PASS_PAGE" name="command">
                                         <li><a href="#" class="profstyle" onclick="document.getElementById('change').submit();">
-                                            <i class="fa fa-fw fa-cog"  style="text-decoration: none"></i> ${password}</a></li>
+                                            <i class="fa fa-fw fa-cog"  style="text-decoration: none"></i>${password}</a></li>
                                     </form>
 
                                     <li class="divider"></li>
@@ -145,7 +145,7 @@
                                         <map>
                                             <form id="form-id" action="/interpol" method="post">
                                                 <input type="hidden" value="LOGOUT" name="command">
-                                    <li><a href="#" class="profstyleout"
+                                    <li><a href="#" class="profstyle"
                                            onclick="document.getElementById('form-id').submit();">
                                         </map> <i style="text-decoration: none"
                                                   class="fa fa-fw fa-power-off"></i> ${out} </a></li>
