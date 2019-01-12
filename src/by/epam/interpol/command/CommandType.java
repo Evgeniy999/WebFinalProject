@@ -32,6 +32,8 @@ public enum CommandType {
     ADD_NEWS(new NewsAddCommand()),
     PAGE_APPLIC(new ApplicationPageCommand()),
     ADD_APPLIC(new AddApplicationCommand()),
+    WANTED_PAGE(new WantedPageCommand()),
+    MISSING_PAGE(new MissingPageCommand()),
     MANAGE_DOC(new ManageDocCommand());
 
     private ActionCommand command;

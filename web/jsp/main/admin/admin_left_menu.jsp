@@ -26,8 +26,8 @@
                 <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i>
                     ${search} <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                 <ul id="submenu-1" class="collapse">
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i> ${missing} </a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i> ${wanted} </a></li>
+                    <li><a href="/interpol?command=MISSING_PAGE"><i class="fa fa-angle-double-right"></i> ${missing} </a></li>
+                    <li><a href="/interpol?command=WANTED_PAGE"><i class="fa fa-angle-double-right"></i> ${wanted} </a></li>
                 </ul>
             </li>
             <li>

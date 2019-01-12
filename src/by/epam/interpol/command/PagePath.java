@@ -15,7 +15,9 @@ public enum PagePath {
     USERS_TABLE("/jsp/main/admin/manage/user_table.jsp"),
     ERROR_PAGE("/jsp/error/error.jsp"),
     APPLICATION_PAGE("/jsp/main/user/manage/add_application.jsp"),
-    DOCS_TABLE("/jsp/main/admin/manage/doc_table.jsp");
+    DOCS_TABLE("/jsp/main/admin/manage/doc_table.jsp"),
+    WANTED_TABLE("/jsp/main/common/wanted_table.jsp"),
+    MISSING_TABLE("/jsp/main/common/missing_table.jsp");
 
     String jspPath; 
 
