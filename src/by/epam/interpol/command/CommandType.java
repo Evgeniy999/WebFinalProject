@@ -1,10 +1,7 @@
 package by.epam.interpol.command;
 
 
-import by.epam.interpol.command.impl.admin.ApproveApplicationCommand;
-import by.epam.interpol.command.impl.admin.NewsAddCommand;
-import by.epam.interpol.command.impl.admin.RemoveDocCommand;
-import by.epam.interpol.command.impl.admin.RemoveUserCommand;
+import by.epam.interpol.command.impl.admin.*;
 import by.epam.interpol.command.impl.guest.LoginCommand;
 import by.epam.interpol.command.impl.guest.RegistrationCommand;
 import by.epam.interpol.command.impl.manager.*;
@@ -33,6 +30,7 @@ public enum CommandType {
     PAGE_APPLIC(new ApplicationPageCommand()),
     ADD_APPLIC(new AddApplicationCommand()),
     WANTED_PAGE(new WantedPageCommand()),
+    REMOVE_PERSON(new RemovePersonCommand()),
     MISSING_PAGE(new MissingPageCommand()),
     MANAGE_DOC(new ManageDocCommand());
 
