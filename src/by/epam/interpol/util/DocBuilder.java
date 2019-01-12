@@ -33,7 +33,7 @@ public class DocBuilder {
         String lastName = resultSet.getString(USER_LAST);
         Blob photo = resultSet.getBlob(DOC_USER_PHOTO);
         String base64EncodedPhoto = null;
-        if(photo != null){
+        if (photo != null) {
             base64EncodedPhoto = Base64.getEncoder().encodeToString(photo.getBytes(1, (int) photo.length()));
         }
         return new Document(docId, statement, time, reward, information, leadTime, name, lastName, photo, base64EncodedPhoto);
@@ -54,7 +54,7 @@ public class DocBuilder {
             String lastName = resultSet.getString(USER_LAST);
             Blob photo = resultSet.getBlob(DOC_USER_PHOTO);
             String base64EncodedPhoto = null;
-            if(photo != null){
+            if (photo != null) {
                 base64EncodedPhoto = Base64.getEncoder().encodeToString(photo.getBytes(1, (int) photo.length()));
             }
             result.add(new Document(docId, statement, time, reward, information, leadTime, name, lastName, photo, base64EncodedPhoto));

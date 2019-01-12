@@ -101,17 +101,17 @@ $(document).ready(function(){
     //     }
     // });
     $("#telephone").focusout(function(){
-        $pho =$("#phone").val();
+        $pho =$("#telephone").val();
         if($(this).val()==''){
             $(this).css("border-color", "#FF0000");
             $('#submit').attr('disabled',true);
             $("#error_telephone").text("* You have to enter your Phone Number!");
         }
-        else if ($pho.length!=12)
+         else if ($pho.length!=12)
         {
             $(this).css("border-color", "#FF0000");
             $('#submit').attr('disabled',true);
-            $("#error_telephone").text("* Lenght of Phone Number Should Be Ten");
+            $("#error_telephone").text("* Lenght of Phone Number Should Be twelve");
         }
         else if(!$.isNumeric($pho))
         {

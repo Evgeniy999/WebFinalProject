@@ -2,8 +2,14 @@ package by.epam.interpol.filter;
 
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.consant.RoleType;
+import by.epam.interpol.entity.Document;
 import by.epam.interpol.entity.News;
-import by.epam.interpol.service.news.NewsServiceImpl;
+import by.epam.interpol.entity.Person;
+import by.epam.interpol.entity.User;
+import by.epam.interpol.service.impl.DocServiceImpl;
+import by.epam.interpol.service.impl.NewsServiceImpl;
+import by.epam.interpol.service.impl.PersonServiceImpl;
+import by.epam.interpol.service.impl.UserServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +24,7 @@ public class SessionFilter implements Filter {
     private static final String SESSION_IS_LOGIN = "isLogin";
     private static final String SESSION_ROLE = "role";
     private static final String SESSION_LAST_PAGE = "lastPage";
-    private NewsServiceImpl newsService = new NewsServiceImpl();
+
 
 
     @Override
@@ -32,6 +38,10 @@ public class SessionFilter implements Filter {
 
         if (request.getSession().isNew()) {
             if (request.getServletPath().equals(INDEX_JSP)) {
+                NewsServiceImpl newsService = new NewsServiceImpl();
+                DocServiceImpl docService = new DocServiceImpl();
+                UserServiceImpl userService = new UserServiceImpl();
+                PersonServiceImpl personService = new PersonServiceImpl();
                 HttpSession session = request.getSession(true);
                 session.setAttribute(SESSION_LANG, "en");
                 session.setAttribute(SESSION_IS_LOGIN, "false");
@@ -39,6 +49,12 @@ public class SessionFilter implements Filter {
                 session.setAttribute(SESSION_LAST_PAGE, PagePath.MAIN_PAGE);
                 ArrayList<News> newsAll = newsService.showAll();
                 session.setAttribute("news", newsAll);
+                ArrayList<Document> documents = docService.showAll();
+                session.setAttribute("docs",documents);
+                ArrayList<User> users = userService.showAll();
+                session.setAttribute("users",users);
+                ArrayList<Person> people = personService.showAll();
+                session.setAttribute("people",people);
             }
         }
         else {

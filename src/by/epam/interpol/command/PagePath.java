@@ -3,7 +3,10 @@ package by.epam.interpol.command;
 public enum PagePath {
     INDEX_PAGE("/index.jsp"),
     LOGIN_PAGE("/jsp/login/login.jsp"),
-    PASSWORD_PAGE("/jsp/login/password.jsp"),
+    PASSWORD_PAGE_ADMIN("/jsp/main/admin/manage/password.jsp"),
+    PASSWORD_PAGE_USER("/jsp/main/user/manage/password.jsp"),
+    CHANGE_PROF_PAGE_ADMIN("/jsp/main/admin/manage/change_prof.jsp"),
+    CHANGE_PROF_PAGE_USER("/jsp/main/user/manage/change_prof.jsp"),
     REGISTRATION_PAGE("/jsp/registration/registration.jsp"),
     APPROVE_PAGE("/jsp/main/admin/manage/approve_application.jsp"),
     NEWS_PAGE("/jsp/main/admin/manage/news_table.jsp"),

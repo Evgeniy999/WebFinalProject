@@ -41,7 +41,7 @@
                                             </c:choose>
                                         </a>
                                         <div class="media-body">
-                                            <h4 class="media-heading">${news.getNewsId()}</h4>
+                                            <%--<h4 class="media-heading">${news.getNewsId()}</h4>--%>
                                             <p class="text">${news.getTopic()}</p>
                                             <p>${news.getInformation()}</p>
                                             <ul class="list-inline list-unstyled">

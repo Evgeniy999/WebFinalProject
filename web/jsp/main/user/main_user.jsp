@@ -39,96 +39,34 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab1primary">
                                 <div class="well">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object"
-                                                 src="http://i1.wp.com/www.moneybook.ro/wp-content/uploads/2016/02/polen-crud.jpg?resize=768%2C480">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">APILARNILUL</h4>
-                                            <p class="text">By Francisco</p>
-                                            <p>${user.getName()}.</p>
-                                            <ul class="list-inline list-unstyled">
-                                                <li><span><i
-                                                        class="glyphicon glyphicon-calendar"></i> 2018-12-19 </span>
-                                                    <%--</li>--%>
-                                                    <%--<li>|</li>--%>
-                                                    <%--<span><i--%>
-                                                    <%--class="glyphicon glyphicon-comment"></i> 2 comments</span>--%>
-                                                    <%--<li>|</li>--%>
-                                                    <%--<li>--%>
-                                                    <%--<span class="glyphicon glyphicon-star"></span>--%>
-                                                    <%--<span class="glyphicon glyphicon-star"></span>--%>
-                                                    <%--<span class="glyphicon glyphicon-star"></span>--%>
-                                                    <%--<span class="glyphicon glyphicon-star"></span>--%>
-                                                    <%--<span class="glyphicon glyphicon-star-empty"></span>--%>
-                                                    <%--</li>--%>
-                                                    <%--<li>|</li>--%>
-                                                    <%--<li>--%>
-                                                    <%--<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->--%>
-                                                    <%--<span><i class="fa fa-facebook-square"></i></span>--%>
-                                                    <%--<span><i class="fa fa-twitter-square"></i></span>--%>
-                                                    <%--<span><i class="fa fa-google-plus-square"></i></span>--%>
-                                                    <%--</li>--%>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="well">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object"
-                                                 src="http://i0.wp.com/www.moneybook.ro/wp-content/uploads/2016/08/images_8.jpg?resize=299%2C224">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Ziua Femeii</h4>
-                                            <p class="text-right">By Anailuj</p>
-                                            <p>In fiecare an, pe 8 Martie, trebuie sa le spunem din toata
-                                                inima La Multi Ani!
-                                                De cand se serbeaza Ziua Femeii?
-                                                Am putea spune ca Ziua femeii, Ziua mamei se serbeaza inca
-                                                de pe vremea grecilor antici.
-                                                In fiecare primavara, ei o serbau pe Rhea, mama tuturor
-                                                zeilor.
-                                                In cultura multor tari, 8 Martie s-a transformat dintr-o
-                                                simpla zi a calendarului in sarbatoarea primaverii,
-                                                in ziua in care mamele, bunicile, sotiile, prietenele,
-                                                surorile, fiicele, colegele,
-                                                primesc flori si mici daruri simbolice care subliniaza rolul
-                                                lor acasa, in familie, in societate.
-                                                1907 – La Copenhaga a avut loc prima Conferinta a femeilor
-                                                socialiste, la initiativa ziaristei germane Clara Zetkin,
-                                                care conducea din 1890 revista “Die Gleichheit”
-                                                (Egalitatea).</p>
-                                            <ul class="list-inline list-unstyled">
-                                                <li><span><i
-                                                        class="glyphicon glyphicon-calendar"></i> 2018-12-19</span>
-                                                    <%--</li>--%>
-                                                    <%--<li>|</li>--%>
-                                                    <%--<span><i--%>
-                                                    <%--class="glyphicon glyphicon-comment"></i> 2 comments</span>--%>
-                                                    <%--<li>|</li>--%>
-                                                    <%--<li>--%>
-                                                    <%--<span class="glyphicon glyphicon-star"></span>--%>
-                                                    <%--<span class="glyphicon glyphicon-star"></span>--%>
-                                                    <%--<span class="glyphicon glyphicon-star"></span>--%>
-                                                    <%--<span class="glyphicon glyphicon-star"></span>--%>
-                                                    <%--<span class="glyphicon glyphicon-star-empty"></span>--%>
-                                                    <%--</li>--%>
-                                                    <%--<li>|</li>--%>
-                                                    <%--<li>--%>
-                                                    <%--<!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->--%>
-                                                    <%--<span><i class="fa fa-facebook-square"></i></span>--%>
-                                                    <%--<span><i class="fa fa-twitter-square"></i></span>--%>
-                                                    <%--<span><i class="fa fa-google-plus-square"></i></span>--%>
-                                                    <%--</li>--%>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    <c:forEach var="news" items="${news}">
+                                        <div class="media">
+                                            <a class="pull-left" href="#">
+                                                <c:choose>
+                                                    <c:when test="${not empty news.encodedPhoto}">
+                                                        <img class="media-object" src="data:image/jpeg;base64,${news.encodedPhoto}"/>
 
-
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <img class="media-object" src="#"/>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </a>
+                                            <div class="media-body">
+                                                <%--<h4 class="media-heading">${news.getNewsId()}</h4>--%>
+                                                <p class="text">${news.getTopic()}</p>
+                                                <p>${news.getInformation()}</p>
+                                                <ul class="list-inline list-unstyled">
+                                                    <li><span><i
+                                                            class="glyphicon glyphicon-calendar"></i> ${news.getTime()}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
                                 </div>
                             </div>
+
                             <div class="tab-pane fade" id="tab2primary">
                                 <div class="well">
                                     <div class="media">

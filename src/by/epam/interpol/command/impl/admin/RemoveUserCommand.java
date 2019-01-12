@@ -5,14 +5,15 @@ import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 import by.epam.interpol.entity.User;
 import by.epam.interpol.exception.DaoException;
-import by.epam.interpol.service.user.UserServiceImpl;
+import by.epam.interpol.exception.ServiceException;
+import by.epam.interpol.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 public class RemoveUserCommand implements ActionCommand {
 
-    public static final String ID = "id";
+    private static final String ID = "id";
 
     @Override
     public Router execute(HttpServletRequest request) {
@@ -21,7 +22,7 @@ public class RemoveUserCommand implements ActionCommand {
         String id = request.getParameter(ID);
         try {
             service.remove(Integer.parseInt(id));
-        } catch (DaoException e) {
+        } catch (ServiceException e) {
             e.printStackTrace();
         }
         ArrayList<User> userAll = service.showAll();

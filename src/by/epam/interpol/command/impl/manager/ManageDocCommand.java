@@ -4,7 +4,7 @@ import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 import by.epam.interpol.entity.Document;
-import by.epam.interpol.service.document.DocServiceImpl;
+import by.epam.interpol.service.impl.DocServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class ManageDocCommand implements ActionCommand {
         ArrayList<Document> documents = docService.showAll();
         request.getSession().setAttribute("docs",documents);
         router.setPagePath(PagePath.DOCS_TABLE.getJspPath());
-        //router.setRouteType(Router.RouteType.FORWARD);
+        router.setRouteType(Router.RouteType.FORWARD);
         return router;
     }
 }

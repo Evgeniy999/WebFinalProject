@@ -11,6 +11,8 @@ import java.io.IOException;
 @WebFilter(filterName = "AdminFilter", urlPatterns = {"/jsp/main/admin/*"}, dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
 public class AdminFilter implements Filter {
 
+    public static final String ROLE = "role";
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -20,7 +22,7 @@ public class AdminFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req= (HttpServletRequest) servletRequest;
         HttpServletResponse resp= (HttpServletResponse) servletResponse;
-        RoleType role = (RoleType) req.getSession().getAttribute("role");
+        RoleType role = (RoleType) req.getSession().getAttribute(ROLE);
         if(role != RoleType.ADMIN){
             resp.sendError(HttpServletResponse.SC_FORBIDDEN);
         } else {

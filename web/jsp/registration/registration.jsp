@@ -60,7 +60,7 @@
                         </div>
                         <div class="form-group">
                             <label for="birthday">Date Of Birth *</label>
-                            <input type="date" name=birthday id="birthday" class="form-control" min="1">
+                            <input type="date" name="birthday" id="birthday" class="form-control" min="1">
                             <span id="error_birthday" class="text-danger"></span>
                         </div>
                         <div class="form-group">

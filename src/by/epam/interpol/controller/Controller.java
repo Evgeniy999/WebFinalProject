@@ -2,7 +2,7 @@ package by.epam.interpol.controller;
 
 import by.epam.interpol.command.*;
 import by.epam.interpol.command.impl.manager.EmptyCommand;
-import by.epam.interpol.connection.PoolConnection;
+import by.epam.interpol.pool.PoolConnection;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

@@ -3,9 +3,9 @@ package by.epam.interpol.command.impl.admin;
 import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
-import by.epam.interpol.exception.ApplicationException;
 import by.epam.interpol.exception.DaoException;
-import by.epam.interpol.service.news.NewsServiceImpl;
+import by.epam.interpol.exception.ServiceException;
+import by.epam.interpol.service.impl.NewsServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -19,11 +19,11 @@ import java.text.SimpleDateFormat;
 public class NewsAddCommand implements ActionCommand {
 
     private static Logger LOGGER = LogManager.getLogger();
-    public static final String NEWS_TOPIC = "topic";
-    public static final String NEWS_INFORMATION = "information";
-    public static final String COUNTRY = "country";
-    public static final String DATA_NEWS = "dateNews";
-    public static final String NEWS_PHOTO = "photo";
+    private static final String NEWS_TOPIC = "topic";
+    private static final String NEWS_INFORMATION = "information";
+    private static final String COUNTRY = "country";
+    private static final String DATA_NEWS = "dateNews";
+    private static final String NEWS_PHOTO = "photo";
 
     @Override
     public Router execute(HttpServletRequest request) {
@@ -49,7 +49,7 @@ public class NewsAddCommand implements ActionCommand {
             newsService.addNews(currentTopic, currentInformation, currentCountry, date, imagePart);
             router.setPagePath(PagePath.NEWS_PAGE.getJspPath());
 
-        } catch (Exception | DaoException e) {
+        } catch (Exception | ServiceException e) {
             LOGGER.warn("Document input exception", e);
             router.setPagePath(PagePath.NEWS_ADD_PAGE.getJspPath());
         }

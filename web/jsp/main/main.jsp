@@ -93,16 +93,25 @@
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle"
-                                   data-toggle="dropdown"> ${nameUser.getName()} ${nameUser.getLastName()} <b
-                                        class="fa fa-angle-down"></b></a>
+                                   data-toggle="dropdown"
+                                   style="width: 180px"> ${nameUser.getName()} ${nameUser.getLastName()} <b
+                                        class="fa fa-angle-down"></b>
+                                </a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-fw fa-user"></i> ${prof}</a></li>
-
+                                    <form id="change_prof" action="/interpol" method="post">
+                                        <input type="hidden" value="TO_CHANGE_PROF_PAGE" name="command">
+                                        <li><a href="#" class="profstyle"
+                                               onclick="document.getElementById('change_prof').submit();"><i
+                                                class="fa fa-fw fa-user"></i> ${prof}</a>
+                                        </li>
+                                    </form>
 
                                     <form id="change" action="/interpol" method="post">
                                         <input type="hidden" value="TO_CHANGE_PASS_PAGE" name="command">
-                                        <li><a href="#" class="profstyle" onclick="document.getElementById('change').submit();">
-                                            <i class="fa fa-fw fa-cog"  style="text-decoration: none"></i>${password}</a></li>
+                                        <li><a href="#" class="profstyle"
+                                               onclick="document.getElementById('change').submit();">
+                                            <i class="fa fa-fw fa-cog" style="text-decoration: none"></i>${password}</a>
+                                        </li>
                                     </form>
 
 
@@ -130,14 +139,22 @@
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle"
-                                   data-toggle="dropdown"> ${nameUser.getName()} ${nameUser.getLastName()} <b
+                                   data-toggle="dropdown"
+                                   style="width: 180px"> ${nameUser.getName()} ${nameUser.getLastName()} <b
                                         class="fa fa-angle-down"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"><i class="fa fa-fw fa-user"></i> ${prof}</a></li>
+                                    <form id="change_prof" action="/interpol" method="post">
+                                        <input type="hidden" value="TO_CHANGE_PROF_PAGE" name="command">
+                                        <li><a href="#" class="profstyle"
+                                               onclick="document.getElementById('change_prof').submit();"><i
+                                                class="fa fa-fw fa-user"></i> ${prof}</a></li>
+                                    </form>
                                     <form id="change" action="/interpol" method="post">
                                         <input type="hidden" value="TO_CHANGE_PASS_PAGE" name="command">
-                                        <li><a href="#" class="profstyle" onclick="document.getElementById('change').submit();">
-                                            <i class="fa fa-fw fa-cog"  style="text-decoration: none"></i>${password}</a></li>
+                                        <li><a href="#" class="profstyle"
+                                               onclick="document.getElementById('change').submit();">
+                                            <i class="fa fa-fw fa-cog" style="text-decoration: none"></i>${password}</a>
+                                        </li>
                                     </form>
 
                                     <li class="divider"></li>

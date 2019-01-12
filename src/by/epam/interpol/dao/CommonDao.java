@@ -13,5 +13,4 @@ public interface CommonDao<T> {
     void remove(int id) throws DaoException;
     ArrayList<T> showAll();
 
-
 }

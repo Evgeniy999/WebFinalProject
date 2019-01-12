@@ -11,14 +11,20 @@
                 <img src="/image/bg_header.jpg" width="1620" height="177">
             </div>
         </div>
-        <!-- /.row -->
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel with-nav-tabs panel-primary">
                     <div class="panel-heading">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1primary">
-                                News </a></li>
+                            <li class="active"><a href="#tab1primary" data-toggle="tab">News</a></li>
+                            <li><a href="#tab2primary" data-toggle="tab">Documents </a></li>
+                            <li><a href="#tab3primary" data-toggle="tab">Users</a></li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown">People <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#tab4primary" data-toggle="tab"> Wanted persons </a></li>
+                                    <li><a href="#tab5primary" data-toggle="tab"> Missing persons </a></li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -26,78 +32,139 @@
                         <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab1primary">
                                 <div class="well">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object"
-                                                 src="http://i1.wp.com/www.moneybook.ro/wp-content/uploads/2016/02/polen-crud.jpg?resize=768%2C480">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">APILARNILUL</h4>
-                                            <p class="text">By Francisco</p>
-                                            <p>In fiecare an, pe 8 Martie, trebuie sa le spunem din toata
-                                                inima La Multi Ani!
-                                                De cand se serbeaza Ziua Femeii?
-                                                Am putea spune ca Ziua femeii, Ziua mamei se serbeaza inca
-                                                de pe vremea grecilor antici.
-                                                In fiecare primavara, ei o serbau pe Rhea, mama tuturor
-                                                zeilor.
-                                                In cultura multor tari, 8 Martie s-a transformat dintr-o
-                                                simpla zi a calendarului in sarbatoarea primaverii,
-                                                in ziua in care mamele, bunicile, sotiile, prietenele,
-                                                surorile, fiicele, colegele,
-                                                primesc flori si mici daruri simbolice care subliniaza rolul
-                                                lor acasa, in familie, in societate.
-                                                1907 – La Copenhaga a avut loc prima Conferinta a femeilor
-                                                socialiste, la initiativa ziaristei germane Clara Zetkin,
-                                                care conducea din 1890 revista “Die Gleichheit”
-                                                (Egalitatea).</p>
-                                            <ul class="list-inline list-unstyled">
-                                                <li><span><i
-                                                        class="glyphicon glyphicon-calendar"></i> 2018-12-19</span>
-                                                </li>
-                                            </ul>
+                                    <c:forEach var="news" items="${news}">
+                                        <div class="media">
+                                            <a class="pull-left" href="#">
+                                                <c:choose>
+                                                    <c:when test="${not empty news.encodedPhoto}">
+                                                        <img class="media-object"
+                                                             src="data:image/jpeg;base64,${news.encodedPhoto}"/>
+
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <img class="media-object" src="#"/>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </a>
+                                            <div class="media-body">
+                                                <%--<h4 class="media-heading">${news.getNewsId()}</h4>--%>
+                                                <p class="text">${news.getTopic()}</p>
+                                                <p>${news.getInformation()}</p>
+                                                <ul class="list-inline list-unstyled">
+                                                    <li><span><i
+                                                            class="glyphicon glyphicon-calendar"></i> ${news.getTime()}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="well">
-                                    <div class="media">
-                                        <a class="pull-left" href="#">
-                                            <img class="media-object"
-                                                 src="http://i0.wp.com/www.moneybook.ro/wp-content/uploads/2016/08/images_8.jpg?resize=299%2C224">
-                                        </a>
-                                        <div class="media-body">
-                                            <h4 class="media-heading">Ziua Femeii</h4>
-                                            <p class="text-right">By Anailuj</p>
-                                            <p>In fiecare an, pe 8 Martie, trebuie sa le spunem din toata
-                                                inima La Multi Ani!
-                                                De cand se serbeaza Ziua Femeii?
-                                                Am putea spune ca Ziua femeii, Ziua mamei se serbeaza inca
-                                                de pe vremea grecilor antici.
-                                                In fiecare primavara, ei o serbau pe Rhea, mama tuturor
-                                                zeilor.
-                                                In cultura multor tari, 8 Martie s-a transformat dintr-o
-                                                simpla zi a calendarului in sarbatoarea primaverii,
-                                                in ziua in care mamele, bunicile, sotiile, prietenele,
-                                                surorile, fiicele, colegele,
-                                                primesc flori si mici daruri simbolice care subliniaza rolul
-                                                lor acasa, in familie, in societate.
-                                                1907 – La Copenhaga a avut loc prima Conferinta a femeilor
-                                                socialiste, la initiativa ziaristei germane Clara Zetkin,
-                                                care conducea din 1890 revista “Die Gleichheit”
-                                                (Egalitatea).</p>
-                                            <ul class="list-inline list-unstyled">
-                                                <li><span><i
-                                                        class="glyphicon glyphicon-calendar"></i> 2018-12-19 </span>
-                                                </li>
-
-                                            </ul>
-                                        </div>
-                                    </div>
-
-
+                                    </c:forEach>
                                 </div>
                             </div>
 
+                            <div class="tab-pane fade" id="tab2primary">
+                                <div class="well">
+                                    <c:forEach var="doc" items="${docs}">
+                                        <div class="media">
+                                            <a class="pull-left" href="#">
+                                                <c:choose>
+                                                    <c:when test="${not empty doc.encodedPhoto}">
+                                                        <img class="media-object"
+                                                             src="data:image/jpeg;base64,${doc.encodedPhoto}"/>
+
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <img class="media-object" src="#"/>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </a>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">${doc.getDocId()}</h4>
+                                                <p class="text">${doc.getName()} ${doc.getLastName()}</p>
+                                                <p>${doc.getReward()}</p>
+                                                <p> ${doc.getInformation()}</p>
+                                                <ul class="list-inline list-unstyled">
+                                                    <li><span><i
+                                                            class="glyphicon glyphicon-calendar"></i> ${doc.getTime()} - ${doc.getLeadTime()}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab3primary">
+                                <c:forEach var="user" items="${users}">
+                                    <c:if test="${user.isType() == false}">
+                                        <tr>
+                                            <td>${user.getUserId()}</td>
+                                            <td>${user.getName()}</td>
+                                            <td>${user.getLastName()}</td>
+                                            <td>${user.getBirthday()}</td>
+                                            <td>${user.getTelephone()}</td>
+                                            <td>${user.getAddress()}</td>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
+                            <div class="tab-pane fade" id="tab4primary">
+                                <c:forEach var="people" items="${people}">
+                                    <c:if test="${people.getStatus() == 'wanted'}">
+                                        <tr>
+                                            <td>${people.getPersonId()}</td>
+                                            <td>${people.getName()}</td>
+                                            <td>${people.getLastName()}</td>
+                                            <td>${people.getBirthday()}</td>
+                                            <td>${people.getWeight()}</td>
+                                            <td>${people.getHeight()}</td>
+                                            <td>${people.getColorOfHair()}</td>
+                                            <td>${people.getNationality()}</td>
+                                            <td>${people.getCharacteristics()}</td>
+                                            <td>${people.getSex()}</td>
+                                            <td><c:choose>
+                                                <c:when test="${not empty people.encodedPhoto}">
+                                                    <img class="media-object"
+                                                         src="data:image/jpeg;base64,${people.encodedPhoto}"/>
+
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img class="media-object" src="#"/>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            </td>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
+                            <div class="tab-pane fade" id="tab5primary">
+                                <c:forEach var="people" items="${people}">
+                                    <c:if test="${people.getStatus() == 'missing'}">
+                                        <tr>
+                                            <td>${people.getPersonId()}</td>
+                                            <td>${people.getStatus()}</td>
+                                            <td>${people.getName()}</td>
+                                            <td>${people.getLastName()}</td>
+                                            <td>${people.getBirthday()}</td>
+                                            <td>${people.getWeight()}</td>
+                                            <td>${people.getHeight()}</td>
+                                            <td>${people.getColorOfHair()}</td>
+                                            <td>${people.getNationality()}</td>
+                                            <td>${people.getCharacteristics()}</td>
+                                            <td>${people.getSex()}</td>
+                                            <td><c:choose>
+                                                <c:when test="${not empty people.encodedPhoto}">
+                                                    <img class="media-object"
+                                                         src="data:image/jpeg;base64,${people.encodedPhoto}"/>
+
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img class="media-object" src="#"/>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            </td>
+                                        </tr>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,11 +180,8 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
 
-
     </div>
 </div>
-<!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
 
 </body>
 </html>

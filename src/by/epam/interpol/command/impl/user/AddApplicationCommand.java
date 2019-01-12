@@ -4,7 +4,8 @@ import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 import by.epam.interpol.exception.DaoException;
-import by.epam.interpol.service.document.DocServiceImpl;
+import by.epam.interpol.exception.ServiceException;
+import by.epam.interpol.service.impl.DocServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -58,7 +59,7 @@ public class AddApplicationCommand implements ActionCommand {
             docService.addDoc(currentStatement, date, reward, currentInformation, dateLead, currentName, currentLast, imagePart);
             router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
 
-        } catch (Exception | DaoException e) {
+        } catch (Exception | ServiceException e) {
             LOGGER.warn("Document input exception", e);
             router.setPagePath(PagePath.APPLICATION_PAGE.getJspPath());
         }

@@ -15,33 +15,33 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
           id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script data-require="jquery@1.10.19" data-semver="1.10.19"  type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
     <script>
         <%@include file="/js/modal_script.js"%>
         <%@include file="/js/table.js"%>
     </script>
-
+    <style>
+        .col {
+            word-wrap: break-word; /* Перенос слов */
+        }
+    </style>
 
 </head>
 
 <body>
 
+    <div class="btn-toolbar">
+        <button type="submit" class="btn btn-primary">Add </button>
+    </div>
 
-<div class="btn-toolbar">
-    <button class="btn btn-primary">New User</button>
-    <button class="btn">Import</button>
-    <button class="btn">Export</button>
-    <%--<div>--%>
-    <%--<input type="text" name="id"> Delete by id</input>--%>
-    <%--<button type="submit" name="id"><i class="icon-remove"></i></button>--%>
-    <%--</div>--%>
-    <h2>Filterable Table</h2>
-    <p>Type something in the input field to search the table for first names, last names or emails:</p>
-    <input id="myInput" type="text" placeholder="Search..">
-    <br><br>
-</div>
-<div class="well">
-    <table class="table">
+
+
+<div class="container">
+    <table class="table table-striped table-bordered table-hover" id="table_id">
         <thead>
         <tr>
             <th>#</th>
@@ -53,7 +53,7 @@
             <th style="width: 36px;"></th>
         </tr>
         </thead>
-        <tbody id="myTable">
+        <tbody>
         <c:forEach var="user" items="${users}">
             <c:if test="${user.isType() == false}">
                 <tr>
@@ -64,7 +64,7 @@
                     <td>${user.getTelephone()}</td>
                     <td>${user.getAddress()}</td>
                     <td>
-                        <%--<a href=""><i class="icon-pencil"></i></a>--%>
+                            <%--<a href=""><i class="icon-pencil"></i></a>--%>
                         <form action="/interpol" method="get">
                             <input type="hidden" value="REMOVE_USER" name="command">
                             <a href="interpol?command=REMOVE_USER&id=${user.getUserId()}"><i
@@ -76,16 +76,6 @@
         </c:forEach>
         </tbody>
     </table>
-</div>
-<div class="pagination">
-    <ul>
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">Next</a></li>
-    </ul>
 </div>
 
 <!-- Post Info -->

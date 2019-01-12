@@ -25,7 +25,8 @@
     <fmt:message bundle="${local}" key="login.pass" var="password"/>
 </head>
 <body>
-
+<c:set var="flag" value="${error}"></c:set>
+<c:set var="flag_auth" value="${error_authorization}"></c:set>
 <form action="/interpol" method="post">
     <input type="hidden" value="LOGIN" name="command">
     <div class="container">
@@ -55,6 +56,19 @@
                                         <input type="password" name="password" tabindex="2" class="form-control"
                                                placeholder="${password}">
                                     </div>
+                                    <div style="color: #a94442">
+                                        <c:if test="${flag =='false'}">
+                                            <p>Login and password not correct!</p>
+                                        </c:if>
+                                        <c:if test="${flag =='true'}">
+                                            <p></p>
+                                        </c:if>
+                                        <div style="color: #a94442">
+                                            <c:if test="${flag_auth =='false'}">
+                                                <p>User is not authorized</p>
+                                            </c:if>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
@@ -67,7 +81,7 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="text-center">
-                                                    <a href="https://phpoll.com/recover" tabindex="5"
+                                                    <a href="#" tabindex="5"
                                                        class="forgot-password">${forgot}</a>
                                                 </div>
                                             </div>

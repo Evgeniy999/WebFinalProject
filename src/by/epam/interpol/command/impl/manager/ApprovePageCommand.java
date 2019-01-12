@@ -4,15 +4,14 @@ import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 import by.epam.interpol.entity.Document;
-import by.epam.interpol.service.document.DocService;
-import by.epam.interpol.service.document.DocServiceImpl;
+import by.epam.interpol.service.impl.DocServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 public class ApprovePageCommand implements ActionCommand {
 
-    public static final String ID = "id";
+    private static final String ID = "id";
 
     @Override
     public Router execute(HttpServletRequest request) {

@@ -11,11 +11,14 @@
 <html>
 <head>
     <title>Documents</title>
-    <%--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>--%>
     <script data-require="jquery@2.0.3" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
           id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script data-require="jquery@1.10.19" data-semver="1.10.19"  type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
     <script>
         <%@include file="/js/modal_script.js"%>
@@ -27,29 +30,20 @@
         }
 
         img {
-            width: 50px;
+            width: 250px;
             transition: width 0.5s ease;
         }
 
-        #statya:hover img {
-            width: 500px;
-        }
     </style>
 </head>
 <body>
 
 <div class="btn-toolbar">
-    <button class="btn btn-primary">New User</button>
-    <button class="btn">Import</button>
-    <button class="btn">Export</button>
-    <h2>Filterable Table</h2>
-    <p>Type something in the input field to search the table for first names, last names or emails:</p>
-    <input id="myInput" type="text" placeholder="Search..">
-    <br><br>
+    <button type="submit" class="btn btn-primary">Add </button>
 </div>
-<div class="well">
 
-    <table class="table">
+<div class="well">
+    <table class="table table-striped table-bordered table-hover" id="table_id">
         <thead>
         <tr>
             <th>#</th>
@@ -63,7 +57,7 @@
             <th style="width: 36px;"></th>
         </tr>
         </thead>
-        <tbody id="myTable">
+        <tbody>
         <c:forEach var="doc" items="${docs}">
             <tr>
 
@@ -103,16 +97,8 @@
         </tbody>
     </table>
 </div>
-<div class="pagination">
-    <ul>
-        <li><a href="#">Prev</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">Next</a></li>
-    </ul>
-</div>
+
+<a href="/jsp/main/main.jsp">Back</a>
 <!-- Post Info -->
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
@@ -120,7 +106,7 @@
 </div>
 
 
-<a href="/jsp/main/main.jsp">Back</a>
+
 </body>
 </html>
 
