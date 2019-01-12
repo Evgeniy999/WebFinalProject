@@ -56,7 +56,7 @@ public class ChangeProfCommand implements ActionCommand {
             service.changeProf(Integer.parseInt(userId), name,lastName,birth,phone,address);
             Optional<User> user = service.searchById(Integer.parseInt(userId));
             session.setAttribute(NAME_USER, user.get());
-            router.setRouteType(Router.RouteType.REDIRECT);
+            router.setRouteType(Router.RouteType.FORWARD);
         } catch (ServiceException e) {
             LOGGER.warn("User is not registered", e);
         }

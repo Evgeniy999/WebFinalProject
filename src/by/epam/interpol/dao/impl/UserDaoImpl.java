@@ -32,7 +32,7 @@ public class UserDaoImpl implements UserDao<User> {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             User user = null;
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 user = UserBuilder.createUser(resultSet);
             }
             return Optional.of(user);
@@ -103,25 +103,26 @@ public class UserDaoImpl implements UserDao<User> {
             preparedStatement.setString(1, password);
             preparedStatement.setInt(2, id);
             preparedStatement.execute();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new DaoException(e);
         }
     }
 
-    public void changeProf(int id, String name,String last,Date birth,long telephone,String address) throws DaoException {
+    public void changeProf(int id, String name, String last, Date birth, long telephone, String address) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(CHANGE_PROF);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setString(2, name);
-            preparedStatement.setString(3, last);
-            preparedStatement.setDate(4, birth);
-            preparedStatement.setLong(5, telephone);
-            preparedStatement.setString(6, address);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, last);
+            preparedStatement.setDate(3, birth);
+            preparedStatement.setLong(4, telephone);
+            preparedStatement.setString(5, address);
+            preparedStatement.setInt(6, id);
             preparedStatement.execute();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new DaoException(e);
         }
     }
+
     @Override
     public void remove(int id) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
