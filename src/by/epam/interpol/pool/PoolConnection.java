@@ -31,7 +31,6 @@ public class PoolConnection {
                     poolConnection = new PoolConnection();
                 } catch (SQLException e) {
                     LOGGER.error("Can not get Instance", e);
-                    throw new RuntimeException("Can not get Instance", e);
                 }
             }
         } finally {
@@ -62,7 +61,6 @@ public class PoolConnection {
                 freeConnections.add(new ProxyConnection(connection));
             } catch (SQLException e) {
                 LOGGER.error("Pool can not initialize", e);
-                throw new RuntimeException("Pool can not initialize", e);
             }
         }
 
