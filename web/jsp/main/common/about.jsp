@@ -60,8 +60,8 @@
             <p>
                 The mission:<br>"Preventing and fighting crime through enhanced cooperation and innovation
                 on police and security matters"</p>
-            <p>Read the full ﻿<a href="/About-INTERPOL/Vision-and-mission" target="_self">vision and
-                mission</a>.</p>
+            <p>Read the full vision and
+                mission.</p>
         </div>
 
 

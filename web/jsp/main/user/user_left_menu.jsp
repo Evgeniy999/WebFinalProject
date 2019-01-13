@@ -34,11 +34,11 @@
                 <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i>
                     ${member} <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                 <ul id="submenu-2" class="collapse">
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i> ${world} </a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i> ${africa} </a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i> ${americas} </a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i> ${asia} </a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i> ${europa} </a></li>
+                    <li><a href="/jsp/main/common/world.jsp"><i class="fa fa-angle-double-right"></i> ${world} </a></li>
+                    <li><a href="/jsp/main/common/africa.jsp"><i class="fa fa-angle-double-right"></i> ${africa} </a></li>
+                    <li><a href="/jsp/main/common/americas.jsp"><i class="fa fa-angle-double-right"></i> ${americas} </a></li>
+                    <li><a href="/jsp/main/common/asia.jsp"><i class="fa fa-angle-double-right"></i> ${asia} </a></li>
+                    <li><a href="/jsp/main/common/europe.jsp"><i class="fa fa-angle-double-right"></i> ${europa} </a></li>
                 </ul>
             </li>
             <li>

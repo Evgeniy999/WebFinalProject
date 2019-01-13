@@ -36,7 +36,7 @@
 
                                                 </c:when>
                                                 <c:otherwise>
-                                                    -
+                                                    <img class="media-object" src="/image/news.jpg"/>
                                                 </c:otherwise>
                                             </c:choose>
                                         </a>

@@ -42,7 +42,7 @@
 
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <img class="media-object" src="#"/>
+                                                        <img class="media-object" src="/image/news.jpg"/>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </a>
@@ -73,7 +73,7 @@
 
                                                     </c:when>
                                                     <c:otherwise>
-                                                        <img class="media-object" src="#"/>
+                                                        <img class="media-object" src="/image/943284.png"/>
                                                     </c:otherwise>
                                                 </c:choose>
                                             </a>
@@ -127,7 +127,7 @@
 
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <img class="media-object" src="#"/>
+                                                    <img class="media-object" src="/image/943284.png"/>
                                                 </c:otherwise>
                                             </c:choose>
                                             </td>
@@ -157,7 +157,7 @@
 
                                                 </c:when>
                                                 <c:otherwise>
-                                                    <img class="media-object" src="#"/>
+                                                    <img class="media-object" src="/image/943284.png"/>
                                                 </c:otherwise>
                                             </c:choose>
                                             </td>

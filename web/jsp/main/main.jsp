@@ -77,6 +77,7 @@
                 <c:when test="${sessionScope.isLogin == false}">
 
                     <c:if test="${sessionScope.role =='GUEST'}">
+                        <li><a>${role}</a></li>
                         <li>
                             <a href="/interpol?command=LOGIN_PAGE"> ${login} </a>
                         </li>
@@ -88,7 +89,7 @@
                         <c:when test="${sessionScope.role =='USER'}">
                             <li><a>${role}</a></li>
                             <li><a href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Stats"><i
-                                    class="fa fa-bar-chart-o"></i>
+                                    class="fa fa-user"></i>
                             </a>
                             </li>
                             <li class="dropdown">
@@ -134,7 +135,7 @@
                         <c:when test="${sessionScope.role =='ADMIN'}">
                             <li><a>${role}</a></li>
                             <li><a href="#" data-placement="bottom" data-toggle="tooltip" data-original-title="Stats"><i
-                                    class="fa fa-bar-chart-o"></i>
+                                    class="fa fa-user-secret"></i>
                             </a>
                             </li>
                             <li class="dropdown">

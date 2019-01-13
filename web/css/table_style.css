@@ -1,0 +1,8 @@
+.col {
+    word-wrap: break-word; /* Перенос слов */
+}
+
+img {
+    width: 250px;
+    transition: width 0.5s ease;
+}

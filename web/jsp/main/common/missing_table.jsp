@@ -19,15 +19,7 @@
         <%@include file="/js/table.js"%>
     </script>
     <style>
-        .col {
-            word-wrap: break-word; /* Перенос слов */
-        }
-
-        img {
-            width: 250px;
-            transition: width 0.5s ease;
-        }
-
+        <%@include file="/css/table_style.css"%>
     </style>
 </head>
 <body>
@@ -114,7 +106,7 @@
                                 <form action="/interpol" method="get">
                                     <input type="hidden" value="REMOVE_PERSON" name="command">
                                     <a href="interpol?command=REMOVE_PERSON&id=${doc.getPersonId()}"><i
-                                            class="icon-remove"></i></a>
+                                            class="icon-fixed-width icon-trash"></i></a>
                                 </form>
                             </td>
                         </c:if>

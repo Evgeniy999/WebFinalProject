@@ -18,64 +18,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-    <script data-require="jquery@1.10.19" data-semver="1.10.19"  type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script data-require="jquery@1.10.19" data-semver="1.10.19" type="text/javascript" charset="utf8"
+            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
     <script>
         <%@include file="/js/modal_script.js"%>
         <%@include file="/js/table.js"%>
     </script>
-    <style>
-        .col {
-            word-wrap: break-word; /* Перенос слов */
-        }
-    </style>
 
 </head>
 
 <body>
-
-    <div class="btn-toolbar">
-        <button type="submit" class="btn btn-primary">Add </button>
+<div style="padding: 100px 0px">
+    <div class="container">
+        <table class="table table-striped table-bordered table-hover" id="table_id">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <td>Birthday</td>
+                <td>Telephone</td>
+                <td>Address</td>
+                <th style="width: 36px;"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="user" items="${users}">
+                <c:if test="${user.isType() == false}">
+                    <tr>
+                        <td>${user.getUserId()}</td>
+                        <td>${user.getName()}</td>
+                        <td>${user.getLastName()}</td>
+                        <td>${user.getBirthday()}</td>
+                        <td>${user.getTelephone()}</td>
+                        <td>${user.getAddress()}</td>
+                        <td>
+                                <%--<a href=""><i class="icon-pencil"></i></a>--%>
+                            <form action="/interpol" method="get">
+                                <input type="hidden" value="REMOVE_USER" name="command">
+                                <a href="interpol?command=REMOVE_USER&id=${user.getUserId()}"><i
+                                        class="icon-fixed-width icon-trash"></i></a>
+                            </form>
+                        </td>
+                    </tr>
+                </c:if>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
-
-
-
-<div class="container">
-    <table class="table table-striped table-bordered table-hover" id="table_id">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <td>Birthday</td>
-            <td>Telephone</td>
-            <td>Address</td>
-            <th style="width: 36px;"></th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach var="user" items="${users}">
-            <c:if test="${user.isType() == false}">
-                <tr>
-                    <td>${user.getUserId()}</td>
-                    <td>${user.getName()}</td>
-                    <td>${user.getLastName()}</td>
-                    <td>${user.getBirthday()}</td>
-                    <td>${user.getTelephone()}</td>
-                    <td>${user.getAddress()}</td>
-                    <td>
-                            <%--<a href=""><i class="icon-pencil"></i></a>--%>
-                        <form action="/interpol" method="get">
-                            <input type="hidden" value="REMOVE_USER" name="command">
-                            <a href="interpol?command=REMOVE_USER&id=${user.getUserId()}"><i
-                                    class="icon-remove"></i></a>
-                        </form>
-                    </td>
-                </tr>
-            </c:if>
-        </c:forEach>
-        </tbody>
-    </table>
 </div>
 
 <!-- Post Info -->

@@ -25,16 +25,14 @@
             transition: width 0.5s ease;
         }
 
-        /*#statya:hover img {*/
-        /*width: 500px;*/
-        /*}*/
     </style>
 </head>
 <body>
 <form action="/interpol" method="get">
     <input type="hidden" value="NEWS_ADD_PAGE" name="command">
     <div class="btn-toolbar">
-        <button type="submit" class="btn btn-primary">Add event</button>
+        <p>Add news</p>
+        <button type="submit" class="fa fa-plus"></button>
     </div>
 </form>
 
@@ -82,7 +80,7 @@
                         <%--</form>--%>
                     <form action="/interpol" method="get">
                         <input type="hidden" value="REMOVE_NEWS" name="command">
-                        <a href="interpol?command=REMOVE_NEWS&id=${doc.getNewsId()}"><i class="icon-remove"></i></a>
+                        <a href="interpol?command=REMOVE_NEWS&id=${doc.getNewsId()}"><i class="icon-fixed-width icon-trash"></i></a>
                     </form>
                 </td>
             </tr>

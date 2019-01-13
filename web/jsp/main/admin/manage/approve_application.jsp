@@ -9,28 +9,9 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <style type="text/css">
-        .col {
-            word-wrap: break-word; /* Перенос слов */
-        }
-
-        #maket {
-            width: 100%; /* Ширина всей таблицы */
-        }
-
-        TD {
-            vertical-align: top; /* Вертикальное выравнивание в ячейках */
-            padding: 5px; /* Поля вокруг ячеек */
-        }
-
-        TD#leftcol {
-            width: 470px; /* Ширина левой колонки */
-
-        }
-
-        TD#rightcol {
-            width: 400px;
-        }
+        <%@include file="/css/approve.css"%>
     </style>
+
 </head>
 <body style="padding-right: 100px">
 <c:set var="document" value="${document}"/>
