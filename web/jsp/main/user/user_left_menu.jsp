@@ -45,7 +45,7 @@
                 <a href="/interpol?command=PAGE_APPLIC"><i class="fa fa-fw fa-user-plus"></i> ${applic}</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-paper-plane-o"></i> ${areas} </a>
+                <a href="/jsp/main/common/crime_areas.jsp"><i class="fa fa-fw fa-paper-plane-o"></i> ${areas} </a>
             </li>
             <li>
                 <a href="/jsp/main/common/about.jsp"><i class="fa fa-fw fa fa-question-circle"></i> ${about}</a>

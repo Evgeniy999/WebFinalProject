@@ -38,10 +38,9 @@ public class ApproveApplicationCommand implements ActionCommand {
     private static final String SEX = "gender";
     private static final String CHARACTERISTICS = "characteristics";
     private static final String STATUS = "status";
-    private static final String PHOTO = "photo";
 
     @Override
-    public Router execute(HttpServletRequest request) {//todo утвердить заявку
+    public Router execute(HttpServletRequest request) {
         PersonServiceImpl personService = new PersonServiceImpl();
         DocServiceImpl docService = new DocServiceImpl();
         Router router = new Router();

@@ -98,7 +98,7 @@
                                    style="width: 180px"> ${nameUser.getName()} ${nameUser.getLastName()} <b
                                         class="fa fa-angle-down"></b>
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="width: 182px;">
                                     <form id="change_prof" action="/interpol" method="post">
                                         <input type="hidden" value="TO_CHANGE_PROF_PAGE" name="command">
                                         <li><a href="#" class="profstyle"
@@ -138,12 +138,12 @@
                                     class="fa fa-user-secret"></i>
                             </a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown" style="width: 182px;">
                                 <a href="#" class="dropdown-toggle"
                                    data-toggle="dropdown"
                                    style="width: 180px"> ${nameUser.getName()} ${nameUser.getLastName()} <b
                                         class="fa fa-angle-down"></b></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="width: 182px;">
                                     <form id="change_prof" action="/interpol" method="post">
                                         <input type="hidden" value="TO_CHANGE_PROF_PAGE" name="command">
                                         <li><a href="#" class="profstyle"

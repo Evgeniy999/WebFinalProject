@@ -58,7 +58,7 @@ public class SessionFilter implements Filter {
             }
         }
         else {
-            HttpSession session = request.getSession(false);//todo логика
+            HttpSession session = request.getSession(false);
             if (session == null) {
                 response.sendRedirect(INDEX_JSP);
                 return;

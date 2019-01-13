@@ -19,11 +19,9 @@ public class PasswordCode {
             byte[] bytes = md5.digest(password.getBytes());
 
             for(byte b : bytes){
-                //stringBuilder.append(String.format("%02X ", b));//todo изменить
-                stringBuilder.append(String.format("%02X", b));//todo изменить
+                stringBuilder.append(String.format("%02X", b));
 
             }
-
         }
         catch (NoSuchAlgorithmException e) {
             LOGGER.error("Can not encode password");

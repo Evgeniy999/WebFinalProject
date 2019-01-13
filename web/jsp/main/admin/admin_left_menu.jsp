@@ -53,7 +53,7 @@
                 <a href="/interpol?command=NEWS_PAGE"><i class="fa fa-newspaper-o"></i> ${news}</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-fw fa-paper-plane-o"></i> ${areas} </a>
+                <a href="/jsp/main/common/crime_areas.jsp"><i class="fa fa-fw fa-paper-plane-o"></i> ${areas} </a>
             </li>
             <li>
                 <a href="/jsp/main/common/about.jsp"><i class="fa fa-fw fa fa-question-circle"></i> ${about}</a>
