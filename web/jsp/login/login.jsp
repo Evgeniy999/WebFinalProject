@@ -1,17 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<html>
 <head>
     <%--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">--%>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
-        <%@include file="../../js/login.js"%>
+        <%@include file="/js/login.js"%>
     </script>
     <style>
-        <%@include file="../../css/login.css"%>
+        <%@include file="/css/login.css"%>
     </style>
 
     <c:set var="language" value="${sessionScope.lang}"/>
@@ -19,10 +19,11 @@
     <fmt:setBundle basename="properties.text" var="local"/>
     <fmt:message bundle="${local}" key="login.log" var="log"/>
     <fmt:message bundle="${local}" key="login.registration" var="registartion"/>
-    <fmt:message bundle="${local}" key="login.sumbit" var="touch"/>
+    <fmt:message bundle="${local}" key="login.submit" var="touch"/>
     <fmt:message bundle="${local}" key="login.forgot" var="forgot"/>
     <fmt:message bundle="${local}" key="login.username" var="username"/>
     <fmt:message bundle="${local}" key="login.pass" var="password"/>
+
 </head>
 <body>
 <c:set var="flag" value="${error}"></c:set>

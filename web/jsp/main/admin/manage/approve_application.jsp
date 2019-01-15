@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
     <title>Approve</title>
@@ -11,8 +12,28 @@
     <style type="text/css">
         <%@include file="/css/approve.css"%>
     </style>
-
 </head>
+
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="main.name.table" var="name"/>
+<fmt:message bundle="${local}" key="main.lastname.table" var="last"/>
+<fmt:message bundle="${local}" key="main.birth.table" var="birth"/>
+<fmt:message bundle="${local}" key="main.weight.table" var="weight"/>
+<fmt:message bundle="${local}" key="main.height.table" var="height"/>
+<fmt:message bundle="${local}" key="main.telephone.table" var="phone"/>
+<fmt:message bundle="${local}" key="main.address.table" var="address"/>
+<fmt:message bundle="${local}" key="main.colorofhair.table" var="hair"/>
+<fmt:message bundle="${local}" key="main.nationality.table" var="nationality"/>
+<fmt:message bundle="${local}" key="main.characteristics.table" var="characteristics"/>
+<fmt:message bundle="${local}" key="main.sex.table" var="sex"/>
+<fmt:message bundle="${local}" key="gender" var="gender"/>
+<fmt:message bundle="${local}" key="male" var="male"/>
+<fmt:message bundle="${local}" key="female" var="female"/>
+<fmt:message bundle="${local}" key="other" var="other"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
+
 <body style="padding-right: 100px">
 <c:set var="document" value="${document}"/>
 <table cellspacing="0" id="maket">
@@ -44,61 +65,56 @@
         <td id="rightcol">Form
             <form action="/interpol" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="APPROVE_APPLIC" name="command">
-                <c:choose>
-                    <c:when test="$${document.getStatement() =='missing'}">
-                         <input type="hidden" value="1" name="status">
-                    </c:when>
-                    <c:otherwise>
-                        <input type="hidden" value="2" name="status">
-                    </c:otherwise>
-                </c:choose>
-                <input type="hidden" value="${document.getStatement()}" name="status">
+
+                <c:if test="${person.getStatus() == 'missing'}">
+                    <input type="hidden" value="1" name="status">
+                </c:if>
+                <c:if test="${person.getStatus() == 'wanted'}">
+                    <input type="hidden" value="2" name="status">
+                </c:if>
                 <input type="hidden" value="${document.getDocId()}" name="docId">
-                <%--<input type="hidden" value="${document.encodedPhoto}" name="photo">--%>
                 <div class="form-horizontal">
                     <fieldset>
-                        <%--<div class="panel panel-primary">--%>
-                        <%--<div class="panel-heading">Enter Your Details Here--%>
-                        <%--</div>--%>
+
                         <div class="panel-body">
                             <form name="myform">
                                 <div class="form-group">
-                                    <label for="name">First Name *</label>
+                                    <label for="name">${name} *</label>
                                     <input id="name" name="name" class="form-control" type="text" min="1">
                                     <span id="error_name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="last">Last Name *</label>
+                                    <label for="last">${last} *</label>
                                     <input id="last" name="last" class="form-control" type="text" min="1">
                                     <span id="error_last" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="birthday">Date Of Birth *</label>
+                                    <label for="birthday">${birth} *</label>
                                     <input type="date" name="birthday" id="birthday" class="form-control"
                                            min="1">
                                     <span id="error_birthday" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="weight">Weight </label>
+                                    <label for="weight">${weight} </label>
                                     <input id="weight" name="weight" class="form-control" type="text"
                                            min="1">
                                     <span id="error_weight" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="height">Height </label>
+                                    <label for="height">${height} </label>
                                     <input id="height" name="height" class="form-control" type="text"
                                            min="1">
                                     <span id="error_height" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="hair">Color hair </label>
+                                    <label for="hair">${hair} </label>
                                     <input id="hair" name="hair" class="form-control" type="text" min="1">
                                     <span id="error_hair" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="nationality">Nationality </label>
+                                    <label for="nationality">${nationality} </label>
                                     <input type="text" id="nationality" name="nationality"
                                            class="form-control"
                                            min="1">
@@ -106,26 +122,21 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="gender">Gender</label>
+                                    <label for="gender">${gender}</label>
                                     <select name="gender" id="gender" class="form-control">
-                                        <option selected>Male</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
+                                        <option value="Male" selected>Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                     <span id="error_gender" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="characteristics">Characteristics </label>
+                                    <label for="characteristics">${characteristics} </label>
                                     <textarea class="form-control" id="characteristics"
-                                              name="characteristics"> </textarea>
+                                              name="characteristics"></textarea>
 
                                 </div>
-                                <%--<div style="padding:10px" class="form-group">--%>
-                                    <%--<label for="photo">Choose images to upload (PNG, JPG)</label>--%>
-                                    <%--<input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png">--%>
-                                <%--</div>--%>
-
                                 <button id="submit" type="submit" value="submit"
                                         class="btn btn-primary center">
                                     Submit
@@ -146,7 +157,7 @@
     <infotag:getinfo/>
 </div>
 
-<a href="/jsp/main/admin/manage/doc_table.jsp">Back</a>
+<a href="/jsp/main/admin/manage/doc_table.jsp">${back}</a>
 
 </body>
 </html>

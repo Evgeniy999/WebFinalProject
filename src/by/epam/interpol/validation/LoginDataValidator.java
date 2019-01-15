@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 public class LoginDataValidator
 {
-    private static final String LOGIN_REGEX = "^[a-zA-Z0-9_]{3,15}$";
+    private static final String LOGIN_REGEX = "^([A-Za-z0-9-]){3,15}$";
 
     public static boolean loginCheck(String login)
     {

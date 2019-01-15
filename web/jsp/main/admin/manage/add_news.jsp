@@ -1,12 +1,7 @@
-<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Женёк
-  Date: 06.01.2019
-  Time: 20:00
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
     <title>Add</title>
@@ -16,6 +11,19 @@
 </head>
 <body>
 
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="add.news" var="add"/>
+<fmt:message bundle="${local}" key="add.news.topic" var="topic"/>
+<fmt:message bundle="${local}" key="add.news.country" var="country"/>
+<fmt:message bundle="${local}" key="add.news.event" var="event"/>
+<fmt:message bundle="${local}" key="add.news.image" var="image"/>
+<fmt:message bundle="${local}" key="add.news.submit" var="submit"/>
+<fmt:message bundle="${local}" key="add.news.cancel" var="cancel"/>
+<fmt:message bundle="${local}" key="add.news.date" var="date"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
+
 <!------ Include the above in your HEAD tag ---------->
 
 <form action="/interpol" method="post"  enctype="multipart/form-data">
@@ -24,34 +32,34 @@
     <fieldset>
 
         <!-- Form Name -->
-        <legend>ADD NEWS</legend>
+        <legend>${add}</legend>
 
 
         <!-- Topic -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="topic">TOPIC NEWS</label>
+            <label class="col-md-4 control-label" for="topic">${topic}</label>
             <div class="col-md-4">
-                <textarea class="form-control" id="topic" name="topic">Topic...</textarea>
+                <textarea class="form-control" id="topic" name="topic">${topic}...</textarea>
             </div>
         </div>
 
         <!-- Textarea -->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="information">NEWS & EVENTS</label>
+            <label class="col-md-4 control-label" for="information">${event}</label>
             <div class="col-md-4">
-                <textarea class="form-control" id="information" name="information">NEWS & events here.....</textarea>
+                <textarea class="form-control" id="information" name="information">${event}.....</textarea>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="country">COUNTRY</label>
+            <label class="col-md-4 control-label" for="country">${country}</label>
             <div class="col-md-4">
-                <textarea class="form-control" id="country" name="country">Country...</textarea>
+                <textarea class="form-control" id="country" name="country">${country}...</textarea>
             </div>
         </div>
         <!-- Text input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="dateNews">DATE</label>
+            <label class="col-md-4 control-label" for="dateNews">${date}</label>
             <div class="col-md-4">
                 <input id="dateNews" name="dateNews" type="date" placeholder="" class="form-control input-md" required="">
 
@@ -59,15 +67,15 @@
         </div>
 
         <div style="padding:10px" class="form-group">
-            <label for="photo">Choose images to upload (PNG, JPG)</label>
+            <label for="photo">${image} (PNG, JPG)</label>
             <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png">
         </div>
         <!-- Button (Double) -->
         <div class="form-group">
             <label class="col-md-4 control-label" for="button1idDDSA"></label>
             <div class="col-md-8">
-                <button id="button1idDDSA" name="button1idDDSA" type="submit" class="btn btn-success">SUBMIT</button>
-                <button id="button2id" name="button2id" class="btn btn-danger">CANCEL</button>
+                <button id="button1idDDSA" name="button1idDDSA" type="submit" class="btn btn-success">${submit}</button>
+                <button id="button2id" name="button2id" class="btn btn-danger">${cancel}</button>
             </div>
         </div>
     </fieldset>
@@ -80,7 +88,7 @@
     <infotag:getinfo/>
 </div>
 
-<a href="/jsp/main/main.jsp">Back</a>
+<a href="/jsp/main/main.jsp">${back}</a>
 
 </body>
 </html>

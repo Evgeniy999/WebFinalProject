@@ -16,7 +16,7 @@
 <fmt:message bundle="${local}" key="main.europe" var="europa"/>
 <fmt:message bundle="${local}" key="main.crime.areas" var="areas"/>
 <fmt:message bundle="${local}" key="main.about" var="about"/>
-<fmt:message bundle="${local}" key="main.sumbit.application" var="applic"/>
+<fmt:message bundle="${local}" key="main.submit.application" var="applic"/>
 <form>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">

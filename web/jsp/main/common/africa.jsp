@@ -1,5 +1,7 @@
-<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
     <title>Africa</title>
@@ -8,6 +10,10 @@
     </style>
 </head>
 <body>
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
 
 <div class="container">
     <%--<div class="contextual">--%>
@@ -111,7 +117,7 @@
         </div>
         <span class="date">12 July 2016</span>
 </div>
-﻿<a href="/jsp/main/main.jsp">Back</a>
+﻿<a href="/jsp/main/main.jsp">${back}</a>
 <!-- Post Info -->
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>

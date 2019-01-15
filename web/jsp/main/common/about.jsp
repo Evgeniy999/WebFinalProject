@@ -1,3 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <%--
   Created by IntelliJ IDEA.
@@ -12,6 +15,12 @@
     <title>Information</title>
 </head>
 <body>
+
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
+
 <div class="container">
     <div class="contextual">
         <h1 class="titre">Overview</h1>
@@ -86,6 +95,6 @@
     <infotag:getinfo/>
 </div>
 
-<a href="/jsp/main/main.jsp">Back</a>
+<a href="/jsp/main/main.jsp">${back}</a>
 </body>
 </html>

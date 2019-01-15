@@ -1,13 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Женёк
-  Date: 30.12.2018
-  Time: 12:03
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
     <title>Manage users</title>
@@ -27,6 +21,11 @@
     </script>
 
 </head>
+
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
 
 <body>
 <div style="padding: 100px 0px">
@@ -54,7 +53,6 @@
                         <td>${user.getTelephone()}</td>
                         <td>${user.getAddress()}</td>
                         <td>
-                                <%--<a href=""><i class="icon-pencil"></i></a>--%>
                             <form action="/interpol" method="get">
                                 <input type="hidden" value="REMOVE_USER" name="command">
                                 <a href="interpol?command=REMOVE_USER&id=${user.getUserId()}"><i
@@ -69,13 +67,12 @@
     </div>
 </div>
 
-<!-- Post Info -->
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
     <infotag:getinfo/>
 </div>
 
-<a href="/jsp/main/main.jsp">Back</a>
+<a href="/jsp/main/main.jsp">${back}</a>
 
 </body>
 </html>

@@ -29,7 +29,7 @@ import java.util.ResourceBundle;
             DB_INITIAL_CAPACITY = Integer.valueOf(resourceBundle.getString("init.capacity"));
         }catch(NumberFormatException | MissingResourceException e){
             LOGGER.log(Level.FATAL,"Properties file error",e);
-            throw new RuntimeException("Properties file error" + e);
+            throw new RuntimeException("Properties file error" , e);
         }
     }
 }

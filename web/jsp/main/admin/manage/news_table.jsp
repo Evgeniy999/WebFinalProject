@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
     <title>News</title>
@@ -28,6 +29,12 @@
     </style>
 </head>
 <body>
+
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
+
 <form action="/interpol" method="get">
     <input type="hidden" value="NEWS_ADD_PAGE" name="command">
     <div class="btn-toolbar">
@@ -74,13 +81,10 @@
                 <td>${news.getTime()}</td>
 
                 <td>
-                        <%--<form action="/interpol" method="get">--%>
-                        <%--<input type="hidden" value="APPROVE_PAGE" name="command">--%>
-                        <%--<a href="interpol?command=APPROVE_PAGE&id=${doc.getDocId()}"><i class="icon-pencil"></i></a>--%>
-                        <%--</form>--%>
                     <form action="/interpol" method="get">
                         <input type="hidden" value="REMOVE_NEWS" name="command">
-                        <a href="interpol?command=REMOVE_NEWS&id=${doc.getNewsId()}"><i class="icon-fixed-width icon-trash"></i></a>
+                        <a href="interpol?command=REMOVE_NEWS&id=${doc.getNewsId()}"><i
+                                class="icon-fixed-width icon-trash"></i></a>
                     </form>
                 </td>
             </tr>
@@ -89,9 +93,8 @@
     </table>
 </div>
 
-<a style="padding-top: 100px;padding-bottom: 100px" href="/jsp/main/main.jsp">Back</a>
+<a style="padding-top: 100px;padding-bottom: 100px" href="/jsp/main/main.jsp">${back}</a>
 
-<!-- Post Info -->
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
 

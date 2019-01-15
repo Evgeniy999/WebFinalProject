@@ -1,10 +1,16 @@
-<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
     <title>Crime areas</title>
 </head>
 <body>
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
 <div class="container">
     <div class="contextual">
         <h2 class="titre">Cybercrime</h2>
@@ -101,7 +107,7 @@
         <div class="col-2Wrapper">
         </div>
     </div>
-    <a style="padding: 40px 0px" href="/jsp/main/main.jsp">Back</a>
+    <a style="padding: 40px 0px" href="/jsp/main/main.jsp">${back}</a>
     <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
         <infotag:getinfo/>

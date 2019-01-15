@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
     <title>Change profile</title>
@@ -21,6 +22,16 @@
 </head>
 <body>
 
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="registration.firstname" var="first"/>
+<fmt:message bundle="${local}" key="registration.lastname" var="last"/>
+<fmt:message bundle="${local}" key="registration.address" var="address"/>
+<fmt:message bundle="${local}" key="registration.datebirth" var="birth"/>
+<fmt:message bundle="${local}" key="registration.phonenumber" var="phone"/>
+<fmt:message bundle="${local}" key="registration.submit" var="touch"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
 <form action="/interpol" method="get">
 
     <input type="hidden" value="CHANGE_PROF" name="command">
@@ -32,31 +43,35 @@
                 <div class="panel-body">
                     <form name="myform">
                         <div class="form-group">
-                            <label for="name">First Name </label>
-                            <input id="name" name="name" value="${nameUser.getName()}" class="form-control" type="text" min="1">
+                            <label for="name">${first} </label>
+                            <input id="name" name="name" value="${nameUser.getName()}" class="form-control" type="text"
+                                   min="1">
                             <span id="error_name" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="last">Last Name </label>
-                            <input id="last" name="last" value="${nameUser.getLastName()}" class="form-control" type="text" min="1">
+                            <label for="last">${last} </label>
+                            <input id="last" name="last" value="${nameUser.getLastName()}" class="form-control"
+                                   type="text" min="1">
                             <span id="error_last" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="address">Address </label>
-                            <input id="address" name="address" value="${nameUser.getAddress()}" class="form-control" type="text" min="1">
-                            <span id="error_address" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="birthday">Date Of Birth</label>
-                            <input type="date" name="birthday" value="${nameUser.getBirthday()}"id="birthday" class="form-control" min="1">
+                            <label for="birthday">${birth}</label>
+                            <input type="date" name="birthday" value="${nameUser.getBirthday()}" id="birthday"
+                                   class="form-control" min="1">
                             <span id="error_birthday" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="telephone">Phone Number</label>
-                            <input type="text" id="telephone" value="${nameUser.getTelephone()}" name="telephone" class="form-control" min="1">
+                            <label for="address">${address} </label>
+                            <input id="address" name="address" value="${nameUser.getAddress()}" class="form-control"
+                                   type="text" min="1">
+                            <span id="error_address" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone">${phone}</label>
+                            <input type="text" id="telephone" value="${nameUser.getTelephone()}" name="telephone"
+                                   class="form-control" min="1">
                             <span id="error_phone" class="text-danger"></span>
                         </div>
-
                         <button id="submit" type="submit" value="submit" class="btn btn-primary center">Submit</button>
 
                     </form>
@@ -65,5 +80,8 @@
         </div>
     </div>
 </form>
+<a style='position:fixed;bottom:20px;left:5px;
+           width:100%;'
+   href="/jsp/main/main.jsp">${back}</a>
 </body>
 </html>

@@ -9,10 +9,10 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <script type="text/javascript">
-        <%@include file="../../../../js/login.js"%>
+        <%@include file="/js/login.js"%>
     </script>
     <style>
-        <%@include file="../../../../css/login.css"%>
+        <%@include file="/css/login.css"%>
     </style>
 
     <c:set var="nameUser" value="${nameUser}"/>
@@ -24,6 +24,7 @@
     <fmt:message bundle="${local}" key="login.change.touch" var="touch"/>
     <fmt:message bundle="${local}" key="login.pass" var="password"/>
     <fmt:message bundle="${local}" key="main.change.pass" var="change_pass"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
 
 </head>
 <body>
@@ -67,5 +68,8 @@
         </div>
     </div>
 </form>
+<a style='position:fixed;bottom:20px;left:5px;
+           width:100%;'
+   href="/jsp/main/main.jsp">${back}</a>
 </body>
 </html>

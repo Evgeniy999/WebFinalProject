@@ -27,6 +27,9 @@
     <fmt:message bundle="${local}" key="main.edit.prof" var="prof"/>
     <fmt:message bundle="${local}" key="main.change.pass" var="password"/>
     <fmt:message bundle="${local}" key="main.out" var="out"/>
+    <fmt:message bundle="${local}" key="main.rus" var="rus"/>
+    <fmt:message bundle="${local}" key="main.en" var="en"/>
+
 
 </head>
 <body>
@@ -64,9 +67,9 @@
                     <ul>
                         <li>
                             <div class="btn-group btn-group-sm divLang" id="center" role="group" aria-label="...">
-                                <button type="submit" name="lang" value="en" class="btn btn-default navbar-btn">EN
+                                <button type="submit" name="lang" value="en" class="btn btn-default navbar-btn">${en}
                                 </button>
-                                <button type="submit" name="lang" value="rus" class="btn btn-default navbar-btn">RU
+                                <button type="submit" name="lang" value="rus" class="btn btn-default navbar-btn">${rus}
                                 </button>
                             </div>
                         </li>
@@ -103,7 +106,7 @@
                                         <input type="hidden" value="TO_CHANGE_PROF_PAGE" name="command">
                                         <li><a href="#" class="profstyle"
                                                onclick="document.getElementById('change_prof').submit();"><i
-                                                class="fa fa-fw fa-user"></i> ${prof}</a>
+                                                class="fa fa-fw fa-user"></i>${prof}</a>
                                         </li>
                                     </form>
 
@@ -148,7 +151,7 @@
                                         <input type="hidden" value="TO_CHANGE_PROF_PAGE" name="command">
                                         <li><a href="#" class="profstyle"
                                                onclick="document.getElementById('change_prof').submit();"><i
-                                                class="fa fa-fw fa-user"></i> ${prof}</a></li>
+                                                class="fa fa-fw fa-user"></i>${prof}</a></li>
                                     </form>
                                     <form id="change" action="/interpol" method="post">
                                         <input type="hidden" value="TO_CHANGE_PASS_PAGE" name="command">
@@ -198,7 +201,6 @@
                 </c:choose>
             </c:otherwise>
         </c:choose>
-        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     </nav>
 
 

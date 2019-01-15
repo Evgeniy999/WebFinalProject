@@ -1,13 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Женёк
-  Date: 30.12.2018
-  Time: 15:29
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
     <title>Documents</title>
@@ -30,7 +24,10 @@
     </style>
 </head>
 <body>
-
+<c:set var="language" value="${sessionScope.lang}"/>
+<fmt:setLocale value="${language}"/>
+<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:message bundle="${local}" key="back" var="back"/>
 <div style="padding: 100px 0px">
     <div class="well">
         <table class="table table-striped table-bordered table-hover" id="table_id">
@@ -91,8 +88,8 @@
     </div>
 </div>
 
-<a href="/jsp/main/main.jsp">Back</a>
-<!-- Post Info -->
+<a style="padding-top: 100px;padding-bottom: 100px" href="/jsp/main/main.jsp">${back}</a>
+
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
     <infotag:getinfo/>
