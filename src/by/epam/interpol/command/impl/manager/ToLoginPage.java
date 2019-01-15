@@ -7,6 +7,9 @@ import by.epam.interpol.command.Router;
 import javax.servlet.http.HttpServletRequest;
 
 
+/**
+ * The type To login page.
+ */
 public class ToLoginPage implements ActionCommand {
 
     @Override

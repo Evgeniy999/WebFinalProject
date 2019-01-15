@@ -8,6 +8,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+/**
+ * The type User builder.
+ */
 public class UserBuilder {
     private static final String USER_ID = "user_id";
     private static final String USER_LOGIN = "login";
@@ -20,6 +23,13 @@ public class UserBuilder {
     private static final String USER_ADDRESS = "address";
 
 
+    /**
+     * Create user user.
+     *
+     * @param resultSet the result set
+     * @return the user
+     * @throws SQLException the sql exception
+     */
     public static User createUser(ResultSet resultSet) throws SQLException {
         int userId = resultSet.getInt(USER_ID);
         String login = resultSet.getString(USER_LOGIN);
@@ -34,6 +44,13 @@ public class UserBuilder {
 
     }
 
+    /**
+     * Create users array list.
+     *
+     * @param resultSet the result set
+     * @return the array list
+     * @throws SQLException the sql exception
+     */
     public static ArrayList<User> createUsers(ResultSet resultSet) throws SQLException {
         ArrayList<User> result = new ArrayList<>();
 

@@ -11,6 +11,9 @@ import by.epam.interpol.service.impl.DocServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
+/**
+ * The type Remove doc command.
+ */
 public class RemoveDocCommand implements ActionCommand {
 
     private static final String ID = "id";

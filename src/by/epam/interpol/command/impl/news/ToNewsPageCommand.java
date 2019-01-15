@@ -9,6 +9,9 @@ import by.epam.interpol.service.impl.NewsServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
+/**
+ * The type To news page command.
+ */
 public class ToNewsPageCommand implements ActionCommand {
     @Override
     public Router execute(HttpServletRequest request) {

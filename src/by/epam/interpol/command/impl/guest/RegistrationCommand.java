@@ -19,6 +19,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 
+/**
+ * The type Registration command.
+ */
 public class RegistrationCommand implements ActionCommand {
 
     private static Logger LOGGER = LogManager.getLogger(RegistrationCommand.class);

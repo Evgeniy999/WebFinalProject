@@ -1,5 +1,19 @@
 package by.epam.interpol.consant;
 
+/**
+ * The enum Role type.
+ */
 public enum RoleType {
-    GUEST, USER, ADMIN
+    /**
+     * Guest role type.
+     */
+    GUEST,
+    /**
+     * User role type.
+     */
+    USER,
+    /**
+     * Admin role type.
+     */
+    ADMIN
 }

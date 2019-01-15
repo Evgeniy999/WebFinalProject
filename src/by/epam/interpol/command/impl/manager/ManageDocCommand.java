@@ -9,6 +9,9 @@ import by.epam.interpol.service.impl.DocServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
+/**
+ * The type Manage doc command.
+ */
 public class ManageDocCommand implements ActionCommand {
 
     @Override

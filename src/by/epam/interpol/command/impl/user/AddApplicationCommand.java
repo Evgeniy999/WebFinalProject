@@ -16,6 +16,9 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * The type Add application command.
+ */
 public class AddApplicationCommand implements ActionCommand {
     private static Logger LOGGER = LogManager.getLogger(AddApplicationCommand.class);
     private static final String NAME = "name";

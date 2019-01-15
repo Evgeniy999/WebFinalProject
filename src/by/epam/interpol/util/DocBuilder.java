@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Base64;
 
+/**
+ * The type Doc builder.
+ */
 public class DocBuilder {
     private static final String DOC_ID = "document_id";
     private static final String DOC_STATEMENT = "status";
@@ -22,6 +25,13 @@ public class DocBuilder {
     private static final String DOC_USER_PHOTO = "photo";
 
 
+    /**
+     * Create doc document.
+     *
+     * @param resultSet the result set
+     * @return the document
+     * @throws SQLException the sql exception
+     */
     public static Document createDoc(ResultSet resultSet) throws SQLException {
         int docId = resultSet.getInt(DOC_ID);
         String statement = resultSet.getString(DOC_STATEMENT);
@@ -40,6 +50,13 @@ public class DocBuilder {
 
     }
 
+    /**
+     * Create doc all array list.
+     *
+     * @param resultSet the result set
+     * @return the array list
+     * @throws SQLException the sql exception
+     */
     public static ArrayList<Document> createDocAll(ResultSet resultSet) throws SQLException {
         ArrayList<Document> result = new ArrayList<>();
 

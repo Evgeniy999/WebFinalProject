@@ -1,5 +1,8 @@
 package by.epam.interpol.exception;
 
+/**
+ * The type Service exception.
+ */
 public class ServiceException extends Throwable {
 
     /**

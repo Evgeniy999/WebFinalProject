@@ -6,6 +6,9 @@ import by.epam.interpol.command.Router;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * The type Application page command.
+ */
 public class ApplicationPageCommand implements ActionCommand {
     @Override
     public Router execute(HttpServletRequest request) {

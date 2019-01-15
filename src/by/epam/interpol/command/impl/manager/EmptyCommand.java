@@ -6,6 +6,9 @@ import by.epam.interpol.command.Router;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * The type Empty command.
+ */
 public class EmptyCommand implements ActionCommand
 {
     @Override

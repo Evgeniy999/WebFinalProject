@@ -7,6 +7,9 @@ import by.epam.interpol.consant.RoleType;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * The type To page change prof command.
+ */
 public class ToPageChangeProfCommand implements ActionCommand {
     private static final String ROLE = "role";
 

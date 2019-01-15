@@ -8,6 +8,9 @@ import by.epam.interpol.consant.RoleType;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * The type To page change password command.
+ */
 public class ToPageChangePasswordCommand implements ActionCommand {
 
     private static final String ROLE = "role";

@@ -9,11 +9,19 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.Executor;
 
+/**
+ * The type Proxy connection.
+ */
 public class ProxyConnection implements Connection, AutoCloseable{
 
     private static Logger LOGGER = LogManager.getLogger(ProxyConnection.class);
     private Connection connection;
 
+    /**
+     * Instantiates a new Proxy connection.
+     *
+     * @param connection the connection
+     */
     ProxyConnection(Connection connection) {
         this.connection = connection;
     }
@@ -62,6 +70,10 @@ public class ProxyConnection implements Connection, AutoCloseable{
     public void close(){
         PoolConnection.getInstance().releaseConnection(this);
     }
+
+    /**
+     * Real close.
+     */
     void realClose(){
         try {
             connection.setAutoCommit(true);

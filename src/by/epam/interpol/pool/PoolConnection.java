@@ -9,8 +9,14 @@ import java.sql.SQLException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+ * The type Pool connection.
+ */
 public class PoolConnection {
     private static Logger LOGGER = LogManager.getLogger(PoolConnection.class);
+    /**
+     * The Db initializer.
+     */
     DbInitializer dbInitializer;
 
     private ArrayBlockingQueue<Connection> freeConnections;
@@ -19,6 +25,11 @@ public class PoolConnection {
     private static ReentrantLock lock = new ReentrantLock();
     private static PoolConnection poolConnection;
 
+    /**
+     * Gets instance.
+     *
+     * @return the instance
+     */
     public static PoolConnection getInstance() {
         if (poolConnection != null) {
             return poolConnection;
@@ -66,6 +77,11 @@ public class PoolConnection {
 
     }
 
+    /**
+     * Gets connection.
+     *
+     * @return the connection
+     */
     public Connection getConnection() {
 
         Connection connection = null;
@@ -85,6 +101,11 @@ public class PoolConnection {
         return connection;
     }
 
+    /**
+     * Release connection.
+     *
+     * @param connection the connection
+     */
     void releaseConnection(Connection connection) {
 
         try {
@@ -102,6 +123,9 @@ public class PoolConnection {
 
     }
 
+    /**
+     * Destroy.
+     */
     public void destroy() {
 
         for (int i = 0; i < freeConnections.size(); i++) {

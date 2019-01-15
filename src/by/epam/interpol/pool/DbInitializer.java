@@ -7,16 +7,43 @@ import org.apache.logging.log4j.Logger;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
- class DbInitializer {
+/**
+ * The type Db initializer.
+ */
+class DbInitializer {
     private static Logger LOGGER = LogManager.getLogger();
+    /**
+     * The Db url.
+     */
     final String DB_URL;
+    /**
+     * The Db user.
+     */
     final String DB_USER;
+    /**
+     * The Db password.
+     */
     final String DB_PASSWORD;
+    /**
+     * The Db driver.
+     */
     final String DB_DRIVER;
+    /**
+     * The Db min pool capacity.
+     */
     final int DB_MIN_POOL_CAPACITY;
+    /**
+     * The Db max pool capacity.
+     */
     final int DB_MAX_POOL_CAPACITY;
+    /**
+     * The Db initial capacity.
+     */
     final int DB_INITIAL_CAPACITY;
 
+    /**
+     * Instantiates a new Db initializer.
+     */
     DbInitializer(){
         try {
             ResourceBundle resourceBundle = ResourceBundle.getBundle("properties.poolConnection");

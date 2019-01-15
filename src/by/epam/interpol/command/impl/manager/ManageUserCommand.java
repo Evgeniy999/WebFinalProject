@@ -9,6 +9,9 @@ import by.epam.interpol.service.impl.UserServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
+/**
+ * The type Manage user command.
+ */
 public class ManageUserCommand implements ActionCommand {
 
     @Override

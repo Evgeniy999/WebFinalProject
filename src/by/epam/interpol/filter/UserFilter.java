@@ -8,9 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type User filter.
+ */
 @WebFilter(filterName = "UserFilter", urlPatterns = {"/jsp/main/user/*"}, dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
 public class UserFilter implements Filter {
 
+    /**
+     * The constant ROLE.
+     */
     public static final String ROLE = "role";
 
     @Override

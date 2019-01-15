@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.Optional;
 
+/**
+ * The type Person service.
+ */
 public class PersonServiceImpl implements PersonService {
 
     private PersonDaoImpl personDao = new PersonDaoImpl();

@@ -13,6 +13,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type News service.
+ */
 public class NewsServiceImpl implements NewsService {
 
     private NewsDaoImpl newsDao = new NewsDaoImpl();

@@ -7,10 +7,20 @@ import by.epam.interpol.entity.User;
 import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
+/**
+ * The type Login service.
+ */
 public class LoginService {
 
     private UserDaoImpl userDaoImpl = new UserDaoImpl();
 
+    /**
+     * Search user by login password optional.
+     *
+     * @param login    the login
+     * @param password the password
+     * @return the optional
+     */
     public Optional<User> searchUserByLoginPassword(String login, String password){
 
         String utf8Login = new String(login.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);

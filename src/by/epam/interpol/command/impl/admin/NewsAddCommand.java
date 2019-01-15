@@ -18,6 +18,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+/**
+ * The type News add command.
+ */
 public class NewsAddCommand implements ActionCommand {
 
     private static Logger LOGGER = LogManager.getLogger();

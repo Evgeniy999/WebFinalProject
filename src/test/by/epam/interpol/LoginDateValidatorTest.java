@@ -5,14 +5,28 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+/**
+ * The type Login date validator test.
+ */
 public class LoginDateValidatorTest {
 
 
+    /**
+     * Test validate login true.
+     *
+     * @param login the login
+     */
     @Test(dataProvider = "testValidateTrueDataLogin")
     public void testValidateLoginTrue(String login) {
        Assert.assertTrue(LoginDataValidator.loginCheck(login));
 
     }
+
+    /**
+     * Test validate true data login object [ ] [ ].
+     *
+     * @return the object [ ] [ ]
+     */
     @DataProvider(name = "testValidateTrueDataLogin")
     public Object[][] testValidateTrueDataLogin(){
         return new Object[][]{
@@ -24,11 +38,22 @@ public class LoginDateValidatorTest {
         };
     }
 
+    /**
+     * Test validate password true.
+     *
+     * @param password the password
+     */
     @Test(dataProvider = "testValidateTrueDataPassword")
     public void testValidatePasswordTrue(String password) {
         Assert.assertTrue(LoginDataValidator.passwordCheck(password));
 
     }
+
+    /**
+     * Test validate true data password object [ ] [ ].
+     *
+     * @return the object [ ] [ ]
+     */
     @DataProvider(name = "testValidateTrueDataPassword")
     public Object[][] testValidateTrueDataPassword(){
         return new Object[][]{
@@ -37,11 +62,22 @@ public class LoginDateValidatorTest {
         };
     }
 
+    /**
+     * Test validate login false.
+     *
+     * @param login the login
+     */
     @Test(dataProvider = "testValidateFalseDataLogin")
     public void testValidateLoginFalse(String login) {
         Assert.assertFalse(LoginDataValidator.loginCheck(login));
 
     }
+
+    /**
+     * Test validate false data login object [ ] [ ].
+     *
+     * @return the object [ ] [ ]
+     */
     @DataProvider(name = "testValidateFalseDataLogin")
     public Object[][] testValidateFalseDataLogin(){
         return new Object[][]{
@@ -53,11 +89,22 @@ public class LoginDateValidatorTest {
         };
     }
 
+    /**
+     * Test validate false date.
+     *
+     * @param password the password
+     */
     @Test(dataProvider = "testValidateFalseDataPassword")
     public void testValidateFalseDate(String password) {
         Assert.assertFalse(LoginDataValidator.passwordCheck(password));
 
     }
+
+    /**
+     * Test validate false data password object [ ] [ ].
+     *
+     * @return the object [ ] [ ]
+     */
     @DataProvider(name = "testValidateFalseDataPassword")
     public Object[][] testValidateFalseDataPassword(){
         return new Object[][]{

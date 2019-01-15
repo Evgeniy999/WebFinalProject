@@ -8,9 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Admin filter.
+ */
 @WebFilter(filterName = "AdminFilter", urlPatterns = {"/jsp/main/admin/*"}, dispatcherTypes = {DispatcherType.FORWARD, DispatcherType.REQUEST})
 public class AdminFilter implements Filter {
 
+    /**
+     * The constant ROLE.
+     */
     public static final String ROLE = "role";
 
     @Override

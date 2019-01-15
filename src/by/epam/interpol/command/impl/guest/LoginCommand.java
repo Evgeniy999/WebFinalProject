@@ -16,6 +16,9 @@ import java.util.Optional;
 import static by.epam.interpol.consant.RoleType.ADMIN;
 import static by.epam.interpol.consant.RoleType.USER;
 
+/**
+ * The type Login command.
+ */
 public class LoginCommand implements ActionCommand {
 
     private static Logger LOGGER = LogManager.getLogger(LoginCommand.class);

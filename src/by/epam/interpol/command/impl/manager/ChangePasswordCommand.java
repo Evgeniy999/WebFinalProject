@@ -11,6 +11,9 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * The type Change password command.
+ */
 public class ChangePasswordCommand implements ActionCommand {
 
     private static Logger LOGGER = LogManager.getLogger(ChangePasswordCommand.class);

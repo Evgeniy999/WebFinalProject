@@ -18,6 +18,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * The type Session filter.
+ */
 public class SessionFilter implements Filter {
     private static final String INDEX_JSP = "/index.jsp";
     private static final String SESSION_LANG = "lang";

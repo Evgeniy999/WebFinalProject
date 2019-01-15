@@ -9,6 +9,9 @@ import by.epam.interpol.service.impl.PersonServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
+/**
+ * The type Wanted page command.
+ */
 public class WantedPageCommand implements ActionCommand {
     @Override
     public Router execute(HttpServletRequest request) {

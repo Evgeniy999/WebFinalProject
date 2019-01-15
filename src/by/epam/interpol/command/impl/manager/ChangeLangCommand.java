@@ -6,6 +6,9 @@ import by.epam.interpol.command.Router;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+/**
+ * The type Change lang command.
+ */
 public class ChangeLangCommand implements ActionCommand
 {
     private static final String LANG = "lang";

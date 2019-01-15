@@ -12,6 +12,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type User dao.
+ */
 public class UserDaoImpl implements UserDao<User> {
 
     private static Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
@@ -42,6 +45,12 @@ public class UserDaoImpl implements UserDao<User> {
     }
 
 
+    /**
+     * Search user by login optional.
+     *
+     * @param login the login
+     * @return the optional
+     */
     public Optional<User> searchUserByLogin(String login) {
 
         try (Connection connection = PoolConnection.getInstance().getConnection()) {

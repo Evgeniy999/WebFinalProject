@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
+/**
+ * The type Logout command.
+ */
 public class LogoutCommand implements ActionCommand {
 
     private static final String NAME_USER = "nameUser";

@@ -13,6 +13,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Doc service.
+ */
 public class DocServiceImpl implements DocService {
 
     private DocumentDao documentDao = new DocumentDao();

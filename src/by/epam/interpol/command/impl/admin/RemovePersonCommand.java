@@ -11,8 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Remove person command.
+ */
 public class RemovePersonCommand implements ActionCommand {
     private static final String ID = "id";
+    /**
+     * The constant MISSING.
+     */
     public static final String MISSING = "missing";
 
     @Override

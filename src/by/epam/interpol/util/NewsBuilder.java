@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Base64;
 
+/**
+ * The type News builder.
+ */
 public class NewsBuilder {
     private static final String NEWS_ID = "news_id";
     private static final String NEWS_TOPIC = "topic";
@@ -19,6 +22,13 @@ public class NewsBuilder {
     private static final String NEWS_PHOTO = "news_photo";
 
 
+    /**
+     * Create news news.
+     *
+     * @param resultSet the result set
+     * @return the news
+     * @throws SQLException the sql exception
+     */
     public static News createNews(ResultSet resultSet) throws SQLException {
 
         int newsId = resultSet.getInt(NEWS_ID);
@@ -35,6 +45,13 @@ public class NewsBuilder {
 
     }
 
+    /**
+     * Create news all array list.
+     *
+     * @param resultSet the result set
+     * @return the array list
+     * @throws SQLException the sql exception
+     */
     public static ArrayList<News> createNewsAll(ResultSet resultSet) throws SQLException {
         ArrayList<News> result = new ArrayList<>();
 

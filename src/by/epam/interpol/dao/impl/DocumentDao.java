@@ -13,6 +13,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Document dao.
+ */
 public class DocumentDao implements CommonDao<Document> {
 
     private static Logger LOGGER = LogManager.getLogger();
@@ -38,6 +41,19 @@ public class DocumentDao implements CommonDao<Document> {
         }
     }
 
+    /**
+     * Add document.
+     *
+     * @param stat        the stat
+     * @param time        the time
+     * @param reward      the reward
+     * @param information the information
+     * @param leadTime    the lead time
+     * @param name        the name
+     * @param lastName    the last name
+     * @param image       the image
+     * @throws DaoException the dao exception
+     */
     public void addDocument(String stat, Date time, double reward, String information, Date leadTime, String name,
                         String lastName, InputStream image) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {

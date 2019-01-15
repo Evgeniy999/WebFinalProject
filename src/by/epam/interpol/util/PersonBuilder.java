@@ -9,6 +9,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Base64;
 
+/**
+ * The type Person builder.
+ */
 public class PersonBuilder {
 
     private static final String PERSON_ID = "person_id";
@@ -25,6 +28,13 @@ public class PersonBuilder {
     private static final String PERSON_PHOTO = "person_photo";
 
 
+    /**
+     * Create person person.
+     *
+     * @param resultSet the result set
+     * @return the person
+     * @throws SQLException the sql exception
+     */
     public static Person createPerson(ResultSet resultSet) throws SQLException {
         int persId = resultSet.getInt(PERSON_ID);
         String name = resultSet.getString(PERSON_NAME);
@@ -47,6 +57,13 @@ public class PersonBuilder {
         hairColor, nationality,characteristics, birth, sex, base64EncodedPhoto,photo);
     }
 
+    /**
+     * Create person all array list.
+     *
+     * @param resultSet the result set
+     * @return the array list
+     * @throws SQLException the sql exception
+     */
     public static ArrayList<Person> createPersonAll(ResultSet resultSet) throws SQLException {
         ArrayList<Person> result = new ArrayList<>();
         while (resultSet.next()) {

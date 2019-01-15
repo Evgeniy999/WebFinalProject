@@ -7,6 +7,9 @@ import by.epam.interpol.command.Router;
 import javax.servlet.http.HttpServletRequest;
 
 
+/**
+ * The type Manage news command.
+ */
 public class ManageNewsCommand implements ActionCommand {
 
     @Override

@@ -14,6 +14,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Person dao.
+ */
 public class PersonDaoImpl implements PersonDao {
 
     private static Logger LOGGER = LogManager.getLogger();

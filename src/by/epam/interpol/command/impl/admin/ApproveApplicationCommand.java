@@ -26,6 +26,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type Approve application command.
+ */
 public class ApproveApplicationCommand implements ActionCommand {
 
     private static Logger LOGGER = LogManager.getLogger(ApproveApplicationCommand.class);

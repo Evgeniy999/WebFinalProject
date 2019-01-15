@@ -9,6 +9,9 @@ import by.epam.interpol.service.impl.PersonServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
+/**
+ * The type Missing page command.
+ */
 public class MissingPageCommand implements ActionCommand {
     @Override
     public Router execute(HttpServletRequest request) {

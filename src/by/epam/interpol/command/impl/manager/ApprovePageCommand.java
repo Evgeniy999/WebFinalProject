@@ -9,6 +9,9 @@ import by.epam.interpol.service.impl.DocServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
+/**
+ * The type Approve page command.
+ */
 public class ApprovePageCommand implements ActionCommand {
 
     private static final String ID = "id";

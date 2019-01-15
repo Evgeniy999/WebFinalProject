@@ -1,5 +1,8 @@
 package by.epam.interpol.exception;
 
+/**
+ * The type Application exception.
+ */
 public class ApplicationException extends Throwable {
 
     /** Value of the exception message. */
@@ -7,7 +10,7 @@ public class ApplicationException extends Throwable {
 
     /**
      * Public default constructor.
-     * */
+     */
     public ApplicationException() {
 
         super();
@@ -18,7 +21,7 @@ public class ApplicationException extends Throwable {
      * Public initialize constructor.
      *
      * @param newMessage new value of the exception message
-     * */
+     */
     public ApplicationException(final String newMessage) {
 
         super(newMessage);
@@ -31,7 +34,7 @@ public class ApplicationException extends Throwable {
      * Public initialize constructor.
      *
      * @param throwable new value of the object Throwable
-     * */
+     */
     public ApplicationException(final Throwable throwable) {
 
         super(throwable);
@@ -42,8 +45,8 @@ public class ApplicationException extends Throwable {
      * Public initialize constructor.
      *
      * @param newMessage new value of the exception message
-     * @param throwable new value of the object Throwable
-     * */
+     * @param throwable  new value of the object Throwable
+     */
     public ApplicationException(final String newMessage,
                                 final Throwable throwable) {
 
@@ -66,7 +69,7 @@ public class ApplicationException extends Throwable {
      * This method set new value of the exception message.
      *
      * @param newMessage new value of the exception message
-     * */
+     */
     public void setMessage(final String newMessage) {
 
         this.message = newMessage;

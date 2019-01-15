@@ -5,13 +5,28 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+/**
+ * The type Password coding test.
+ */
 public class PasswordCodingTest {
 
+    /**
+     * Test encode md 5.
+     *
+     * @param actual       the actual
+     * @param beforeEncode the before encode
+     */
     @Test(dataProvider = "testEncodeMD5Data")
     public void testEncodeMD5(String actual, String beforeEncode) {
         String expected = PasswordCode.encode(beforeEncode);
        Assert.assertEquals(actual, expected);
     }
+
+    /**
+     * Test encode md 5 data object [ ] [ ].
+     *
+     * @return the object [ ] [ ]
+     */
     @DataProvider(name = "testEncodeMD5Data")
     public Object[][] testEncodeMD5Data(){
         return new Object[][]{

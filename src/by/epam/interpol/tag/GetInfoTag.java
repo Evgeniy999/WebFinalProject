@@ -5,6 +5,9 @@ import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 import java.io.IOException;
 
+/**
+ * The type Get info tag.
+ */
 public class GetInfoTag extends TagSupport
 {
     public int doStartTag() throws JspException

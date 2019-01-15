@@ -18,6 +18,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Optional;
 
+/**
+ * The type Change prof command.
+ */
 public class ChangeProfCommand implements ActionCommand {
     private static Logger LOGGER = LogManager.getLogger(ChangeProfCommand.class);
 

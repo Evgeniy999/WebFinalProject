@@ -14,6 +14,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The type News dao.
+ */
 public class NewsDaoImpl implements NewsDao {
 
     private static Logger LOGGER = LogManager.getLogger();
