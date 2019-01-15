@@ -23,6 +23,12 @@ public class RemovePersonCommand implements ActionCommand {
         Optional<Person> person = null;
         try {
             person = service.searchById(Integer.parseInt(id));
+            if(person.get().getStatus().equals(MISSING)) {
+                router.setPagePath(PagePath.MISSING_TABLE.getJspPath());
+            }else
+            {
+                router.setPagePath(PagePath.WANTED_TABLE.getJspPath());
+            }
             service.remove(Integer.parseInt(id));
         } catch (ServiceException e) {
             e.printStackTrace();
@@ -30,12 +36,6 @@ public class RemovePersonCommand implements ActionCommand {
 
         ArrayList<Person> people = service.showAll();
         request.getSession().setAttribute("people",people);
-        if(person.get().getStatus()== MISSING) {
-            router.setPagePath(PagePath.MISSING_TABLE.getJspPath());
-        }else
-        {
-            router.setPagePath(PagePath.WANTED_TABLE.getJspPath());
-        }
         return router;
     }
 }

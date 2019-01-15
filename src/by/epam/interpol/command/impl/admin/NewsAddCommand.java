@@ -3,6 +3,7 @@ package by.epam.interpol.command.impl.admin;
 import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
+import by.epam.interpol.entity.News;
 import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.exception.ServiceException;
 import by.epam.interpol.service.impl.NewsServiceImpl;
@@ -15,6 +16,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class NewsAddCommand implements ActionCommand {
 
@@ -28,6 +30,7 @@ public class NewsAddCommand implements ActionCommand {
     @Override
     public Router execute(HttpServletRequest request) {
         NewsServiceImpl newsService = new NewsServiceImpl();
+        ArrayList<News> newsAll = newsService.showAll();
         Router router = new Router();
         Date date = null;
         String currentTopic = request.getParameter(NEWS_TOPIC);
@@ -48,6 +51,7 @@ public class NewsAddCommand implements ActionCommand {
             imagePart = request.getPart(NEWS_PHOTO);
             newsService.addNews(currentTopic, currentInformation, currentCountry, date, imagePart);
             router.setPagePath(PagePath.NEWS_PAGE.getJspPath());
+            request.getSession().setAttribute("news", newsAll);
 
         } catch (Exception | ServiceException e) {
             LOGGER.warn("Document input exception", e);

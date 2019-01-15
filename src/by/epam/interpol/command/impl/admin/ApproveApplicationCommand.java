@@ -16,12 +16,14 @@ import by.epam.interpol.command.Router;
 
 import javax.lang.model.element.Name;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import java.sql.Blob;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class ApproveApplicationCommand implements ActionCommand {
@@ -43,6 +45,7 @@ public class ApproveApplicationCommand implements ActionCommand {
     public Router execute(HttpServletRequest request) {
         PersonServiceImpl personService = new PersonServiceImpl();
         DocServiceImpl docService = new DocServiceImpl();
+        ArrayList<Person> people = personService.showAll();
         Router router = new Router();
         Date birth = null;
         String currentId = request.getParameter(DOC_ID);
@@ -58,6 +61,7 @@ public class ApproveApplicationCommand implements ActionCommand {
         String currentStatus = request.getParameter(STATUS);
         Optional<Document> document = docService.searchById(Integer.parseInt(currentId));
 
+
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
         try {
             birth = new Date(formatter.parse(currentBirth).getTime());
@@ -72,10 +76,10 @@ public class ApproveApplicationCommand implements ActionCommand {
             personService.addPerson(currentName, currentLast, birth, weight, height, currentHair, currentNationality,
                     currentSex, currentCharacteristics, status, document.get().getPhoto());
             router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
-
+            request.getSession().setAttribute("people",people);
         } catch (Exception | ServiceException e) {
             LOGGER.warn("Person exception", e);
-            router.setPagePath(PagePath.DOCS_TABLE.getJspPath());
+            router.setPagePath(PagePath.APPLICATION_PAGE.getJspPath());
         }
         return router;
     }

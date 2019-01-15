@@ -17,7 +17,7 @@ import java.util.Optional;
 public class PersonDaoImpl implements PersonDao {
 
     private static Logger LOGGER = LogManager.getLogger();
-    private static final String SEARCH_PERSON_BY_ID = "SELECT * FROM people JOIN type_statement on people.person_status=type_statement.statement_id  WHERE document_id = ?";
+    private static final String SEARCH_PERSON_BY_ID = "SELECT * FROM people JOIN type_statement on people.person_status=type_statement.statement_id  WHERE person_id = ?";
     private static final String INSERT_PERSON = "INSERT INTO people values(null,?,?,?,?,?,?,?,?,?,?,?) ";
     private static final String SELECT_PERSON_ALL = "SELECT * FROM people JOIN type_statement on people.person_status=type_statement.statement_id ";
     private static final String REMOVE_PERSON_DATA = "DELETE FROM people WHERE person_id = ?";

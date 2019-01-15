@@ -4,7 +4,7 @@
 <%@ taglib prefix="infotag" uri="/WEB-INF/tag/infoTag.tld" %>
 <html>
 <head>
-    <title>Missing</title>
+    <title>Wanted</title>
     <script data-require="jquery@2.0.3" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
           id="bootstrap-css">
@@ -42,9 +42,8 @@
                 <td>Characteristics</td>
                 <td>Sex</td>
                 <c:if test="${sessionScope.role =='ADMIN'}">
-                    <th style="width: 36px;"></th>
+                <th style="width: 36px;"></th>
                 </c:if>
-
             </tr>
             </thead>
             <tbody>
@@ -68,34 +67,34 @@
                         <td>${person.getBirthday()}</td>
                         <td>
                             <p>Height:
-                            <c:choose>
-                                <c:when test="${not empty person.getHeight()}">
-                                    ${person.getHeight()}
-                                </c:when>
-                                <c:otherwise>
-                                    -
-                                </c:otherwise>
-                            </c:choose></p>
+                                <c:choose>
+                                    <c:when test="${not empty person.getHeight()}">
+                                        ${person.getHeight()}
+                                    </c:when>
+                                    <c:otherwise>
+                                        -
+                                    </c:otherwise>
+                                </c:choose></p>
                             <p>Weight:
-                            <c:choose>
-                                <c:when test="${not empty person.getWeight()}">
-                                    ${person.getWeight()}
-                                </c:when>
-                                <c:otherwise>
-                                    -
-                                </c:otherwise>
-                            </c:choose>
+                                <c:choose>
+                                    <c:when test="${not empty person.getWeight()}">
+                                        ${person.getWeight()}
+                                    </c:when>
+                                    <c:otherwise>
+                                        -
+                                    </c:otherwise>
+                                </c:choose>
                             </p>
-                           <p>Color of hair:
-                            <c:choose>
-                                <c:when test="${not empty person.getColorOfHair()}">
-                                    ${person.getColorOfHair()}
-                                </c:when>
-                                <c:otherwise>
-                                    -
-                                </c:otherwise>
-                            </c:choose>
-                           </p>
+                            <p>Color of hair:
+                                <c:choose>
+                                    <c:when test="${not empty person.getColorOfHair()}">
+                                        ${person.getColorOfHair()}
+                                    </c:when>
+                                    <c:otherwise>
+                                        -
+                                    </c:otherwise>
+                                </c:choose>
+                            </p>
                         </td>
                         <td>${person.getNationality()}</td>
                         <td style="width: 320px;">
@@ -120,8 +119,9 @@
         </table>
     </div>
 </div>
-<a href="/jsp/main/main.jsp">${back}</a>
-<!-- Post Info -->
+
+<a style="padding-top: 100px;padding-bottom: 100px" href="/jsp/main/main.jsp">${back}</a>
+
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
     <infotag:getinfo/>
@@ -130,3 +130,5 @@
 
 </body>
 </html>
+
+

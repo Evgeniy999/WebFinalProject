@@ -66,10 +66,10 @@
             <form action="/interpol" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="APPROVE_APPLIC" name="command">
 
-                <c:if test="${person.getStatus() == 'missing'}">
+                <c:if test="${document.getStatement() == 'missing'}">
                     <input type="hidden" value="1" name="status">
                 </c:if>
-                <c:if test="${person.getStatus() == 'wanted'}">
+                <c:if test="${document.getStatement() == 'wanted'}">
                     <input type="hidden" value="2" name="status">
                 </c:if>
                 <input type="hidden" value="${document.getDocId()}" name="docId">
@@ -124,9 +124,9 @@
                                 <div class="form-group">
                                     <label for="gender">${gender}</label>
                                     <select name="gender" id="gender" class="form-control">
-                                        <option value="Male" selected>Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
+                                        <option value="Male" selected>${male}</option>
+                                        <option value="Female">${female}</option>
+                                        <option value="Other">${other}</option>
                                     </select>
                                     <span id="error_gender" class="text-danger"></span>
                                 </div>

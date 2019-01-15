@@ -44,7 +44,6 @@
                 <c:if test="${sessionScope.role =='ADMIN'}">
                     <th style="width: 36px;"></th>
                 </c:if>
-
             </tr>
             </thead>
             <tbody>
@@ -106,7 +105,6 @@
                         <td>${person.getSex()}</td>
                         <c:if test="${sessionScope.role =='ADMIN'}">
                             <td>
-
                                 <form action="/interpol" method="get">
                                     <input type="hidden" value="REMOVE_PERSON" name="command">
                                     <a href="interpol?command=REMOVE_PERSON&id=${person.getPersonId()}"><i
@@ -121,8 +119,9 @@
         </table>
     </div>
 </div>
-<a href="/jsp/main/main.jsp">${back}</a>
-<!-- Post Info -->
+
+<a style="padding-top: 100px;padding-bottom: 100px" href="/jsp/main/main.jsp">${back}</a>
+
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
     <infotag:getinfo/>
@@ -131,3 +130,5 @@
 
 </body>
 </html>
+
+

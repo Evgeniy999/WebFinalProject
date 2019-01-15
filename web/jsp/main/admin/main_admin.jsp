@@ -170,11 +170,52 @@
                                                 <p>${name}: ${people.getName()}</p>
                                                 <p>${last}: ${people.getLastName()}</p>
                                                 <p>${birth}: ${people.getBirthday()}</p>
-                                                <p>${weight}: ${people.getWeight()}</p>
-                                                <p>${height}: ${people.getHeight()}</p>
-                                                <p>${hair}: ${people.getColorOfHair()}</p>
-                                                <p>${nationality}:${people.getNationality()}</p>
-                                                <p>${characteristics}: ${people.getCharacteristics()}</p>
+                                                <p>${weight}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getWeight()}">
+                                                            ${people.getWeight()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </p>
+                                                <p>${height}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getHeight()}">
+                                                            ${people.getHeight()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose></p>
+                                                <p>${hair}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getColorOfHair()}">
+                                                            ${people.getColorOfHair()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose></p>
+                                                <p>${nationality}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getNationality()}">
+                                                            ${people.getNationality()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose></p>
+                                                <p>${characteristics}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getCharacteristics()}">
+                                                            ${people.getCharacteristics()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose></p>
                                                 <p>${sex}:${people.getSex()}</p>
                                             </div>
                                         </div>
@@ -201,11 +242,52 @@
                                                 <p>${name}: ${people.getName()}</p>
                                                 <p>${last}: ${people.getLastName()}</p>
                                                 <p>${birth}: ${people.getBirthday()}</p>
-                                                <p>${weight}: ${people.getWeight()}</p>
-                                                <p>${height}: ${people.getHeight()}</p>
-                                                <p>${hair}: ${people.getColorOfHair()}</p>
-                                                <p>${nationality}:${people.getNationality()}</p>
-                                                <p>${characteristics}: ${people.getCharacteristics()}</p>
+                                                <p>${weight}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getWeight()}">
+                                                            ${people.getWeight()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </p>
+                                                <p>${height}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getHeight()}">
+                                                            ${people.getHeight()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose></p>
+                                                <p>${hair}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getColorOfHair()}">
+                                                            ${people.getColorOfHair()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose></p>
+                                                <p>${nationality}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getNationality()}">
+                                                            ${people.getNationality()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose></p>
+                                                <p>${characteristics}:
+                                                    <c:choose>
+                                                        <c:when test="${not empty people.getCharacteristics()}">
+                                                            ${people.getCharacteristics()}
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            -
+                                                        </c:otherwise>
+                                                    </c:choose></p>
                                                 <p>${sex}:${people.getSex()}</p>
                                             </div>
                                         </div>
