@@ -12,6 +12,9 @@
     <style type="text/css">
         <%@include file="/css/approve.css"%>
     </style>
+    <script type="text/javascript">
+        <%@include file="/js/registration.js"%>
+    </script>
 </head>
 
 <c:set var="language" value="${sessionScope.lang}"/>
@@ -33,25 +36,33 @@
 <fmt:message bundle="${local}" key="female" var="female"/>
 <fmt:message bundle="${local}" key="other" var="other"/>
 <fmt:message bundle="${local}" key="back" var="back"/>
+<fmt:message bundle="${local}" key="login.username" var="username"/>
+<fmt:message bundle="${local}" key="application.information" var="information"/>
+<fmt:message bundle="${local}" key="main.statement" var="stat"/>
+<fmt:message bundle="${local}" key="application.reward" var="reward"/>
+<fmt:message bundle="${local}" key="application.lead.time" var="lead"/>
+<fmt:message bundle="${local}" key="main.form" var="forma"/>
+<fmt:message bundle="${local}" key="application.type" var="type"/>
+<fmt:message bundle="${local}" key="add.news.date" var="date"/>
 
 <body style="padding-right: 100px">
 <c:set var="document" value="${document}"/>
 <table cellspacing="0" id="maket">
     <tr>
         <td id="leftcol">
-            <p>Statement</p>
+            <p>${stat}</p>
             <div>
-                <p>Name: ${document.getName()} ${document.getLastName()}</p>
-                <p>Information: </p>
+                <p>${username}: ${document.getName()} ${document.getLastName()}</p>
+                <p>${information}: </p>
                 <p>
                 <div class="col" style="width: 280px">
                     ${document.getInformation()}
                 </div>
                 </p>
-                <p>Type statement: ${document.getStatement()}</p>
-                <p>Reward($): ${document.getReward()}</p>
-                <p>Time: ${document.getTime()}</p>
-                <p>Lead time: ${document.getLeadTime()}</p>
+                <p>${type}: ${document.getStatement()}</p>
+                <p>${reward}($): ${document.getReward()}</p>
+                <p>${date}: ${document.getTime()}</p>
+                <p>${lead}: ${document.getLeadTime()}</p>
                 <p><c:choose>
                     <c:when test="${not empty document.encodedPhoto}">
                         <img src="data:image/jpeg;base64,${document.encodedPhoto}"/>
@@ -62,7 +73,7 @@
                 </c:choose></p>
             </div>
         </td>
-        <td id="rightcol">Form
+        <td id="rightcol">${forma}
             <form action="/interpol" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="APPROVE_APPLIC" name="command">
 
@@ -98,19 +109,20 @@
                                 <div class="form-group">
                                     <label for="weight">${weight} </label>
                                     <input id="weight" name="weight" class="form-control" type="text"
-                                           min="1">
+                                           min="1" >
                                     <span id="error_weight" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="height">${height} </label>
                                     <input id="height" name="height" class="form-control" type="text"
-                                           min="1">
+                                           min="1" >
                                     <span id="error_height" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="hair">${hair} </label>
-                                    <input id="hair" name="hair" class="form-control" type="text" min="1">
+                                    <input id="hair" name="hair" class="form-control" type="text" min="1"
+                                    value=" ">
                                     <span id="error_hair" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -124,9 +136,9 @@
                                 <div class="form-group">
                                     <label for="gender">${gender}</label>
                                     <select name="gender" id="gender" class="form-control">
-                                        <option value="Male" selected>${male}</option>
-                                        <option value="Female">${female}</option>
-                                        <option value="Other">${other}</option>
+                                        <option value="Male" selected>Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                     <span id="error_gender" class="text-danger"></span>
                                 </div>

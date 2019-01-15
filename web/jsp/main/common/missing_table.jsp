@@ -49,7 +49,8 @@
             <tbody>
             <c:forEach var="person" items="${people}">
                 <tr>
-                    <c:if test="${person.getStatus() == 'missing'}">
+                    <c:choose>
+                    <c:when  test="${person.getStatus() == 'missing'}">
 
 
                         <td>${person.getPersonId()}</td>
@@ -68,20 +69,20 @@
                         <td>
                             <p>Height:
                                 <c:choose>
-                                    <c:when test="${not empty person.getHeight()}">
-                                        ${person.getHeight()}
+                                    <c:when test="${person.getHeight()=='0'}">
+                                        -
                                     </c:when>
                                     <c:otherwise>
-                                        -
+                                       ${person.getHeight()}
                                     </c:otherwise>
                                 </c:choose></p>
                             <p>Weight:
                                 <c:choose>
-                                    <c:when test="${not empty person.getWeight()}">
-                                        ${person.getWeight()}
+                                    <c:when test="${person.getWeight()=='0'}">
+                                        -
                                     </c:when>
                                     <c:otherwise>
-                                        -
+                                        ${person.getWeight()}
                                     </c:otherwise>
                                 </c:choose>
                             </p>
@@ -112,7 +113,10 @@
                                 </form>
                             </td>
                         </c:if>
-                    </c:if>
+                    </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
                 </tr>
             </c:forEach>
             </tbody>
@@ -120,7 +124,7 @@
     </div>
 </div>
 
-<a style="padding-top: 100px;padding-bottom: 100px" href="/jsp/main/main.jsp">${back}</a>
+<a style="padding-top: 100px;padding-bottom: 100px"  href="/jsp/main/main.jsp">${back}</a>
 
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>

@@ -34,12 +34,13 @@
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="properties.text" var="local"/>
 <fmt:message bundle="${local}" key="back" var="back"/>
+<fmt:message bundle="${local}" key="add.news" var="add"/>
 
 <form action="/interpol" method="get">
     <input type="hidden" value="NEWS_ADD_PAGE" name="command">
     <div class="btn-toolbar">
         <p>Add news</p>
-        <button type="submit" class="fa fa-plus"></button>
+        <button type="submit">${add}</button>
     </div>
 </form>
 

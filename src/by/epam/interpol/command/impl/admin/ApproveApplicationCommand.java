@@ -63,8 +63,9 @@ public class ApproveApplicationCommand implements ActionCommand {
         String currentCharacteristics = request.getParameter(CHARACTERISTICS);
         String currentStatus = request.getParameter(STATUS);
         Optional<Document> document = docService.searchById(Integer.parseInt(currentId));
-
-
+        int weight;
+        int height;
+        int status;
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
         try {
             birth = new Date(formatter.parse(currentBirth).getTime());
@@ -72,9 +73,16 @@ public class ApproveApplicationCommand implements ActionCommand {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        int weight = Integer.parseInt(currentWeight);
-        int height = Integer.parseInt(currentHeight);
-        int status = Integer.parseInt(currentStatus);
+        if(currentHeight.isEmpty() && currentWeight.isEmpty()){
+            weight  = Integer.parseInt(currentWeight);
+            height = Integer.parseInt(currentHeight);
+        }
+        else {
+            weight=0;
+            height=0;
+
+        }
+         status = Integer.parseInt(currentStatus);
         try {
             personService.addPerson(currentName, currentLast, birth, weight, height, currentHair, currentNationality,
                     currentSex, currentCharacteristics, status, document.get().getPhoto());

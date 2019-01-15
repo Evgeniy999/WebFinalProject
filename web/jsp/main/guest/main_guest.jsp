@@ -113,17 +113,17 @@
                                                 <p>${birth}: ${people.getBirthday()}</p>
                                                 <p>${weight}:
                                                     <c:choose>
-                                                        <c:when test="${not empty people.getWeight()}">
-                                                            ${people.getWeight()}
+                                                        <c:when test="${people.getWeight()=='0'}">
+                                                            -
                                                         </c:when>
                                                         <c:otherwise>
-                                                            -
+                                                            ${people.getWeight()}
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </p>
                                                 <p>${height}:
                                                     <c:choose>
-                                                        <c:when test="${not empty people.getHeight()}">
+                                                        <c:when test="${people.getHeight() == '0'}">
                                                             ${people.getHeight()}
                                                         </c:when>
                                                         <c:otherwise>
@@ -185,17 +185,17 @@
                                                 <p>${birth}: ${people.getBirthday()}</p>
                                                 <p>${weight}:
                                                     <c:choose>
-                                                        <c:when test="${not empty people.getWeight()}">
-                                                            ${people.getWeight()}
+                                                        <c:when test="${people.getWeight()=='0'}">
+                                                            -
                                                         </c:when>
                                                         <c:otherwise>
-                                                            -
+                                                            ${people.getWeight()}
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </p>
                                                 <p>${height}:
                                                     <c:choose>
-                                                        <c:when test="${not empty people.getHeight()}">
+                                                        <c:when test="${people.getHeight() == '0'}">
                                                             ${people.getHeight()}
                                                         </c:when>
                                                         <c:otherwise>

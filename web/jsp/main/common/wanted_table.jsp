@@ -42,77 +42,81 @@
                 <td>Characteristics</td>
                 <td>Sex</td>
                 <c:if test="${sessionScope.role =='ADMIN'}">
-                <th style="width: 36px;"></th>
+                    <th style="width: 36px;"></th>
                 </c:if>
             </tr>
             </thead>
             <tbody>
             <c:forEach var="person" items="${people}">
                 <tr>
-                    <c:if test="${person.getStatus() == 'wanted'}">
+                    <c:choose>
+                        <c:when  test="${person.getStatus() == 'wanted'}">
 
 
-                        <td>${person.getPersonId()}</td>
-                        <td id="statya">
-                            <c:choose>
-                                <c:when test="${not empty person.encodedPhoto}">
-                                    <img src="data:image/jpeg;base64,${person.encodedPhoto}"/>
-                                </c:when>
-                                <c:otherwise>
-                                    -
-                                </c:otherwise>
-                            </c:choose>
-                        </td>
-                        <td>${person.getName()} ${person.getLastName()}</td>
-                        <td>${person.getBirthday()}</td>
-                        <td>
-                            <p>Height:
+                            <td>${person.getPersonId()}</td>
+                            <td id="statya">
                                 <c:choose>
-                                    <c:when test="${not empty person.getHeight()}">
-                                        ${person.getHeight()}
-                                    </c:when>
-                                    <c:otherwise>
-                                        -
-                                    </c:otherwise>
-                                </c:choose></p>
-                            <p>Weight:
-                                <c:choose>
-                                    <c:when test="${not empty person.getWeight()}">
-                                        ${person.getWeight()}
+                                    <c:when test="${not empty person.encodedPhoto}">
+                                        <img src="data:image/jpeg;base64,${person.encodedPhoto}"/>
                                     </c:when>
                                     <c:otherwise>
                                         -
                                     </c:otherwise>
                                 </c:choose>
-                            </p>
-                            <p>Color of hair:
-                                <c:choose>
-                                    <c:when test="${not empty person.getColorOfHair()}">
-                                        ${person.getColorOfHair()}
-                                    </c:when>
-                                    <c:otherwise>
-                                        -
-                                    </c:otherwise>
-                                </c:choose>
-                            </p>
-                        </td>
-                        <td>${person.getNationality()}</td>
-                        <td style="width: 320px;">
-                            <div class="col" style="width: 280px">
-                                    ${person.getCharacteristics()}
-                            </div>
-                        </td>
-                        <td>${person.getSex()}</td>
-                        <c:if test="${sessionScope.role =='ADMIN'}">
-                            <td>
-                                <form action="/interpol" method="get">
-                                    <input type="hidden" value="REMOVE_PERSON" name="command">
-                                    <a href="interpol?command=REMOVE_PERSON&id=${person.getPersonId()}"><i
-                                            class="icon-fixed-width icon-trash"></i></a>
-                                </form>
                             </td>
-                        </c:if>
-                    </c:if>
+                            <td>${person.getName()} ${person.getLastName()}</td>
+                            <td>${person.getBirthday()}</td>
+                            <td>
+                                <p>Height:
+                                    <c:choose>
+                                        <c:when test="${person.getHeight()=='0'}">
+                                            -
+                                        </c:when>
+                                        <c:otherwise>
+                                            ${person.getHeight()}
+                                        </c:otherwise>
+                                    </c:choose></p>
+                                <p>Weight:
+                                    <c:choose>
+                                        <c:when test="${person.getWeight()=='0'}">
+                                           -
+                                        </c:when>
+                                        <c:otherwise>
+                                            ${person.getWeight()}
+                                        </c:otherwise>
+                                    </c:choose>
+                                </p>
+                                <p>Color of hair:
+                                    <c:choose>
+                                        <c:when test="${not empty person.getColorOfHair()}">
+                                            ${person.getColorOfHair()}
+                                        </c:when>
+                                        <c:otherwise>
+                                            -
+                                        </c:otherwise>
+                                    </c:choose>
+                                </p>
+                            </td>
+                            <td>${person.getNationality()}</td>
+                            <td style="width: 320px;">
+                                <div class="col" style="width: 280px">
+                                        ${person.getCharacteristics()}
+                                </div>
+                            </td>
+                            <td>${person.getSex()}</td>
+                            <c:if test="${sessionScope.role =='ADMIN'}">
+                                <td>
+                                    <form action="/interpol" method="get">
+                                        <input type="hidden" value="REMOVE_PERSON" name="command">
+                                        <a href="interpol?command=REMOVE_PERSON&id=${person.getPersonId()}"><i
+                                                class="icon-fixed-width icon-trash"></i></a>
+                                    </form>
+                                </td>
+                            </c:if>
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
                 </tr>
             </c:forEach>
             </tbody>
@@ -120,7 +124,7 @@
     </div>
 </div>
 
-<a style="padding-top: 100px;padding-bottom: 100px" href="/jsp/main/main.jsp">${back}</a>
+<a style="padding-top: 100px;padding-bottom: 100px"  href="/jsp/main/main.jsp">${back}</a>
 
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
