@@ -26,7 +26,7 @@ public class Controller extends HttpServlet {
     private static final String COMMAND = "command";
 
     @Override
-    public void init() throws ServletException
+    public void init()
     {
         PoolConnection.getInstance();
     }
