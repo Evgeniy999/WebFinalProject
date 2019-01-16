@@ -5,7 +5,7 @@ import by.epam.interpol.command.impl.admin.*;
 import by.epam.interpol.command.impl.guest.LoginCommand;
 import by.epam.interpol.command.impl.guest.RegistrationCommand;
 import by.epam.interpol.command.impl.manager.*;
-import by.epam.interpol.command.impl.news.ToNewsPageCommand;
+import by.epam.interpol.command.impl.manager.ToNewsPageCommand;
 import by.epam.interpol.command.impl.user.*;
 
 /**
