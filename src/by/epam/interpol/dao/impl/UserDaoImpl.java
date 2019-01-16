@@ -105,7 +105,7 @@ public class UserDaoImpl implements UserDao<User> {
         }
 
     }
-
+    @Override
     public void changePassword(int id, String password) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(CHANGE_PASSWORD);
@@ -116,7 +116,7 @@ public class UserDaoImpl implements UserDao<User> {
             throw new DaoException(e);
         }
     }
-
+    @Override
     public void changeProf(int id, String name, String last, Date birth, long telephone, String address) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(CHANGE_PROF);

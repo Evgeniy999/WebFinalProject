@@ -1,6 +1,5 @@
 package by.epam.interpol.service.impl;
 
-import by.epam.interpol.dao.PersonDao;
 import by.epam.interpol.dao.impl.PersonDaoImpl;
 import by.epam.interpol.entity.Person;
 import by.epam.interpol.exception.DaoException;

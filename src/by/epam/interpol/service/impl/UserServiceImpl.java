@@ -12,15 +12,11 @@ import java.util.Optional;
 import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.exception.ServiceException;
 import by.epam.interpol.service.UserService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 /**
  * The type User service.
  */
 public class UserServiceImpl implements UserService {
-
-    private static Logger LOGGER = LogManager.getLogger(UserServiceImpl.class);
 
     private UserDaoImpl userDao = new UserDaoImpl();
 

@@ -1,6 +1,6 @@
 package by.epam.interpol.service.impl;
 
-import by.epam.interpol.dao.impl.DocumentDao;
+import by.epam.interpol.dao.impl.DocumentDaoImpl;
 import by.epam.interpol.entity.Document;
 import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.exception.ServiceException;
@@ -18,7 +18,7 @@ import java.util.Optional;
  */
 public class DocServiceImpl implements DocService {
 
-    private DocumentDao documentDao = new DocumentDao();
+    private DocumentDaoImpl documentDao = new DocumentDaoImpl();
 
     @Override
     public Optional<Document> searchById(int id) {

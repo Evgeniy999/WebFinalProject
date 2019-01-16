@@ -1,5 +1,6 @@
 package by.epam.interpol.dao.impl;
 
+import by.epam.interpol.dao.DocumentDao;
 import by.epam.interpol.pool.PoolConnection;
 import by.epam.interpol.dao.CommonDao;
 import by.epam.interpol.entity.Document;
@@ -16,7 +17,7 @@ import java.util.Optional;
 /**
  * The type Document dao.
  */
-public class DocumentDao implements CommonDao<Document> {
+public class DocumentDaoImpl implements DocumentDao {
 
     private static Logger LOGGER = LogManager.getLogger();
     private static final String SEARCH_DOC_BY_ID = "SELECT * FROM documents JOIN type_statement on documents.type_statement=type_statement.statement_id  WHERE document_id = ?";
@@ -41,19 +42,7 @@ public class DocumentDao implements CommonDao<Document> {
         }
     }
 
-    /**
-     * Add document.
-     *
-     * @param stat        the stat
-     * @param time        the time
-     * @param reward      the reward
-     * @param information the information
-     * @param leadTime    the lead time
-     * @param name        the name
-     * @param lastName    the last name
-     * @param image       the image
-     * @throws DaoException the dao exception
-     */
+    @Override
     public void addDocument(String stat, Date time, double reward, String information, Date leadTime, String name,
                         String lastName, InputStream image) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {

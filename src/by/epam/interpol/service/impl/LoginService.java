@@ -12,7 +12,7 @@ import java.util.Optional;
  */
 public class LoginService {
 
-    private UserDaoImpl userDaoImpl = new UserDaoImpl();
+    private UserDaoImpl userDao = new UserDaoImpl();
 
     /**
      * Search user by login password optional.
@@ -27,7 +27,7 @@ public class LoginService {
         String utf8Password = new String(password.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
 
         Optional<User> result = Optional.empty();
-        Optional<User> user = userDaoImpl.searchUserByLogin(utf8Login);
+        Optional<User> user = userDao.searchUserByLogin(utf8Login);
         
         if(user.isPresent()){
             User currentUser = user.get();
