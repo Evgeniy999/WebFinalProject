@@ -136,17 +136,7 @@ public class PoolConnection {
                 LOGGER.error("Connection close exception", e);
             }
         }
-//        try {
-//            Enumeration<java.sql.Driver> drivers = DriverManager.getDrivers();
-//            while (drivers.hasMoreElements()) {
-//                java.sql.Driver driver = drivers.nextElement();
-//                DriverManager.deregisterDriver(driver);
-//
-//            }
-//        }
-//        catch (SQLException e) {
-//            LOGGER.error("Drivers were not deregistrated", e);
-//        }
+
         DriverManager.drivers().forEach(x -> {
             try {
                 DriverManager.deregisterDriver(x);
