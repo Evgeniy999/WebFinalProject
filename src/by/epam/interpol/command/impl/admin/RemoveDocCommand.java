@@ -22,14 +22,15 @@ public class RemoveDocCommand implements ActionCommand {
     public Router execute(HttpServletRequest request) {
         Router router = new Router();
         DocServiceImpl service = new DocServiceImpl();
+        ArrayList<Document> userAll = service.showAll();
         String id = request.getParameter(ID);
         try {
             service.remove(Integer.parseInt(id));
+            request.getSession().setAttribute("docs",userAll);
         } catch (ServiceException e) {
             e.printStackTrace();
         }
-        ArrayList<Document> userAll = service.showAll();
-        request.getSession().setAttribute("docs",userAll);
+
         router.setPagePath(PagePath.DOCS_TABLE.getJspPath());
         return router;
     }

@@ -183,10 +183,10 @@
                                                 <p>${height}:
                                                     <c:choose>
                                                         <c:when test="${people.getHeight() == '0'}">
-                                                            ${people.getHeight()}
+                                                            -
                                                         </c:when>
                                                         <c:otherwise>
-                                                            -
+                                                            ${people.getHeight()}
                                                         </c:otherwise>
                                                     </c:choose></p>
                                                 <p>${hair}:
@@ -216,7 +216,7 @@
                                                             -
                                                         </c:otherwise>
                                                     </c:choose></p>
-                                                <p>${sex}:${people.getSex()}</p>
+                                                <p>${sex}: ${people.getSex()}</p>
                                             </div>
                                         </div>
                                     </c:if>
@@ -255,10 +255,10 @@
                                                 <p>${height}:
                                                     <c:choose>
                                                         <c:when test="${people.getHeight() == '0'}">
-                                                            ${people.getHeight()}
+                                                            -
                                                         </c:when>
                                                         <c:otherwise>
-                                                            -
+                                                            ${people.getHeight()}
                                                         </c:otherwise>
                                                     </c:choose></p>
                                                 <p>${hair}:
@@ -288,7 +288,7 @@
                                                             -
                                                         </c:otherwise>
                                                     </c:choose></p>
-                                                <p>${sex}:${people.getSex()}</p>
+                                                <p>${sex}: ${people.getSex()}</p>
                                             </div>
                                         </div>
                                     </c:if>

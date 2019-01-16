@@ -49,8 +49,10 @@ public class ApproveApplicationCommand implements ActionCommand {
         PersonServiceImpl personService = new PersonServiceImpl();
         DocServiceImpl docService = new DocServiceImpl();
         ArrayList<Person> people = personService.showAll();
+
         Router router = new Router();
         Date birth = null;
+
         String currentId = request.getParameter(DOC_ID);
         String currentName = request.getParameter(NAME);
         String currentLast = request.getParameter(LAST_NAME);
@@ -73,25 +75,29 @@ public class ApproveApplicationCommand implements ActionCommand {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        if(currentHeight.isEmpty() && currentWeight.isEmpty()){
-            weight  = Integer.parseInt(currentWeight);
+        if (currentHeight.isEmpty()) {
+
+            height = 0;
+        } else {
             height = Integer.parseInt(currentHeight);
         }
-        else {
-            weight=0;
-            height=0;
-
+        if (currentWeight.isEmpty()) {
+            weight = 0;
+        } else {
+            weight = Integer.parseInt(currentWeight);
         }
-         status = Integer.parseInt(currentStatus);
+        status = Integer.parseInt(currentStatus);
         try {
             personService.addPerson(currentName, currentLast, birth, weight, height, currentHair, currentNationality,
                     currentSex, currentCharacteristics, status, document.get().getPhoto());
+            request.getSession().setAttribute("people", people);
             router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
-            request.getSession().setAttribute("people",people);
+
         } catch (Exception | ServiceException e) {
             LOGGER.warn("Person exception", e);
             router.setPagePath(PagePath.APPLICATION_PAGE.getJspPath());
         }
+
         return router;
     }
 }
