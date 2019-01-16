@@ -169,7 +169,7 @@
     <infotag:getinfo/>
 </div>
 
-<a href="/jsp/main/admin/manage/doc_table.jsp">${back}</a>
+<a href="/jsp/main/main.jsp">${back}</a>
 
 </body>
 </html>
