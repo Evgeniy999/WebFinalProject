@@ -1,9 +1,9 @@
 # WebFinalProject
 
-Interpol - проект, с простым в освоении интерфейсом, который включается в себя такие функции как:
- * поиск пропавших людей;
- * поиск разыскиваемых преступников;
- * новости;
- * и т.д.
+Interpol - Interpol is a project with an easy-to-learn interface that includes such functions as:
+ * search for missing people;
+ * search for wanted criminals;
+ * news;
+ * etc.
  
  
