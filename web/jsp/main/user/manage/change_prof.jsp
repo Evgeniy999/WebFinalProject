@@ -31,8 +31,8 @@
 <fmt:message bundle="${local}" key="registration.datebirth" var="birth"/>
 <fmt:message bundle="${local}" key="registration.phonenumber" var="phone"/>
 <fmt:message bundle="${local}" key="registration.submit" var="touch"/>
-<form action="/interpol" method="get">
 
+<form action="/interpol" method="post">
     <input type="hidden" value="CHANGE_PROF" name="command">
     <input type="hidden" value="${nameUser.getUserId()}" name="userId">
     <div class="row">

@@ -32,7 +32,7 @@
 <fmt:message bundle="${local}" key="registration.phonenumber" var="phone"/>
 <fmt:message bundle="${local}" key="registration.submit" var="touch"/>
 <fmt:message bundle="${local}" key="back" var="back"/>
-<form action="/interpol" method="get">
+<form action="/interpol" method="post">
 
     <input type="hidden" value="CHANGE_PROF" name="command">
     <input type="hidden" value="${nameUser.getUserId()}" name="userId">
