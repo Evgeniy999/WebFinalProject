@@ -23,8 +23,7 @@ public class LoginCommand implements ActionCommand {
 
     private static Logger LOGGER = LogManager.getLogger(LoginCommand.class);
     private static final String FALSE = "false";
-    private static final String ERROR = "error";
-    private static final String ERROR_AUTHORIZATION = "error_authorization";
+    private static final String ERROR = "error_login";
     private static final String TRUE = "true";
     private static final String NAME_USER = "nameUser";
     private static final String LOGIN = "login";
@@ -44,37 +43,27 @@ public class LoginCommand implements ActionCommand {
 
         Optional<User> user = service.searchUserByLoginPassword(login, password);
 
-        if (LoginDataValidator.loginCheck(login) && LoginDataValidator.passwordCheck(password)) {
-
-            if (user.isPresent()) {
-                session.setAttribute(NAME_USER, user.get());
-                session.setAttribute(SESSION_IS_LOGIN, TRUE);
-                router.setRouteType(Router.RouteType.FORWARD);
-                router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
-                request.setAttribute(ERROR, TRUE);
-                roleType = user.get().isType();
-                if (roleType) {
-                    session.setAttribute(SESSION_ROLE, ADMIN);
-                    router.setRouteType(Router.RouteType.REDIRECT);
-                } else {
-                    session.setAttribute(SESSION_ROLE, USER);
-                    router.setRouteType(Router.RouteType.REDIRECT);
-
-                }
+        if (user.isPresent()) {
+            session.setAttribute(NAME_USER, user.get());
+            session.setAttribute(SESSION_IS_LOGIN, TRUE);
+            router.setRouteType(Router.RouteType.FORWARD);
+            router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
+            request.setAttribute(ERROR, TRUE);
+            roleType = user.get().isType();
+            if (roleType) {
+                session.setAttribute(SESSION_ROLE, ADMIN);
+                router.setRouteType(Router.RouteType.REDIRECT);
             } else {
-                LOGGER.warn("Login and password not correct!");
-                router.setPagePath(PagePath.LOGIN_PAGE.getJspPath());
-                request.setAttribute(ERROR, FALSE);
-            }
-            request.setAttribute(ERROR_AUTHORIZATION, TRUE);
+                session.setAttribute(SESSION_ROLE, USER);
+                router.setRouteType(Router.RouteType.REDIRECT);
 
+            }
         } else {
-            LOGGER.warn("User is not authorized");
+            LOGGER.warn("Login and password not correct!");
+            request.setAttribute(ERROR, FALSE);
             router.setPagePath(PagePath.LOGIN_PAGE.getJspPath());
-            request.setAttribute(ERROR_AUTHORIZATION, FALSE);
 
         }
-
 
         return router;
     }

@@ -23,11 +23,10 @@
     <fmt:message bundle="${local}" key="login.forgot" var="forgot"/>
     <fmt:message bundle="${local}" key="login.username" var="username"/>
     <fmt:message bundle="${local}" key="login.pass" var="password"/>
-
+    <fmt:message bundle="${local}" key="login.error.login" var="error"/>
 </head>
 <body>
-<c:set var="flag" value="${error}"></c:set>
-<c:set var="flag_auth" value="${error_authorization}"></c:set>
+<c:set var="flag_error" value="${error_login}"></c:set>
 <form action="/interpol" method="post">
     <input type="hidden" value="LOGIN" name="command">
     <div class="container">
@@ -58,43 +57,36 @@
                                                placeholder="${password}">
                                     </div>
                                     <div style="color: #a94442">
-                                        <c:if test="${flag =='false'}">
-                                            <p>Login and password not correct!</p>
+                                        <c:if test="${flag_error =='false'}">
+                                            <p>${error}!</p>
                                         </c:if>
-                                        <c:if test="${flag =='true'}">
-                                            <p></p>
-                                        </c:if>
-                                        <div style="color: #a94442">
-                                            <c:if test="${flag_auth =='false'}">
-                                                <p>User is not authorized</p>
-                                            </c:if>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-sm-6 col-sm-offset-3">
-                                                <input type="submit" name="login-submit" id="login-submit" tabindex="4"
-                                                       class="form-control btn btn-login" value="${touch}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-center">
-                                                    <a href="#" tabindex="5"
-                                                       class="forgot-password">${forgot}</a>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </form>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4"
+                                               class="form-control btn btn-login" value="${touch}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="text-center">
+                                            <a href="#" tabindex="5"
+                                               class="forgot-password">${forgot}?</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </form>
 </body>

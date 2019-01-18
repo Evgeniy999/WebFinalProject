@@ -125,8 +125,6 @@ public class PoolConnection {
                 LOGGER.error("Can't deregister driver", e);
             }
         });
-        poolConnection = null;
     }
-
 
 }
