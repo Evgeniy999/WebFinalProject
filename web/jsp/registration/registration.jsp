@@ -31,7 +31,7 @@
     <fmt:message bundle="${local}" key="registration.submit" var="touch"/>
 </head>
 <body>
-<form action="/interpol" method="get">
+<form action="/interpol" method="post">
     <input type="hidden" value="REGISTRATION" name="command">
     <div class="row">
         <div style="margin-top: 100px" class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3">
