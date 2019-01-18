@@ -66,7 +66,7 @@ public class AddApplicationCommand implements ActionCommand {
             LOGGER.warn("Document input exception", e);
             router.setPagePath(PagePath.APPLICATION_PAGE.getJspPath());
         }
-
+        router.setRouteType(Router.RouteType.FORWARD);
         return router;
     }
 }

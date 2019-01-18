@@ -32,6 +32,7 @@ public class RemoveDocCommand implements ActionCommand {
         }
 
         router.setPagePath(PagePath.DOCS_TABLE.getJspPath());
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }

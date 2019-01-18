@@ -24,10 +24,10 @@
                 <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i>
                     ${search} <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                 <ul id="submenu-1" class="collapse">
-                    <li><a href="/interpol?command=MISSING_PAGE"><i class="fa fa-angle-double-right"></i> ${missing}
-                    </a></li>
-                    <li><a href="/interpol?command=WANTED_PAGE"><i class="fa fa-angle-double-right"></i> ${wanted} </a>
-                    </li>
+                    <li><a href="/interpol?command=SEARCH_PAGE&status=missing"><i
+                            class="fa fa-angle-double-right"></i> ${missing}</a></li>
+                    <li><a href="/interpol?command=SEARCH_PAGE&status=wanted"><i
+                            class="fa fa-angle-double-right"></i> ${wanted} </a></li>
                 </ul>
             </li>
             <li>
@@ -35,10 +35,13 @@
                     ${member} <i class="fa fa-fw fa-angle-down pull-right"></i></a>
                 <ul id="submenu-2" class="collapse">
                     <li><a href="/jsp/main/common/world.jsp"><i class="fa fa-angle-double-right"></i> ${world} </a></li>
-                    <li><a href="/jsp/main/common/africa.jsp"><i class="fa fa-angle-double-right"></i> ${africa} </a></li>
-                    <li><a href="/jsp/main/common/americas.jsp"><i class="fa fa-angle-double-right"></i> ${americas} </a></li>
+                    <li><a href="/jsp/main/common/africa.jsp"><i class="fa fa-angle-double-right"></i> ${africa} </a>
+                    </li>
+                    <li><a href="/jsp/main/common/americas.jsp"><i class="fa fa-angle-double-right"></i> ${americas}
+                    </a></li>
                     <li><a href="/jsp/main/common/asia.jsp"><i class="fa fa-angle-double-right"></i> ${asia} </a></li>
-                    <li><a href="/jsp/main/common/europe.jsp"><i class="fa fa-angle-double-right"></i> ${europa} </a></li>
+                    <li><a href="/jsp/main/common/europe.jsp"><i class="fa fa-angle-double-right"></i> ${europa} </a>
+                    </li>
                 </ul>
             </li>
             <li>

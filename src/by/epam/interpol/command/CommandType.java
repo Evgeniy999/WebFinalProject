@@ -90,17 +90,13 @@ public enum CommandType {
      */
     ADD_APPLIC(new AddApplicationCommand()),
     /**
-     * The Wanted page.
+     * The Search page.
      */
-    WANTED_PAGE(new WantedPageCommand()),
+    SEARCH_PAGE(new SearchPageCommand()),
     /**
      * The Remove person.
      */
     REMOVE_PERSON(new RemovePersonCommand()),
-    /**
-     * The Missing page.
-     */
-    MISSING_PAGE(new MissingPageCommand()),
     /**
      * The Manage doc.
      */

@@ -31,6 +31,7 @@ public class RemoveUserCommand implements ActionCommand {
             e.printStackTrace();
         }
         router.setPagePath(PagePath.USERS_TABLE.getJspPath());
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }

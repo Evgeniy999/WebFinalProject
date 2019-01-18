@@ -48,10 +48,11 @@ public class ApproveApplicationCommand implements ActionCommand {
     public Router execute(HttpServletRequest request) {
         PersonServiceImpl personService = new PersonServiceImpl();
         DocServiceImpl docService = new DocServiceImpl();
-        ArrayList<Person> people = personService.showAll();
-
         Router router = new Router();
         Date birth = null;
+        int weight;
+        int height;
+        int status;
 
         String currentId = request.getParameter(DOC_ID);
         String currentName = request.getParameter(NAME);
@@ -65,9 +66,7 @@ public class ApproveApplicationCommand implements ActionCommand {
         String currentCharacteristics = request.getParameter(CHARACTERISTICS);
         String currentStatus = request.getParameter(STATUS);
         Optional<Document> document = docService.searchById(Integer.parseInt(currentId));
-        int weight;
-        int height;
-        int status;
+
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
         try {
             birth = new Date(formatter.parse(currentBirth).getTime());
@@ -90,14 +89,16 @@ public class ApproveApplicationCommand implements ActionCommand {
         try {
             personService.addPerson(currentName, currentLast, birth, weight, height, currentHair, currentNationality,
                     currentSex, currentCharacteristics, status, document.get().getPhoto());
+            ArrayList<Person> people = personService.showAll();
             request.getSession().setAttribute("people", people);
+
             router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
 
         } catch (Exception | ServiceException e) {
             LOGGER.warn("Person exception", e);
             router.setPagePath(PagePath.APPLICATION_PAGE.getJspPath());
         }
-
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }

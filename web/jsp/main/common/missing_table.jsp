@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <script data-require="jquery@1.10.19" data-semver="1.10.19" type="text/javascript" charset="utf8"
-            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
     <script>
         <%@include file="/js/modal_script.js"%>
@@ -30,7 +30,7 @@
 <fmt:message bundle="${local}" key="back" var="back"/>
 <div style="padding: 100px 0px">
     <div class="well">
-        <table class="table table-striped table-bordered table-hover" id="table_id">
+        <table class="table table-striped table-bordered table-hover display" id="table_id">
             <thead>
             <tr>
                 <th>#</th>
@@ -48,11 +48,8 @@
             </thead>
             <tbody>
             <c:forEach var="person" items="${people}">
-                <tr>
-                    <c:choose>
-                    <c:when  test="${person.getStatus() == 'missing'}">
-
-
+                <c:if test="${person.getStatus() == 'missing'}">
+                    <tr>
                         <td>${person.getPersonId()}</td>
                         <td id="statya">
                             <c:choose>
@@ -73,7 +70,7 @@
                                         -
                                     </c:when>
                                     <c:otherwise>
-                                       ${person.getHeight()}
+                                        ${person.getHeight()}
                                     </c:otherwise>
                                 </c:choose></p>
                             <p>Weight:
@@ -113,18 +110,15 @@
                                 </form>
                             </td>
                         </c:if>
-                    </c:when>
-                        <c:otherwise>
-                        </c:otherwise>
-                    </c:choose>
-                </tr>
+                    </tr>
+                </c:if>
             </c:forEach>
             </tbody>
         </table>
     </div>
 </div>
 
-<a style="padding-top: 100px;padding-bottom: 100px"  href="/jsp/main/main.jsp">${back}</a>
+<a style="padding-top: 100px;padding-bottom: 100px" href="/jsp/main/main.jsp">${back}</a>
 
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>

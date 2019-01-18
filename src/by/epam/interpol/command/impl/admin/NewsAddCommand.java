@@ -41,7 +41,6 @@ public class NewsAddCommand implements ActionCommand {
         String currentCountry = request.getParameter(COUNTRY);
         String currentDate = request.getParameter(DATA_NEWS);
 
-
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
         try {
             date = new Date(formatter.parse(currentDate).getTime());
@@ -60,7 +59,7 @@ public class NewsAddCommand implements ActionCommand {
             LOGGER.warn("Document input exception", e);
             router.setPagePath(PagePath.NEWS_ADD_PAGE.getJspPath());
         }
-
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }

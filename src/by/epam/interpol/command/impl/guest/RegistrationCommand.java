@@ -46,16 +46,15 @@ public class RegistrationCommand implements ActionCommand {
         String currentLogin = request.getParameter(LOGIN);
         String currentPassword = request.getParameter(PASSWORD);
         String currentName = request.getParameter(NAME);
-        String currentLast= request.getParameter(LAST_NAME);
+        String currentLast = request.getParameter(LAST_NAME);
         String currentBirth = request.getParameter(BIRTHDAY);
-        String currentTelephone= request.getParameter(TELEPHONE);
-        String currentAddress= request.getParameter(ADDRESS);
+        String currentTelephone = request.getParameter(TELEPHONE);
+        String currentAddress = request.getParameter(ADDRESS);
         HttpSession session = request.getSession(true);
-
 
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
         try {
-            birthday  = new Date( formatter.parse(currentBirth).getTime());
+            birthday = new Date(formatter.parse(currentBirth).getTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -63,7 +62,7 @@ public class RegistrationCommand implements ActionCommand {
         long telephone = Long.parseLong(currentTelephone);
 
         try {
-            User user = service.addUser(currentLogin, currentPassword,currentName,currentLast,
+            User user = service.addUser(currentLogin, currentPassword, currentName, currentLast,
                     birthday, telephone, currentAddress);
             session.setAttribute(SESSION_ROLE, RoleType.USER);
             session.setAttribute(NAME_USER, user);
@@ -71,8 +70,7 @@ public class RegistrationCommand implements ActionCommand {
             router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
             request.setAttribute("user", user);
 
-        }
-        catch (Exception | ServiceException e) {
+        } catch (Exception | ServiceException e) {
             LOGGER.warn("User is not registered", e);
             router.setPagePath(PagePath.REGISTRATION_PAGE.getJspPath());
         }

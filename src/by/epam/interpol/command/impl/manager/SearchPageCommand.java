@@ -12,14 +12,23 @@ import java.util.ArrayList;
 /**
  * The type Wanted page command.
  */
-public class WantedPageCommand implements ActionCommand {
+public class SearchPageCommand implements ActionCommand {
+
+    public static final String STATUS = "status";
+    public static final String MISSING = "missing";
+
     @Override
     public Router execute(HttpServletRequest request) {
+        String status = request.getParameter(STATUS);
         PersonServiceImpl service = new PersonServiceImpl();
         Router router = new Router();
         ArrayList<Person> people = service.showAll();
         request.getSession().setAttribute("people",people);
-        router.setPagePath(PagePath.WANTED_TABLE.getJspPath());
+        if (status.equals(MISSING)){
+            router.setPagePath(PagePath.MISSING_TABLE.getJspPath());
+        }else{
+            router.setPagePath(PagePath.WANTED_TABLE.getJspPath());
+        }
         router.setRouteType(Router.RouteType.FORWARD);
         return router;
     }

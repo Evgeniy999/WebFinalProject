@@ -10,7 +10,6 @@
     </style>
 </head>
 <body>
-<a href="/jsp/main/main.jsp">Back</a>
 
 <c:set var="language" value="${sessionScope.lang}"/>
 <fmt:setLocale value="${language}"/>

@@ -31,13 +31,12 @@ public class RemovePersonCommand implements ActionCommand {
         try {
             person = service.searchById(Integer.parseInt(id));
             request.getSession().setAttribute("people",people);
+            service.remove(Integer.parseInt(id));
             if(person.get().getStatus().equals(MISSING)) {
                 router.setPagePath(PagePath.MISSING_TABLE.getJspPath());
-            }else
-            {
+            } else {
                 router.setPagePath(PagePath.WANTED_TABLE.getJspPath());
             }
-            service.remove(Integer.parseInt(id));
         } catch (ServiceException e) {
             e.printStackTrace();
         }
