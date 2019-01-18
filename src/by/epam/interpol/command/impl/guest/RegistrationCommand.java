@@ -74,7 +74,7 @@ public class RegistrationCommand implements ActionCommand {
             LOGGER.warn("User is not registered", e);
             router.setPagePath(PagePath.REGISTRATION_PAGE.getJspPath());
         }
-
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }

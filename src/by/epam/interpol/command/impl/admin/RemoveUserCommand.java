@@ -22,10 +22,11 @@ public class RemoveUserCommand implements ActionCommand {
     public Router execute(HttpServletRequest request) {
         Router router = new Router();
         UserServiceImpl service = new UserServiceImpl();
-        ArrayList<User> userAll = service.showAll();
+
         String id = request.getParameter(ID);
         try {
             service.remove(Integer.parseInt(id));
+            ArrayList<User> userAll = service.showAll();
             request.getSession().setAttribute("users",userAll);
         } catch (ServiceException e) {
             e.printStackTrace();

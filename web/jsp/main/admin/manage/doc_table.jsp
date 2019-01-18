@@ -22,12 +22,14 @@
     <style>
         <%@include file="/css/table_style.css"%>
     </style>
+
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
 </head>
 <body>
-<c:set var="language" value="${sessionScope.lang}"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-<fmt:message bundle="${local}" key="back" var="back"/>
+
 <div style="padding: 100px 0px">
     <div class="well">
         <table class="table table-striped table-bordered table-hover" id="table_id">

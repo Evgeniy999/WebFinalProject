@@ -15,35 +15,35 @@
     <script type="text/javascript">
         <%@include file="/js/registration.js"%>
     </script>
-</head>
 
-<c:set var="language" value="${sessionScope.lang}"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-<fmt:message bundle="${local}" key="main.name.table" var="name"/>
-<fmt:message bundle="${local}" key="main.lastname.table" var="last"/>
-<fmt:message bundle="${local}" key="main.birth.table" var="birth"/>
-<fmt:message bundle="${local}" key="main.weight.table" var="weight"/>
-<fmt:message bundle="${local}" key="main.height.table" var="height"/>
-<fmt:message bundle="${local}" key="main.telephone.table" var="phone"/>
-<fmt:message bundle="${local}" key="main.address.table" var="address"/>
-<fmt:message bundle="${local}" key="main.colorofhair.table" var="hair"/>
-<fmt:message bundle="${local}" key="main.nationality.table" var="nationality"/>
-<fmt:message bundle="${local}" key="main.characteristics.table" var="characteristics"/>
-<fmt:message bundle="${local}" key="main.sex.table" var="sex"/>
-<fmt:message bundle="${local}" key="gender" var="gender"/>
-<fmt:message bundle="${local}" key="male" var="male"/>
-<fmt:message bundle="${local}" key="female" var="female"/>
-<fmt:message bundle="${local}" key="other" var="other"/>
-<fmt:message bundle="${local}" key="back" var="back"/>
-<fmt:message bundle="${local}" key="login.username" var="username"/>
-<fmt:message bundle="${local}" key="application.information" var="information"/>
-<fmt:message bundle="${local}" key="main.statement" var="stat"/>
-<fmt:message bundle="${local}" key="application.reward" var="reward"/>
-<fmt:message bundle="${local}" key="application.lead.time" var="lead"/>
-<fmt:message bundle="${local}" key="main.form" var="forma"/>
-<fmt:message bundle="${local}" key="application.type" var="type"/>
-<fmt:message bundle="${local}" key="add.news.date" var="date"/>
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="main.name.table" var="name"/>
+    <fmt:message bundle="${local}" key="main.lastname.table" var="last"/>
+    <fmt:message bundle="${local}" key="main.birth.table" var="birth"/>
+    <fmt:message bundle="${local}" key="main.weight.table" var="weight"/>
+    <fmt:message bundle="${local}" key="main.height.table" var="height"/>
+    <fmt:message bundle="${local}" key="main.telephone.table" var="phone"/>
+    <fmt:message bundle="${local}" key="main.address.table" var="address"/>
+    <fmt:message bundle="${local}" key="main.colorofhair.table" var="hair"/>
+    <fmt:message bundle="${local}" key="main.nationality.table" var="nationality"/>
+    <fmt:message bundle="${local}" key="main.characteristics.table" var="characteristics"/>
+    <fmt:message bundle="${local}" key="main.sex.table" var="sex"/>
+    <fmt:message bundle="${local}" key="gender" var="gender"/>
+    <fmt:message bundle="${local}" key="male" var="male"/>
+    <fmt:message bundle="${local}" key="female" var="female"/>
+    <fmt:message bundle="${local}" key="other" var="other"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
+    <fmt:message bundle="${local}" key="login.username" var="username"/>
+    <fmt:message bundle="${local}" key="application.information" var="information"/>
+    <fmt:message bundle="${local}" key="main.statement" var="stat"/>
+    <fmt:message bundle="${local}" key="application.reward" var="reward"/>
+    <fmt:message bundle="${local}" key="application.lead.time" var="lead"/>
+    <fmt:message bundle="${local}" key="main.form" var="forma"/>
+    <fmt:message bundle="${local}" key="application.type" var="type"/>
+    <fmt:message bundle="${local}" key="add.news.date" var="date"/>
+</head>
 
 <body style="padding-right: 100px">
 <c:set var="document" value="${document}"/>
@@ -109,20 +109,20 @@
                                 <div class="form-group">
                                     <label for="weight">${weight} </label>
                                     <input id="weight" name="weight" class="form-control" type="text"
-                                           min="1" >
+                                           min="1">
                                     <span id="error_weight" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="height">${height} </label>
                                     <input id="height" name="height" class="form-control" type="text"
-                                           min="1" >
+                                           min="1">
                                     <span id="error_height" class="text-danger"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="hair">${hair} </label>
                                     <input id="hair" name="hair" class="form-control" type="text" min="1"
-                                    value=" ">
+                                           value=" ">
                                     <span id="error_hair" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">

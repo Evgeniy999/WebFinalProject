@@ -15,13 +15,12 @@
     <style>
         <%@include file="/css/main.css"%>
     </style>
-    <%--<c:set var="role" value="${role}"/>--%>
     <c:set var="nameUser" value="${nameUser}"/>
     <c:set var="lastPage" value="/jsp/main/main.jsp" scope="session"/>
 
     <c:set var="language" value="${sessionScope.lang}"/>
     <fmt:setLocale value="${language}"/>
-    <fmt:setBundle basename="properties.text" var="local"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
     <fmt:message bundle="${local}" key="main.interpol" var="interpol"/>
     <fmt:message bundle="${local}" key="main.login" var="login"/>
     <fmt:message bundle="${local}" key="main.edit.prof" var="prof"/>
@@ -30,14 +29,12 @@
     <fmt:message bundle="${local}" key="main.rus" var="rus"/>
     <fmt:message bundle="${local}" key="main.en" var="en"/>
 
-
 </head>
 <body>
 
 <div id="throbber" style="display:none; min-height:120px;"></div>
 <div id="noty-holder"></div>
 <div id="wrapper">
-
 
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="height: 61px;">
         <div class="navbar-header">

@@ -19,8 +19,7 @@
 
     <c:set var="language" value="${sessionScope.lang}"/>
     <fmt:setLocale value="${language}"/>
-    <fmt:setBundle basename="properties.text" var="local"/>
-    <fmt:setBundle basename="properties.text" var="local"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
     <fmt:message bundle="${local}" key="login.change.touch" var="touch"/>
     <fmt:message bundle="${local}" key="login.pass" var="password"/>
     <fmt:message bundle="${local}" key="main.change.pass" var="change_pass"/>

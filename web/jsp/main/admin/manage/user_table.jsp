@@ -20,12 +20,11 @@
         <%@include file="/js/table.js"%>
     </script>
 
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
 </head>
-
-<c:set var="language" value="${sessionScope.lang}"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-<fmt:message bundle="${local}" key="back" var="back"/>
 
 <body>
 <div style="padding: 100px 0px">

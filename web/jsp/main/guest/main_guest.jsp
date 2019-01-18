@@ -5,8 +5,7 @@
 
 <c:set var="language" value="${sessionScope.lang}"/>
 <fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-
+<fmt:setBundle basename="resources.properties.text" var="local"/>
 <fmt:message bundle="${local}" key="main.name.table" var="name"/>
 <fmt:message bundle="${local}" key="main.lastname.table" var="last"/>
 <fmt:message bundle="${local}" key="main.birth.table" var="birth"/>
@@ -38,7 +37,6 @@
 </style>
 <div id="page-wrapper">
     <div class="container-fluid">
-        <!-- Page Heading -->
         <div class="row" id="main">
             <div id="content">
                 <img src="/image/bg_header.jpg" width="1620" height="177">
@@ -145,7 +143,7 @@
                                                             -
                                                         </c:when>
                                                         <c:otherwise>
-                                                           ${people.getNationality()}
+                                                            ${people.getNationality()}
                                                         </c:otherwise>
                                                     </c:choose></p>
                                                 <p>${characteristics}:
@@ -241,13 +239,7 @@
             </div>
         </div>
 
-
-        <!-- /#wrapper -->
-
-        <!-- jQuery -->
         <script src="js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
 
     </div>

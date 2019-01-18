@@ -24,7 +24,7 @@ public class ApprovePageCommand implements ActionCommand {
         Optional<Document> document = docService.searchById(Integer.parseInt(id));
         request.setAttribute("document", document.get());
         router.setPagePath(PagePath.APPROVE_PAGE.getJspPath());
-        router.setRouteType(Router.RouteType.FORWARD);
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }

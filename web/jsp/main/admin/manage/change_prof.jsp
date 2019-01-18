@@ -19,19 +19,20 @@
     </style>
     <c:set var="nameUser" value="${nameUser}"/>
 
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="registration.firstname" var="first"/>
+    <fmt:message bundle="${local}" key="registration.lastname" var="last"/>
+    <fmt:message bundle="${local}" key="registration.address" var="address"/>
+    <fmt:message bundle="${local}" key="registration.datebirth" var="birth"/>
+    <fmt:message bundle="${local}" key="registration.phonenumber" var="phone"/>
+    <fmt:message bundle="${local}" key="registration.submit" var="touch"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
 </head>
 <body>
 
-<c:set var="language" value="${sessionScope.lang}"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-<fmt:message bundle="${local}" key="registration.firstname" var="first"/>
-<fmt:message bundle="${local}" key="registration.lastname" var="last"/>
-<fmt:message bundle="${local}" key="registration.address" var="address"/>
-<fmt:message bundle="${local}" key="registration.datebirth" var="birth"/>
-<fmt:message bundle="${local}" key="registration.phonenumber" var="phone"/>
-<fmt:message bundle="${local}" key="registration.submit" var="touch"/>
-<fmt:message bundle="${local}" key="back" var="back"/>
+
 <form action="/interpol" method="post">
 
     <input type="hidden" value="CHANGE_PROF" name="command">

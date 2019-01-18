@@ -5,12 +5,14 @@
 <html>
 <head>
     <title>Crime areas</title>
+
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
 </head>
 <body>
-<c:set var="language" value="${sessionScope.lang}"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-<fmt:message bundle="${local}" key="back" var="back"/>
+
 <div class="container">
     <div class="contextual">
         <h2 class="titre">Cybercrime</h2>

@@ -12,26 +12,26 @@
     <style>
         <%@include file="/css/application.css"%>
     </style>
+    <c:set var="nameUser" value="${nameUser}"/>
+
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="application.doc" var="doc"/>
+    <fmt:message bundle="${local}" key="application.information" var="information"/>
+    <fmt:message bundle="${local}" key="application.missing" var="missing"/>
+    <fmt:message bundle="${local}" key="application.wanted" var="wanted"/>
+    <fmt:message bundle="${local}" key="application.reward" var="reward"/>
+    <fmt:message bundle="${local}" key="add.news.image" var="image"/>
+    <fmt:message bundle="${local}" key="application.type" var="types"/>
+    <fmt:message bundle="${local}" key="application.save" var="save"/>
+    <fmt:message bundle="${local}" key="application.filling.date" var="fill"/>
+    <fmt:message bundle="${local}" key="application.cancel" var="cancel"/>
+    <fmt:message bundle="${local}" key="application.lead.time" var="lead"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
 </head>
 <body>
 
-<c:set var="language" value="${sessionScope.lang}"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-<fmt:message bundle="${local}" key="application.doc" var="doc"/>
-<fmt:message bundle="${local}" key="application.information" var="information"/>
-<fmt:message bundle="${local}" key="application.missing" var="missing"/>
-<fmt:message bundle="${local}" key="application.wanted" var="wanted"/>
-<fmt:message bundle="${local}" key="application.reward" var="reward"/>
-<fmt:message bundle="${local}" key="add.news.image" var="image"/>
-<fmt:message bundle="${local}" key="application.type" var="types"/>
-<fmt:message bundle="${local}" key="application.save" var="save"/>
-<fmt:message bundle="${local}" key="application.filling.date" var="fill"/>
-<fmt:message bundle="${local}" key="application.cancel" var="cancel"/>
-<fmt:message bundle="${local}" key="application.lead.time" var="lead"/>
-<fmt:message bundle="${local}" key="back" var="back"/>
-
-<c:set var="nameUser" value="${nameUser}"/>
 <form action="/interpol" method="post" enctype="multipart/form-data">
     <input type="hidden" value="ADD_APPLIC" name="command">
 
@@ -49,8 +49,8 @@
 
 
                 <div class="row form-group">
-                        <%--@declare id="statement"--%><label class="col-md-2 control-label"
-                                                              for="statement">${types}</label>
+                    <%--@declare id="statement"--%><label class="col-md-2 control-label"
+                                                          for="statement">${types}</label>
                     <div class="col-md-4">
                         <label class="radio-inline"><input type="radio" name="statement" value="2"
                                                            checked>${wanted}</label>

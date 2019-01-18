@@ -5,7 +5,7 @@
 
 <c:set var="language" value="${sessionScope.lang}"/>
 <fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:setBundle basename="resources.properties.text" var="local"/>
 
 <fmt:message bundle="${local}" key="main.name.table" var="name"/>
 <fmt:message bundle="${local}" key="main.lastname.table" var="last"/>
@@ -30,6 +30,7 @@
         border-collapse: collapse;
         width: 100%;
     }
+
     table, th, td {
         border: 1px solid black;
         border-collapse: collapse;
@@ -300,15 +301,8 @@
             </div>
         </div>
 
-
-        <!-- /#wrapper -->
-
-        <!-- jQuery -->
         <script src="js/jquery.js"></script>
-
-        <!-- Bootstrap Core JavaScript -->
         <script src="js/bootstrap.min.js"></script>
-
     </div>
 </div>
 

@@ -4,7 +4,7 @@
 
 <c:set var="language" value="${sessionScope.lang}"/>
 <fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
+<fmt:setBundle basename="resources.properties.text" var="local"/>
 <fmt:message bundle="${local}" key="main.search" var="search"/>
 <fmt:message bundle="${local}" key="main.missing" var="missing"/>
 <fmt:message bundle="${local}" key="main.wanted" var="wanted"/>

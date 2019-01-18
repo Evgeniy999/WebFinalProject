@@ -20,21 +20,21 @@
         <%@include file="/js/table.js"%>
     </script>
     <style>
-
         img {
             width: 250px;
             transition: width 0.5s ease;
         }
-
     </style>
+
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
+    <fmt:message bundle="${local}" key="add.news" var="add"/>
+
 </head>
 <body>
 
-<c:set var="language" value="${sessionScope.lang}"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-<fmt:message bundle="${local}" key="back" var="back"/>
-<fmt:message bundle="${local}" key="add.news" var="add"/>
 
 <form action="/interpol" method="get">
     <input type="hidden" value="NEWS_ADD_PAGE" name="command">

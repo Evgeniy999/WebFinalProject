@@ -29,14 +29,6 @@ class DbInitializer {
      */
     final String DB_DRIVER;
     /**
-     * The Db min pool capacity.
-     */
-    final int DB_MIN_POOL_CAPACITY;
-    /**
-     * The Db max pool capacity.
-     */
-    final int DB_MAX_POOL_CAPACITY;
-    /**
      * The Db initial capacity.
      */
     final int DB_INITIAL_CAPACITY;
@@ -46,13 +38,11 @@ class DbInitializer {
      */
     DbInitializer(){
         try {
-            ResourceBundle resourceBundle = ResourceBundle.getBundle("properties.poolConnection");
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("resources.properties.poolConnection");
             DB_URL = resourceBundle.getString("url");
             DB_USER = resourceBundle.getString("user");
             DB_PASSWORD = resourceBundle.getString("password");
             DB_DRIVER = resourceBundle.getString("driver");
-            DB_MIN_POOL_CAPACITY = Integer.valueOf(resourceBundle.getString("min.capacity"));
-            DB_MAX_POOL_CAPACITY = Integer.valueOf(resourceBundle.getString("max.capacity"));
             DB_INITIAL_CAPACITY = Integer.valueOf(resourceBundle.getString("init.capacity"));
         }catch(NumberFormatException | MissingResourceException e){
             LOGGER.log(Level.FATAL,"Properties file error",e);

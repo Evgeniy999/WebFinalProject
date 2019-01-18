@@ -33,7 +33,6 @@ public class NewsAddCommand implements ActionCommand {
     @Override
     public Router execute(HttpServletRequest request) {
         NewsServiceImpl newsService = new NewsServiceImpl();
-        ArrayList<News> newsAll = newsService.showAll();
         Router router = new Router();
         Date date = null;
         String currentTopic = request.getParameter(NEWS_TOPIC);
@@ -53,6 +52,7 @@ public class NewsAddCommand implements ActionCommand {
             imagePart = request.getPart(NEWS_PHOTO);
             newsService.addNews(currentTopic, currentInformation, currentCountry, date, imagePart);
             router.setPagePath(PagePath.NEWS_PAGE.getJspPath());
+            ArrayList<News> newsAll = newsService.showAll();
             request.getSession().setAttribute("news", newsAll);
 
         } catch (Exception | ServiceException e) {

@@ -5,20 +5,19 @@
 <html>
 <head>
     <title>Europe</title>
+
     <style>
         <%@include file="/css/news.css"%>
     </style>
+
+    <c:set var="language" value="${sessionScope.lang}"/>
+    <fmt:setLocale value="${language}"/>
+    <fmt:setBundle basename="resources.properties.text" var="local"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
 </head>
 <body>
 
-<c:set var="language" value="${sessionScope.lang}"/>
-<fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="properties.text" var="local"/>
-<fmt:message bundle="${local}" key="back" var="back"/>
-
 <div class="container">
-    <%--<div class="contextual">--%>
-
     <p></p>
     <h4>Alcohol tops list of EUR 230 million fake food and drink seizures in global operation</h4>
     <div class="contect_news">
@@ -56,7 +55,7 @@
     <span class="date"> 16 February 2015</span>
 </div>
 <a href="/jsp/main/main.jsp">${back}</a>
-<!-- Post Info -->
+
 <div style='position:fixed;bottom:0;left:0;
             background:lightgray;width:100%;'>
     <infotag:getinfo/>

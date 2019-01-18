@@ -54,8 +54,8 @@ public class PoolConnection {
     private PoolConnection() throws SQLException {
         try {
             dbInitializer = new DbInitializer();
-            freeConnections = new ArrayBlockingQueue<>(dbInitializer.DB_MAX_POOL_CAPACITY);
-            releaseConnections =  new ArrayBlockingQueue<>(dbInitializer.DB_MAX_POOL_CAPACITY);
+            freeConnections = new ArrayBlockingQueue<>(dbInitializer.DB_INITIAL_CAPACITY);
+            releaseConnections = new ArrayBlockingQueue<>(dbInitializer.DB_INITIAL_CAPACITY);
             Class.forName(dbInitializer.DB_DRIVER);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -68,9 +68,8 @@ public class PoolConnection {
         for (int i = 0; i < dbInitializer.DB_INITIAL_CAPACITY; i++) {
             try {
                 Connection connection = DriverManager.getConnection(dbInitializer.DB_URL, dbInitializer.DB_USER, dbInitializer.DB_PASSWORD);
-                //freeConnections.put(new ProxyConnection(pool));
                 freeConnections.add(new ProxyConnection(connection));
-            } catch (SQLException e) {
+            } catch (SQLException | IllegalStateException e) {
                 LOGGER.error("Pool can not initialize", e);
             }
         }
@@ -86,16 +85,10 @@ public class PoolConnection {
 
         Connection connection = null;
         try {
+            connection = freeConnections.take();
+            releaseConnections.offer(connection);
 
-            if (freeConnections.size() < dbInitializer.DB_MIN_POOL_CAPACITY && (freeConnections.size() +
-                    releaseConnections.size()) < dbInitializer.DB_MAX_POOL_CAPACITY) {
-                connection = DriverManager.getConnection(dbInitializer.DB_URL, dbInitializer.DB_USER, dbInitializer.DB_PASSWORD);
-                releaseConnections.offer(connection);
-            } else {
-                connection = freeConnections.take();
-            }
-
-        } catch (InterruptedException | SQLException e) {
+        } catch (InterruptedException e) {
             LOGGER.error("Can not get pool", e);
         }
         return connection;
@@ -107,20 +100,8 @@ public class PoolConnection {
      * @param connection the connection
      */
     void releaseConnection(Connection connection) {
-
-        try {
-            if (freeConnections.size() > dbInitializer.DB_MIN_POOL_CAPACITY + dbInitializer.DB_INITIAL_CAPACITY) {
-                ((ProxyConnection) connection).realClose();
-                for (int i = 0; i < dbInitializer.DB_MIN_POOL_CAPACITY - 1; i++) {
-                    ((ProxyConnection) freeConnections.take()).realClose();
-                }
-            } else {
-                freeConnections.offer(connection);
-            }
-        } catch (InterruptedException e) {
-            LOGGER.error("pool take fell down", e);
-        }
-
+        releaseConnections.remove(connection);
+        freeConnections.offer(connection);
     }
 
     /**
