@@ -26,6 +26,8 @@ public class LogoutCommand implements ActionCommand {
         session.removeAttribute(NAME_USER);
         session.setAttribute(SESSION_IS_LOGIN,"false");
         session.setAttribute(SESSION_ROLE, RoleType.GUEST);
+        router.setRouteType(Router.RouteType.REDIRECT);
+
         return router;
     }
 }
