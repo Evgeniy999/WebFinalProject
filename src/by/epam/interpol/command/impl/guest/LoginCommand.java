@@ -59,7 +59,7 @@ public class LoginCommand implements ActionCommand {
 
             }
         } else {
-            LOGGER.warn("Login and password not correct!");
+            LOGGER.warn("Login or password not correct!");
             request.setAttribute(ERROR, FALSE);
             router.setPagePath(PagePath.LOGIN_PAGE.getJspPath());
 
