@@ -93,7 +93,6 @@ public class UserDaoImpl implements UserDao<User> {
                 prepareStatement.setLong(7, user.getTelephone());
                 prepareStatement.setString(8, user.getAddress());
 
-
                 prepareStatement.executeUpdate();
                 connection.commit();
                 LOGGER.info("User correctly added");

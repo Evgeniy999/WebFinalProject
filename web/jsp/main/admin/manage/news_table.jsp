@@ -84,7 +84,7 @@
                 <td>
                     <form action="/interpol" method="get">
                         <input type="hidden" value="REMOVE_NEWS" name="command">
-                        <a href="interpol?command=REMOVE_NEWS&id=${doc.getNewsId()}"><i
+                        <a href="interpol?command=REMOVE_NEWS&id=${news.getNewsId()}"><i
                                 class="icon-fixed-width icon-trash"></i></a>
                     </form>
                 </td>

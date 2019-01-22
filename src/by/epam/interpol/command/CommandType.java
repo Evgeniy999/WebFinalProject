@@ -81,6 +81,11 @@ public enum CommandType {
      * The Add news.
      */
     ADD_NEWS(new NewsAddCommand()),
+
+    /**
+     * The Remove news.
+     */
+    REMOVE_NEWS(new RemoveNewsCommand()),
     /**
      * The Page applic.
      */
