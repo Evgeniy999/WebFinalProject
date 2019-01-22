@@ -18,7 +18,7 @@ public class LoginDateValidatorTest {
      */
     @Test(dataProvider = "testValidateTrueDataLogin")
     public void testValidateLoginTrue(String login) {
-       Assert.assertTrue(LoginDataValidator.loginCheck(login));
+        Assert.assertTrue(LoginDataValidator.loginCheck(login));
 
     }
 
@@ -28,13 +28,13 @@ public class LoginDateValidatorTest {
      * @return the object [ ] [ ]
      */
     @DataProvider(name = "testValidateTrueDataLogin")
-    public Object[][] testValidateTrueDataLogin(){
+    public Object[][] testValidateTrueDataLogin() {
         return new Object[][]{
                 {"ALEX229"},
                 {"Evgeniy99"},
                 {"Lol123"},
-                { "Asd234"},
-                { "Bobi223"},
+                {"Asd234"},
+                {"Bobi223"},
         };
     }
 
@@ -55,7 +55,7 @@ public class LoginDateValidatorTest {
      * @return the object [ ] [ ]
      */
     @DataProvider(name = "testValidateTrueDataPassword")
-    public Object[][] testValidateTrueDataPassword(){
+    public Object[][] testValidateTrueDataPassword() {
         return new Object[][]{
                 {"12331222"},
                 {"123123412412"},
@@ -79,13 +79,13 @@ public class LoginDateValidatorTest {
      * @return the object [ ] [ ]
      */
     @DataProvider(name = "testValidateFalseDataLogin")
-    public Object[][] testValidateFalseDataLogin(){
+    public Object[][] testValidateFalseDataLogin() {
         return new Object[][]{
                 {"ALEX2292222222222222222222221"},
                 {"Ev"},
                 {"Lol123123!!!!!!"},
-                { "Asd234ewr@#"},
-                { "Bobi223!@&^"},
+                {"Asd234ewr@#"},
+                {"Bobi223!@&^"},
         };
     }
 
@@ -106,7 +106,7 @@ public class LoginDateValidatorTest {
      * @return the object [ ] [ ]
      */
     @DataProvider(name = "testValidateFalseDataPassword")
-    public Object[][] testValidateFalseDataPassword(){
+    public Object[][] testValidateFalseDataPassword() {
         return new Object[][]{
                 {"123312rrrrrrrrrrrrrrrrrrrrrrrrrrrrr"},
                 {"1231231231232131231232131231231232131"},

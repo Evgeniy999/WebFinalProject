@@ -19,7 +19,7 @@ public class PasswordCodingTest {
     @Test(dataProvider = "testEncodeMD5Data")
     public void testEncodeMD5(String actual, String beforeEncode) {
         String expected = PasswordCode.encode(beforeEncode);
-       Assert.assertEquals(actual, expected);
+        Assert.assertEquals(actual, expected);
     }
 
     /**
@@ -28,7 +28,7 @@ public class PasswordCodingTest {
      * @return the object [ ] [ ]
      */
     @DataProvider(name = "testEncodeMD5Data")
-    public Object[][] testEncodeMD5Data(){
+    public Object[][] testEncodeMD5Data() {
         return new Object[][]{
                 {"A14DD509224F6359CAEED0E0017B3AFA", "123krgfr"},
                 {"0905D21EAB94F3D6D1814007B89B7FE8", "superPassword34"},

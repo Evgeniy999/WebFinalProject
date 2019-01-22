@@ -2,7 +2,6 @@ package by.epam.interpol.dao.impl;
 
 import by.epam.interpol.dao.DocumentDao;
 import by.epam.interpol.pool.PoolConnection;
-import by.epam.interpol.dao.CommonDao;
 import by.epam.interpol.entity.Document;
 import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.util.DocBuilder;
@@ -19,7 +18,7 @@ import java.util.Optional;
  */
 public class DocumentDaoImpl implements DocumentDao {
 
-    private static Logger LOGGER = LogManager.getLogger();
+    private static Logger LOGGER = LogManager.getLogger(DocumentDaoImpl.class);
     private static final String SEARCH_DOC_BY_ID = "SELECT * FROM documents JOIN type_statement on documents.type_statement=type_statement.statement_id  WHERE document_id = ?";
     private static final String WHERE_DOC_INFORMATION = "SELECT * FROM documents WHERE  doc_information = ?";
     private static final String INSERT_DOC_COMMON = "INSERT INTO documents values(null,?,?,?,?,?,?,?,?)";

@@ -1,7 +1,6 @@
 package by.epam.interpol.util;
 
 import by.epam.interpol.entity.News;
-import by.epam.interpol.entity.User;
 
 import java.sql.Blob;
 import java.sql.Date;
@@ -38,10 +37,10 @@ public class NewsBuilder {
         Date date = resultSet.getDate(NEWS_DATE);
         Blob photo = resultSet.getBlob(NEWS_PHOTO);
         String base64EncodedPhoto = null;
-        if(photo != null){
+        if (photo != null) {
             base64EncodedPhoto = Base64.getEncoder().encodeToString(photo.getBytes(1, (int) photo.length()));
         }
-        return new News(newsId,topic,information,country,date,photo, base64EncodedPhoto);
+        return new News(newsId, topic, information, country, date, photo, base64EncodedPhoto);
 
     }
 
@@ -64,11 +63,11 @@ public class NewsBuilder {
             Date date = resultSet.getDate(NEWS_DATE);
             Blob photo = resultSet.getBlob(NEWS_PHOTO);
             String base64EncodedPhoto = null;
-            if(photo != null){
+            if (photo != null) {
                 base64EncodedPhoto = Base64.getEncoder().encodeToString(photo.getBytes(1, (int) photo.length()));
             }
 
-            result.add(new News(newsId,topic,information,country,date,photo, base64EncodedPhoto));
+            result.add(new News(newsId, topic, information, country, date, photo, base64EncodedPhoto));
         }
 
         return result;

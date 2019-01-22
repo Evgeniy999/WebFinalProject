@@ -4,7 +4,6 @@ import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 import by.epam.interpol.entity.News;
-import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.exception.ServiceException;
 import by.epam.interpol.service.impl.NewsServiceImpl;
 import org.apache.logging.log4j.LogManager;

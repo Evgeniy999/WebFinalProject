@@ -12,7 +12,7 @@ import java.util.concurrent.Executor;
 /**
  * The type Proxy connection.
  */
-public class ProxyConnection implements Connection, AutoCloseable{
+public class ProxyConnection implements Connection, AutoCloseable {
 
     private static Logger LOGGER = LogManager.getLogger(ProxyConnection.class);
     private Connection connection;
@@ -67,19 +67,18 @@ public class ProxyConnection implements Connection, AutoCloseable{
     }
 
     @Override
-    public void close(){
+    public void close() {
         PoolConnection.getInstance().releaseConnection(this);
     }
 
     /**
      * Real close.
      */
-    void realClose(){
+    void realClose() {
         try {
             connection.setAutoCommit(true);
             connection.close();
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             LOGGER.error("pool is not closed", e);
             throw new RuntimeException("pool is not closed", e);
         }

@@ -5,7 +5,9 @@ package by.epam.interpol.exception;
  */
 public class DaoException extends Throwable {
 
-    /** Value of the exception message. */
+    /**
+     * Value of the exception message.
+     */
     private String message;
 
     /**
@@ -48,7 +50,7 @@ public class DaoException extends Throwable {
      * @param throwable  new value of the object Throwable
      */
     public DaoException(final String newMessage,
-                                final Throwable throwable) {
+                        final Throwable throwable) {
 
         super(newMessage, throwable);
 
@@ -58,7 +60,7 @@ public class DaoException extends Throwable {
      * This method return value of the exception message.
      *
      * @return value of the exception message
-     * */
+     */
     public String getMessage() {
 
         return this.message;

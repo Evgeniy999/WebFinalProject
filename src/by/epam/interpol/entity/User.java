@@ -1,6 +1,5 @@
 package by.epam.interpol.entity;
 
-
 import java.sql.Date;
 
 /**

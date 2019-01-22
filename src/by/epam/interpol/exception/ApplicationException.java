@@ -5,7 +5,9 @@ package by.epam.interpol.exception;
  */
 public class ApplicationException extends Throwable {
 
-    /** Value of the exception message. */
+    /**
+     * Value of the exception message.
+     */
     private String message;
 
     /**
@@ -58,7 +60,7 @@ public class ApplicationException extends Throwable {
      * This method return value of the exception message.
      *
      * @return value of the exception message
-     * */
+     */
     public String getMessage() {
 
         return this.message;

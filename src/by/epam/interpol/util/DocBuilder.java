@@ -2,7 +2,6 @@ package by.epam.interpol.util;
 
 import by.epam.interpol.entity.Document;
 
-
 import java.sql.Blob;
 import java.sql.Date;
 import java.sql.ResultSet;

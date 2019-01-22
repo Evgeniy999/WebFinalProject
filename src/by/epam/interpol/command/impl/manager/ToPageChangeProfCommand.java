@@ -17,7 +17,7 @@ public class ToPageChangeProfCommand implements ActionCommand {
     public Router execute(HttpServletRequest request) {
         Router router = new Router();
         RoleType role = (RoleType) request.getSession().getAttribute(ROLE);
-        if(role != RoleType.ADMIN){
+        if (role != RoleType.ADMIN) {
             router.setPagePath(PagePath.CHANGE_PROF_PAGE_USER.getJspPath());
         } else {
             router.setPagePath(PagePath.CHANGE_PROF_PAGE_ADMIN.getJspPath());

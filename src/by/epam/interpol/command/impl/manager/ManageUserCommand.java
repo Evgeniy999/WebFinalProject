@@ -19,7 +19,7 @@ public class ManageUserCommand implements ActionCommand {
         UserServiceImpl service = new UserServiceImpl();
         Router router = new Router();
         ArrayList<User> userAll = service.showAll();
-        request.getSession().setAttribute("users",userAll);
+        request.getSession().setAttribute("users", userAll);
         router.setPagePath(PagePath.USERS_TABLE.getJspPath());
         router.setRouteType(Router.RouteType.FORWARD);
         return router;

@@ -1,11 +1,9 @@
 package by.epam.interpol.dao.impl;
 
 import by.epam.interpol.dao.PersonDao;
-import by.epam.interpol.entity.Document;
 import by.epam.interpol.entity.Person;
 import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.pool.PoolConnection;
-import by.epam.interpol.util.DocBuilder;
 import by.epam.interpol.util.PersonBuilder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,7 +17,7 @@ import java.util.Optional;
  */
 public class PersonDaoImpl implements PersonDao {
 
-    private static Logger LOGGER = LogManager.getLogger();
+    private static Logger LOGGER = LogManager.getLogger(PersonDaoImpl.class);
     private static final String SEARCH_PERSON_BY_ID = "SELECT * FROM people JOIN type_statement on people.person_status=type_statement.statement_id  WHERE person_id = ?";
     private static final String INSERT_PERSON = "INSERT INTO people values(null,?,?,?,?,?,?,?,?,?,?,?) ";
     private static final String SELECT_PERSON_ALL = "SELECT * FROM people JOIN type_statement on people.person_status=type_statement.statement_id ";

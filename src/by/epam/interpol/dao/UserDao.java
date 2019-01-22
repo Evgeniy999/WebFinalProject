@@ -1,6 +1,5 @@
 package by.epam.interpol.dao;
 
-import by.epam.interpol.dao.CommonDao;
 import by.epam.interpol.exception.DaoException;
 
 import java.sql.Date;

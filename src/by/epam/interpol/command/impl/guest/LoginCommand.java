@@ -5,7 +5,6 @@ import by.epam.interpol.command.Router;
 import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.entity.User;
 import by.epam.interpol.service.impl.LoginService;
-import by.epam.interpol.validation.LoginDataValidator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

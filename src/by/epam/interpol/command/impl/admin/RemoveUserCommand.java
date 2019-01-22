@@ -4,7 +4,6 @@ import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.command.PagePath;
 import by.epam.interpol.command.Router;
 import by.epam.interpol.entity.User;
-import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.exception.ServiceException;
 import by.epam.interpol.service.impl.UserServiceImpl;
 
@@ -27,7 +26,7 @@ public class RemoveUserCommand implements ActionCommand {
         try {
             service.remove(Integer.parseInt(id));
             ArrayList<User> userAll = service.showAll();
-            request.getSession().setAttribute("users",userAll);
+            request.getSession().setAttribute("users", userAll);
         } catch (ServiceException e) {
             e.printStackTrace();
         }

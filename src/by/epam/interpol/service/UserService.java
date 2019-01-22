@@ -1,14 +1,10 @@
 package by.epam.interpol.service;
 
 import by.epam.interpol.entity.User;
-import by.epam.interpol.exception.ApplicationException;
-import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.exception.ServiceException;
-import by.epam.interpol.service.CommonService;
-
 
 import java.sql.Date;
-import java.util.Optional;
+
 
 /**
  * The interface User service.
@@ -51,6 +47,6 @@ public interface UserService extends CommonService<User> {
      * @param address   the address
      * @throws ServiceException the service exception
      */
-    void changeProf(int id, String name,String last,Date birth,long telephone,String address) throws ServiceException;
+    void changeProf(int id, String name, String last, Date birth, long telephone, String address) throws ServiceException;
 
 }

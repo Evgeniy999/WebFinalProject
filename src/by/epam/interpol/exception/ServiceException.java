@@ -50,7 +50,7 @@ public class ServiceException extends Throwable {
      * @param throwable  new value of the object Throwable
      */
     public ServiceException(final String newMessage,
-                        final Throwable throwable) {
+                            final Throwable throwable) {
 
         super(newMessage, throwable);
 

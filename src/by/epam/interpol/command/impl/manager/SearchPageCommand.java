@@ -14,7 +14,13 @@ import java.util.ArrayList;
  */
 public class SearchPageCommand implements ActionCommand {
 
+    /**
+     * The constant STATUS.
+     */
     public static final String STATUS = "status";
+    /**
+     * The constant MISSING.
+     */
     public static final String MISSING = "missing";
 
     @Override
@@ -23,10 +29,10 @@ public class SearchPageCommand implements ActionCommand {
         PersonServiceImpl service = new PersonServiceImpl();
         Router router = new Router();
         ArrayList<Person> people = service.showAll();
-        request.getSession().setAttribute("people",people);
-        if (status.equals(MISSING)){
+        request.getSession().setAttribute("people", people);
+        if (status.equals(MISSING)) {
             router.setPagePath(PagePath.MISSING_TABLE.getJspPath());
-        }else{
+        } else {
             router.setPagePath(PagePath.WANTED_TABLE.getJspPath());
         }
         router.setRouteType(Router.RouteType.FORWARD);

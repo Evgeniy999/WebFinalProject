@@ -5,7 +5,6 @@ import by.epam.interpol.command.Router;
 import by.epam.interpol.command.ActionCommand;
 import by.epam.interpol.consant.RoleType;
 import by.epam.interpol.entity.User;
-import by.epam.interpol.exception.DaoException;
 import by.epam.interpol.exception.ServiceException;
 import by.epam.interpol.service.impl.UserServiceImpl;
 import org.apache.logging.log4j.LogManager;

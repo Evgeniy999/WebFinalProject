@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
  * The type Db initializer.
  */
 class DbInitializer {
-    private static Logger LOGGER = LogManager.getLogger();
+    private static Logger LOGGER = LogManager.getLogger(DbInitializer.class);
     /**
      * The Db url.
      */
@@ -36,7 +36,7 @@ class DbInitializer {
     /**
      * Instantiates a new Db initializer.
      */
-    DbInitializer(){
+    DbInitializer() {
         try {
             ResourceBundle resourceBundle = ResourceBundle.getBundle("resources.properties.poolConnection");
             DB_URL = resourceBundle.getString("url");
@@ -44,9 +44,9 @@ class DbInitializer {
             DB_PASSWORD = resourceBundle.getString("password");
             DB_DRIVER = resourceBundle.getString("driver");
             DB_INITIAL_CAPACITY = Integer.valueOf(resourceBundle.getString("init.capacity"));
-        }catch(NumberFormatException | MissingResourceException e){
-            LOGGER.log(Level.FATAL,"Properties file error",e);
-            throw new RuntimeException("Properties file error" , e);
+        } catch (NumberFormatException | MissingResourceException e) {
+            LOGGER.log(Level.FATAL, "Properties file error", e);
+            throw new RuntimeException("Properties file error", e);
         }
     }
 }

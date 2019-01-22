@@ -12,8 +12,7 @@ public class CommandFactory {
      * @param commandName the command name
      * @return the optional
      */
-    public static Optional<ActionCommand> chooseCommand(String commandName)
-    {
+    public static Optional<ActionCommand> chooseCommand(String commandName) {
         CommandType commandType = CommandType.valueOf(commandName);
         return (Optional.of(commandType.getCommand()));
     }

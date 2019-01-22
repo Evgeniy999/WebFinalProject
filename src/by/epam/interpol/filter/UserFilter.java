@@ -26,10 +26,10 @@ public class UserFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest req= (HttpServletRequest) servletRequest;
-        HttpServletResponse resp= (HttpServletResponse) servletResponse;
+        HttpServletRequest req = (HttpServletRequest) servletRequest;
+        HttpServletResponse resp = (HttpServletResponse) servletResponse;
         RoleType role = (RoleType) req.getSession().getAttribute(ROLE);
-        if(role != RoleType.USER){
+        if (role != RoleType.USER) {
             resp.sendError(HttpServletResponse.SC_FORBIDDEN);
         } else {
             filterChain.doFilter(servletRequest, servletResponse);

@@ -19,7 +19,7 @@ import java.util.Optional;
  */
 public class NewsDaoImpl implements NewsDao {
 
-    private static Logger LOGGER = LogManager.getLogger();
+    private static Logger LOGGER = LogManager.getLogger(NewsDaoImpl.class);
     private static final String SEARCH_NEWS_BY_ID = "SELECT * FROM news WHERE news_id = ?";
     private static final String SEARCH_NEWS_BY_INF = "SELECT * FROM news WHERE  information= ?  ";
     private static final String INSERT_NEW_COMMON = "INSERT INTO news values(null,?,?,?,?,?)";

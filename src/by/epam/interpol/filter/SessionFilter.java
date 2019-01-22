@@ -29,7 +29,6 @@ public class SessionFilter implements Filter {
     private static final String SESSION_LAST_PAGE = "lastPage";
 
 
-
     @Override
     public void init(FilterConfig filterConfig) {
     }
@@ -53,14 +52,13 @@ public class SessionFilter implements Filter {
                 ArrayList<News> newsAll = newsService.showAll();
                 session.setAttribute("news", newsAll);
                 ArrayList<Document> documents = docService.showAll();
-                session.setAttribute("docs",documents);
+                session.setAttribute("docs", documents);
                 ArrayList<User> users = userService.showAll();
-                session.setAttribute("users",users);
+                session.setAttribute("users", users);
                 ArrayList<Person> people = personService.showAll();
-                session.setAttribute("people",people);
+                session.setAttribute("people", people);
             }
-        }
-        else {
+        } else {
             HttpSession session = request.getSession(false);
             if (session == null) {
                 response.sendRedirect(INDEX_JSP);

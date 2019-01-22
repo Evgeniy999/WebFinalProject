@@ -5,8 +5,7 @@ import java.util.regex.Pattern;
 /**
  * The type Login data validator.
  */
-public class LoginDataValidator
-{
+public class LoginDataValidator {
     private static final String LOGIN_REGEX = "^([A-Za-z0-9-]){3,15}$";
 
     /**
@@ -15,9 +14,8 @@ public class LoginDataValidator
      * @param login the login
      * @return the boolean
      */
-    public static boolean loginCheck(String login)
-    {
-        return  Pattern.matches(LOGIN_REGEX, login);
+    public static boolean loginCheck(String login) {
+        return Pattern.matches(LOGIN_REGEX, login);
     }
 
     /**
@@ -26,9 +24,8 @@ public class LoginDataValidator
      * @param password the password
      * @return the boolean
      */
-    public static boolean passwordCheck(String password)
-    {
-        return  (!password.isEmpty() && password.length()<=20);
+    public static boolean passwordCheck(String password) {
+        return (!password.isEmpty() && password.length() <= 20);
     }
 
 }

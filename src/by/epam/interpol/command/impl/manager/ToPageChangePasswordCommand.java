@@ -6,7 +6,6 @@ import by.epam.interpol.command.Router;
 import by.epam.interpol.consant.RoleType;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * The type To page change password command.
@@ -19,7 +18,7 @@ public class ToPageChangePasswordCommand implements ActionCommand {
     public Router execute(HttpServletRequest request) {
         Router router = new Router();
         RoleType role = (RoleType) request.getSession().getAttribute(ROLE);
-        if(role != RoleType.ADMIN){
+        if (role != RoleType.ADMIN) {
             router.setPagePath(PagePath.PASSWORD_PAGE_USER.getJspPath());
         } else {
             router.setPagePath(PagePath.PASSWORD_PAGE_ADMIN.getJspPath());

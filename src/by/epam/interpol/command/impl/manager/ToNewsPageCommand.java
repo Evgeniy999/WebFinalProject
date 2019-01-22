@@ -18,7 +18,7 @@ public class ToNewsPageCommand implements ActionCommand {
         NewsServiceImpl docService = new NewsServiceImpl();
         Router router = new Router();
         ArrayList<News> news = docService.showAll();
-        request.getSession().setAttribute("news",news);
+        request.getSession().setAttribute("news", news);
         router.setPagePath(PagePath.NEWS_PAGE.getJspPath());
         router.setRouteType(Router.RouteType.FORWARD);
         return router;

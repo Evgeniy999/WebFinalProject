@@ -68,16 +68,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public void changePassword(int id, String password) throws ServiceException {
         try {
-            userDao.changePassword(id,PasswordCode.encode(password));
+            userDao.changePassword(id, PasswordCode.encode(password));
         } catch (DaoException e) {
             throw new ServiceException("Change password is failed", e);
         }
     }
 
     @Override
-    public void changeProf(int id, String name,String last,Date birth,long telephone,String address) throws ServiceException {
+    public void changeProf(int id, String name, String last, Date birth, long telephone, String address) throws ServiceException {
         try {
-            userDao.changeProf(id,name,last,birth,telephone,address);
+            userDao.changeProf(id, name, last, birth, telephone, address);
         } catch (DaoException e) {
             throw new ServiceException("Change profile is failed", e);
         }

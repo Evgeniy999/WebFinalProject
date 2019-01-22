@@ -22,7 +22,7 @@ public class LoginService {
      * @param password the password
      * @return the optional
      */
-    public Optional<User> searchUserByLoginPassword(String login, String password){
+    public Optional<User> searchUserByLoginPassword(String login, String password) {
         Optional<User> result = Optional.empty();
 
         if (LoginDataValidator.loginCheck(login) && LoginDataValidator.passwordCheck(password)) {
@@ -30,10 +30,10 @@ public class LoginService {
             String utf8Password = new String(password.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
             Optional<User> user = userDao.searchUserByLogin(utf8Login);
 
-            if(user.isPresent()){
+            if (user.isPresent()) {
                 User currentUser = user.get();
 
-                if(PasswordCode.comparePasswords(PasswordCode.encode(utf8Password), currentUser.getPassword())){
+                if (PasswordCode.comparePasswords(PasswordCode.encode(utf8Password), currentUser.getPassword())) {
                     result = Optional.of(currentUser);
                 }
             }

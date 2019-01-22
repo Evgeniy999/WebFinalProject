@@ -1,6 +1,5 @@
 package by.epam.interpol.util;
 
-
 import by.epam.interpol.entity.User;
 
 import java.sql.Date;
@@ -40,7 +39,7 @@ public class UserBuilder {
         Date birthday = resultSet.getDate(USER_BIRTHDAY);
         long telephone = resultSet.getLong(USER_TELEPHONE);
         String address = resultSet.getString(USER_ADDRESS);
-        return new User(userId, login, password, name, lastName,  birthday, telephone, address,type);
+        return new User(userId, login, password, name, lastName, birthday, telephone, address, type);
 
     }
 
@@ -66,7 +65,7 @@ public class UserBuilder {
             long telephone = resultSet.getLong(USER_TELEPHONE);
             String address = resultSet.getString(USER_ADDRESS);
 
-            result.add(new User(userId, login, password, name, lastName,  birthday, telephone, address,type));
+            result.add(new User(userId, login, password, name, lastName, birthday, telephone, address, type));
         }
 
         return result;

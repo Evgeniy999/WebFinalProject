@@ -3,7 +3,6 @@ package by.epam.interpol.dao;
 import by.epam.interpol.entity.Person;
 import by.epam.interpol.exception.DaoException;
 
-
 import java.sql.Blob;
 import java.sql.Date;
 

@@ -53,8 +53,8 @@ public class PersonBuilder {
         if (photo != null) {
             base64EncodedPhoto = Base64.getEncoder().encodeToString(photo.getBytes(1, (int) photo.length()));
         }
-        return new Person(persId, name, last, status,weight,height,
-        hairColor, nationality,characteristics, birth, sex, base64EncodedPhoto,photo);
+        return new Person(persId, name, last, status, weight, height,
+                hairColor, nationality, characteristics, birth, sex, base64EncodedPhoto, photo);
     }
 
     /**

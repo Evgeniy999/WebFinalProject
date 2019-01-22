@@ -7,7 +7,6 @@ import by.epam.interpol.consant.RoleType;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Optional;
 
 /**
  * The type Logout command.
@@ -24,7 +23,7 @@ public class LogoutCommand implements ActionCommand {
         router.setPagePath(PagePath.INDEX_PAGE.getJspPath());
         HttpSession session = request.getSession();
         session.removeAttribute(NAME_USER);
-        session.setAttribute(SESSION_IS_LOGIN,"false");
+        session.setAttribute(SESSION_IS_LOGIN, "false");
         session.setAttribute(SESSION_ROLE, RoleType.GUEST);
         router.setRouteType(Router.RouteType.REDIRECT);
 

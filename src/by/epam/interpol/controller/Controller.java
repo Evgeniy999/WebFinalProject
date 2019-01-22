@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Optional;
 
-
 /**
  * The type Controller.
  */
@@ -26,14 +25,12 @@ public class Controller extends HttpServlet {
     private static final String COMMAND = "command";
 
     @Override
-    public void init()
-    {
+    public void init() {
         PoolConnection.getInstance();
     }
 
     @Override
-    public void destroy()
-    {
+    public void destroy() {
         PoolConnection.getInstance().destroy();
 
     }
