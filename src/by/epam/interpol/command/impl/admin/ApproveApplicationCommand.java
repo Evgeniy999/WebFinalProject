@@ -91,7 +91,6 @@ public class ApproveApplicationCommand implements ActionCommand {
                     currentSex, currentCharacteristics, status, document.get().getPhoto());
             ArrayList<Person> people = personService.showAll();
             request.getSession().setAttribute("people", people);
-
             router.setPagePath(PagePath.MAIN_PAGE.getJspPath());
 
         } catch (Exception | ServiceException e) {

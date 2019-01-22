@@ -41,7 +41,7 @@ public class RemovePersonCommand implements ActionCommand {
         } catch (ServiceException e) {
             e.printStackTrace();
         }
-        router.setRouteType(Router.RouteType.REDIRECT);
+        router.setRouteType(Router.RouteType.FORWARD);
         return router;
     }
 }

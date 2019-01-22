@@ -51,9 +51,9 @@ public class NewsAddCommand implements ActionCommand {
         try {
             imagePart = request.getPart(NEWS_PHOTO);
             newsService.addNews(currentTopic, currentInformation, currentCountry, date, imagePart);
-            router.setPagePath(PagePath.NEWS_PAGE.getJspPath());
             ArrayList<News> newsAll = newsService.showAll();
             request.getSession().setAttribute("news", newsAll);
+            router.setPagePath(PagePath.NEWS_PAGE.getJspPath());
 
         } catch (Exception | ServiceException e) {
             LOGGER.warn("Document input exception", e);
