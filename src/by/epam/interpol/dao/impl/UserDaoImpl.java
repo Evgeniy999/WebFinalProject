@@ -73,9 +73,6 @@ public class UserDaoImpl implements UserDao<User> {
     public User add(User user) throws DaoException {
 
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
-            connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-            connection.setAutoCommit(false);
-
             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_USER_BY_LOGIN);
             preparedStatement.setString(1, user.getLogin());
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -83,18 +80,17 @@ public class UserDaoImpl implements UserDao<User> {
             if (resultSet.next()) {
                 throw new DaoException("User with input login already exist");
             } else {
-                PreparedStatement prepareStatement = connection.prepareStatement(INSERT_NEW_USER_COMMON);
-                prepareStatement.setString(1, user.getLogin());
-                prepareStatement.setString(2, user.getPassword());
-                prepareStatement.setString(3, user.getName());
-                prepareStatement.setString(4, user.getLastName());
-                prepareStatement.setBoolean(5, user.isType());
-                prepareStatement.setDate(6, user.getBirthday());
-                prepareStatement.setLong(7, user.getTelephone());
-                prepareStatement.setString(8, user.getAddress());
+                PreparedStatement statement = connection.prepareStatement(INSERT_NEW_USER_COMMON);
+                statement.setString(1, user.getLogin());
+                statement.setString(2, user.getPassword());
+                statement.setString(3, user.getName());
+                statement.setString(4, user.getLastName());
+                statement.setBoolean(5, user.isType());
+                statement.setDate(6, user.getBirthday());
+                statement.setLong(7, user.getTelephone());
+                statement.setString(8, user.getAddress());
 
-                prepareStatement.executeUpdate();
-                connection.commit();
+                statement.executeUpdate();
                 LOGGER.info("User correctly added");
 
                 return user;
@@ -104,6 +100,7 @@ public class UserDaoImpl implements UserDao<User> {
         }
 
     }
+
     @Override
     public void changePassword(int id, String password) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
@@ -115,6 +112,7 @@ public class UserDaoImpl implements UserDao<User> {
             throw new DaoException(e);
         }
     }
+
     @Override
     public void changeProf(int id, String name, String last, Date birth, long telephone, String address) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {

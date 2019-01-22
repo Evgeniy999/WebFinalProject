@@ -44,11 +44,8 @@ public class DocumentDaoImpl implements DocumentDao {
 
     @Override
     public void addDocument(String stat, Date time, double reward, String information, Date leadTime, String name,
-                        String lastName, InputStream image) throws DaoException {
+                            String lastName, InputStream image) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
-            connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-            connection.setAutoCommit(false);
-
             PreparedStatement preparedStatement = connection.prepareStatement(WHERE_DOC_INFORMATION);
             preparedStatement.setString(1, information);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -66,7 +63,7 @@ public class DocumentDaoImpl implements DocumentDao {
                 statement.setDate(7, leadTime);
                 statement.setBlob(8, image);
                 statement.executeUpdate();
-                connection.commit();
+
                 LOGGER.info("Document correctly added");
             }
         } catch (SQLException e) {

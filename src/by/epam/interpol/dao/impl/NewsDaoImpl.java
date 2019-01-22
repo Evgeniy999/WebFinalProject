@@ -47,8 +47,6 @@ public class NewsDaoImpl implements NewsDao {
     @Override
     public void addNews(String topic, String information, String country, Date date, InputStream image) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
-            connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-            connection.setAutoCommit(false);
 
             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_NEWS_BY_INF);
             preparedStatement.setString(1, information);
@@ -65,7 +63,6 @@ public class NewsDaoImpl implements NewsDao {
                 statement.setBlob(5, image);
 
                 statement.executeUpdate();
-                connection.commit();
                 LOGGER.info("News correctly added");
 
             }

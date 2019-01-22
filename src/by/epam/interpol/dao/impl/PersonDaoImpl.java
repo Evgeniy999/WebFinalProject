@@ -30,9 +30,6 @@ public class PersonDaoImpl implements PersonDao {
     public void addPerson(String name, String lastName, Date birth, int weight, int height, String hair, String nationality,
                           String sex, String characteristics, int status, Blob image) throws DaoException {
         try (Connection connection = PoolConnection.getInstance().getConnection()) {
-            connection.setTransactionIsolation(Connection.TRANSACTION_SERIALIZABLE);
-            connection.setAutoCommit(false);
-
             PreparedStatement preparedStatement = connection.prepareStatement(WHERE_PERSON_INF);
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, lastName);
@@ -54,7 +51,6 @@ public class PersonDaoImpl implements PersonDao {
                 statement.setString(10, sex);
                 statement.setBlob(11, image);
                 statement.executeUpdate();
-                connection.commit();
                 LOGGER.info("Person correctly added");
             }
         } catch (SQLException e) {
