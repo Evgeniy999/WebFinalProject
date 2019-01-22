@@ -31,7 +31,7 @@ public class RemoveNewsCommand implements ActionCommand {
             e.printStackTrace();
         }
         router.setPagePath(PagePath.NEWS_PAGE.getJspPath());
-        router.setRouteType(Router.RouteType.FORWARD);
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }

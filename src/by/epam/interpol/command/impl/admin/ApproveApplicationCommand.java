@@ -97,7 +97,7 @@ public class ApproveApplicationCommand implements ActionCommand {
             LOGGER.warn("Person exception", e);
             router.setPagePath(PagePath.APPLICATION_PAGE.getJspPath());
         }
-        router.setRouteType(Router.RouteType.FORWARD);
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }

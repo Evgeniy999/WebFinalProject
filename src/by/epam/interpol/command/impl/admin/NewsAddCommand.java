@@ -59,7 +59,7 @@ public class NewsAddCommand implements ActionCommand {
             LOGGER.warn("Document input exception", e);
             router.setPagePath(PagePath.NEWS_ADD_PAGE.getJspPath());
         }
-        router.setRouteType(Router.RouteType.FORWARD);
+        router.setRouteType(Router.RouteType.REDIRECT);
         return router;
     }
 }
