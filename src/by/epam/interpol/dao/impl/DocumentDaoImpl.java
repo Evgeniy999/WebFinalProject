@@ -21,7 +21,7 @@ public class DocumentDaoImpl implements DocumentDao {
     private static Logger LOGGER = LogManager.getLogger(DocumentDaoImpl.class);
     private static final String SEARCH_DOC_BY_ID = "SELECT * FROM documents JOIN type_statement on documents.type_statement=type_statement.statement_id  WHERE document_id = ?";
     private static final String WHERE_DOC_INFORMATION = "SELECT * FROM documents WHERE  doc_information = ?";
-    private static final String INSERT_DOC_COMMON = "INSERT INTO documents values(null,?,?,?,?,?,?,?,?)";
+    private static final String INSERT_DOC_COMMON = "INSERT INTO documents values(null,?,?,?,? + INTERVAL 1 DAY,?,?,? + INTERVAL 1 DAY,?)";
     private static final String SELECT_DOC_ALL = "SELECT * FROM documents JOIN type_statement on documents.type_statement=type_statement.statement_id ";
     private static final String REMOVE_DOC_DATA = "DELETE FROM documents  WHERE document_id = ?";
 

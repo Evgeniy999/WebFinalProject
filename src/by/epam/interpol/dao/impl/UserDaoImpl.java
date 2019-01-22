@@ -20,11 +20,11 @@ public class UserDaoImpl implements UserDao<User> {
     private static Logger LOGGER = LogManager.getLogger(UserDaoImpl.class);
     private static final String SEARCH_USER_BY_ID = "SELECT * FROM users WHERE user_id = ?";
     private static final String SEARCH_USER_BY_LOGIN = "SELECT * FROM users WHERE login = ?";
-    private static final String INSERT_NEW_USER_COMMON = "INSERT INTO users values(null,?,?,?,?,?,?,?,?)";
+    private static final String INSERT_NEW_USER_COMMON = "INSERT INTO users values(null,?,?,?,?,?,? + INTERVAL 1 DAY,?,?)";
     private static final String REMOVE_USER_DATA = "DELETE FROM users  WHERE user_id = ?";
     private static final String SELECT_USER_ALL = "SELECT * FROM users";
     private static final String CHANGE_PASSWORD = "UPDATE users SET users.password = ? WHERE users.user_id = ?";
-    private static final String CHANGE_PROF = "UPDATE users SET users.user_name = ?,users.user_lastName=?,users.user_birthday=?," +
+    private static final String CHANGE_PROF = "UPDATE users SET users.user_name = ?,users.user_lastName=?,users.user_birthday=?  + INTERVAL 1 DAY," +
             "users.telephone=?,users.address=? WHERE users.user_id = ?";
 
     @Override

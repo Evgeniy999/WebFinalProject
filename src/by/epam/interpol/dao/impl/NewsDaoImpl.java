@@ -22,7 +22,7 @@ public class NewsDaoImpl implements NewsDao {
     private static Logger LOGGER = LogManager.getLogger(NewsDaoImpl.class);
     private static final String SEARCH_NEWS_BY_ID = "SELECT * FROM news WHERE news_id = ?";
     private static final String SEARCH_NEWS_BY_INF = "SELECT * FROM news WHERE  information= ?  ";
-    private static final String INSERT_NEW_COMMON = "INSERT INTO news values(null,?,?,?,?,?)";
+    private static final String INSERT_NEW_COMMON = "INSERT INTO news values(null,?,?,?,? + INTERVAL 1 DAY,?)";
     private static final String SELECT_NEW_ALL = "SELECT * FROM news";
     private static final String REMOVE_DOC_DATA = "DELETE FROM news  WHERE news_id = ?";
 
