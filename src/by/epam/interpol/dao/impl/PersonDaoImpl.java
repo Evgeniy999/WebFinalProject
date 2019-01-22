@@ -73,8 +73,7 @@ public class PersonDaoImpl implements PersonDao {
                 person = PersonBuilder.createPerson(resultSet);
             }
             return Optional.of(person);
-        } catch (
-                SQLException e) {
+        } catch (SQLException e) {
             return Optional.empty();
         }
     }
