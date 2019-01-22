@@ -43,7 +43,7 @@ public class ChangeProfCommand implements ActionCommand {
         String birthday = request.getParameter(BIRTHDAY);
         String telephone = request.getParameter(TELEPHONE);
         String address = request.getParameter(ADDRESS);
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
             birth = new Date(formatter.parse(birthday).getTime());
         } catch (ParseException e) {

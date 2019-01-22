@@ -39,7 +39,7 @@ public class NewsAddCommand implements ActionCommand {
         String currentCountry = request.getParameter(COUNTRY);
         String currentDate = request.getParameter(DATA_NEWS);
 
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
             date = new Date(formatter.parse(currentDate).getTime());
 

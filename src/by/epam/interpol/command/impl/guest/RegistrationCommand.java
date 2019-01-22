@@ -51,7 +51,7 @@ public class RegistrationCommand implements ActionCommand {
         String currentAddress = request.getParameter(ADDRESS);
         HttpSession session = request.getSession(true);
 
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
             birthday = new Date(formatter.parse(currentBirth).getTime());
         } catch (ParseException e) {

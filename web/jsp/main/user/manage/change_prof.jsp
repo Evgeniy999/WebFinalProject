@@ -18,8 +18,8 @@
         <%@include file="/css/registration.css"%>
     </style>
     <c:set var="nameUser" value="${nameUser}"/>
-    <c:set var="language" value="${sessionScope.lang}"/>
 
+    <c:set var="language" value="${sessionScope.lang}"/>
     <fmt:setLocale value="${language}"/>
     <fmt:setBundle basename="resources.properties.text" var="local"/>
     <fmt:message bundle="${local}" key="registration.firstname" var="first"/>
@@ -28,10 +28,13 @@
     <fmt:message bundle="${local}" key="registration.datebirth" var="birth"/>
     <fmt:message bundle="${local}" key="registration.phonenumber" var="phone"/>
     <fmt:message bundle="${local}" key="registration.submit" var="touch"/>
+    <fmt:message bundle="${local}" key="back" var="back"/>
 </head>
 <body>
 
+
 <form action="/interpol" method="post">
+
     <input type="hidden" value="CHANGE_PROF" name="command">
     <input type="hidden" value="${nameUser.getUserId()}" name="userId">
     <div class="row">
@@ -78,5 +81,8 @@
         </div>
     </div>
 </form>
+<a style='position:fixed;bottom:20px;left:5px;
+           width:100%;'
+   href="/jsp/main/main.jsp">${back}</a>
 </body>
 </html>

@@ -45,7 +45,7 @@ public class AddApplicationCommand implements ActionCommand {
         String currentInformation = request.getParameter(INFORMATION);
 
 
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
             date = new Date(formatter.parse(currentDate).getTime());
             dateLead = new Date(formatter.parse(currentDateLead).getTime());

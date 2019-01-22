@@ -60,7 +60,7 @@ public class ApproveApplicationCommand implements ActionCommand {
         String currentStatus = request.getParameter(STATUS);
         Optional<Document> document = docService.searchById(Integer.parseInt(currentId));
 
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD");
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         try {
             birth = new Date(formatter.parse(currentBirth).getTime());
 
